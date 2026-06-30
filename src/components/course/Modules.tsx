@@ -49,9 +49,9 @@ export function Module0({ onNext }: { onNext: () => void }) {
       <Section title="Tres ideas que lo cambian todo" kicker="El marco del curso">
         <div className="grid md:grid-cols-3 gap-4">
           {[
-            { icon: Brain, color: "cobalt", title: "Es biología, no carácter", body: "El cerebro trata el feedback crítico como amenaza social. Activa el mismo sistema que las amenazas físicas." },
-            { icon: Zap, color: "amber-brand", title: "Los disparadores, no el contenido", body: "Rechazamos el feedback porque algo se activa en nosotros: verdad, relación o identidad." },
-            { icon: Target, color: "mint", title: "El receptor controla el resultado", body: "La persona que sabe recibir aprende incluso de conversaciones imperfectas. Esa habilidad depende de ti." },
+            { icon: Brain, color: "cobalt", title: "Es biología, no carácter", body: "El cerebro trata el feedback crítico como amenaza social. Activa el mismo sistema que con las amenazas físicas. Tu sistema nervioso está haciendo su trabajo. " },
+            { icon: Zap, color: "amber-brand", title: "Los disparadores, no el contenido", body: "Rechazamos el feedback porque algo se activa en nosotros: los disparadores. Identificarlos te permitirá dejar de reaccionar y empezar a elegir." },
+            { icon: Target, color: "mint", title: "El receptor controla el resultado", body: "La persona que sabe recibir feedback aprende incluso de conversaciones imperfectas. Esa habilidad depende únicamente de ti." },
           ].map((c, i) => {
             const cc = colorOf(c.color);
             const Icon = c.icon;
