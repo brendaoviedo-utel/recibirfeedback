@@ -169,7 +169,7 @@ function Landing({ onStart }: { onStart: () => void }) {
         </div>
       </main>
       <footer className="py-8 text-center text-xs text-muted-foreground">
-        UTEL · Serie Feedback · Curso 1 de 5 · Versión 1.0
+        Utel 2026&nbsp; · Formación & Desarrollo
       </footer>
     </div>
   );
