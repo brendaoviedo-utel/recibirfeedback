@@ -25,7 +25,7 @@ export function Module0({ onNext }: { onNext: () => void }) {
     <Sections>
       <Hero color="coral" eyebrow="Módulo 0 · Apertura" title="¿Por qué el feedback duele aunque quieras mejorar?" lead="Una pista: no es por tu actitud. Es por tu cerebro." />
 
-      <Section title="La escena que todos hemos vivido" kicker="Gancho">
+      <Section title="La escena que todos hemos vivido" kicker="SITUACIÓN">
         <DualSplit
           left={{ title: "Por fuera", lines: ["Asientes.", "Dices: 'gracias, lo tomo en cuenta.'", "Tu cara permanece neutra."] }}
           right={{ title: "Por dentro", lines: ["'Eso no es cierto.'", "'No entiende el contexto.'", "'¿Cómo no lo vi antes?'", "'¿Quién es él para decírmelo?'"] }}
