@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { CheckCircle2, Circle, Menu, X, Sparkles, ArrowRight } from "lucide-react";
+import { Sparkles, ArrowRight, Home } from "lucide-react";
 import { MODULES, FINAL_QUIZ } from "@/lib/course-data";
 import { Module0, Module1, Module2, Module3, Module4, Module5 } from "@/components/course/Modules";
 import { FinalQuiz } from "@/components/course/Interactives";
@@ -21,7 +21,6 @@ export const Route = createFileRoute("/")({
 function CoursePage() {
   const [active, setActive] = useState(0);
   const [completed, setCompleted] = useState<Set<number>>(new Set());
-  const [navOpen, setNavOpen] = useState(false);
   const [started, setStarted] = useState(false);
 
   useEffect(() => { window.scrollTo({ top: 0, behavior: "smooth" }); }, [active]);
@@ -29,7 +28,12 @@ function CoursePage() {
   const goToModule = (id: number) => {
     setCompleted((s) => new Set(s).add(active));
     setActive(id);
-    setNavOpen(false);
+  };
+
+  const goHome = () => {
+    setActive(0);
+    setCompleted(new Set());
+    setStarted(false);
   };
 
   if (!started) return <Landing onStart={() => setStarted(true)} />;
@@ -40,11 +44,15 @@ function CoursePage() {
     <div className="min-h-screen bg-soft">
       {/* Top bar */}
       <header className="sticky top-0 z-30 backdrop-blur-md bg-white/80 border-b border-border">
-        <div className="mx-auto max-w-7xl px-4 md:px-6 py-3 flex items-center gap-4">
-          <button onClick={() => setNavOpen((o) => !o)} className="md:hidden p-2 -ml-2 rounded-lg hover:bg-muted">
-            {navOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        <div className="mx-auto max-w-4xl px-4 md:px-6 py-3 flex items-center gap-4">
+          <button
+            onClick={goHome}
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-4 py-2 text-sm font-semibold hover:bg-muted transition"
+          >
+            <Home className="h-4 w-4" />
+            Inicio
           </button>
-          <div className="flex items-center gap-2.5">
+          <div className="hidden sm:flex items-center gap-2.5">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg gradient-coral text-white">
               <Sparkles className="h-4 w-4" />
             </div>
@@ -62,34 +70,7 @@ function CoursePage() {
         </div>
       </header>
 
-      <div className="mx-auto max-w-7xl grid md:grid-cols-[280px_1fr] gap-6 px-4 md:px-6 py-6">
-        {/* Sidebar */}
-        <aside className={`${navOpen ? "block" : "hidden"} md:block`}>
-          <nav className="md:sticky md:top-20 card-surface p-3 space-y-1">
-            {MODULES.map((m) => {
-              const isActive = m.id === active;
-              const isDone = completed.has(m.id);
-              return (
-                <button key={m.id} onClick={() => goToModule(m.id)}
-                  className={`w-full text-left rounded-xl p-3 transition flex items-start gap-3 ${
-                    isActive ? "bg-foreground text-background" : "hover:bg-muted"
-                  }`}>
-                  <div className="mt-0.5 shrink-0">
-                    {isDone ? <CheckCircle2 className="h-4 w-4 text-[var(--mint)]" /> : <Circle className={`h-4 w-4 ${isActive ? "text-background/60" : "text-muted-foreground"}`} />}
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-2">
-                      <span className={`text-[10px] font-black tracking-wider ${isActive ? "text-background/70" : "text-muted-foreground"}`}>{m.code}</span>
-                      <span className={`text-[10px] ${isActive ? "text-background/60" : "text-muted-foreground"}`}>· {m.duration}</span>
-                    </div>
-                    <p className="text-sm font-semibold leading-tight mt-0.5 truncate">{m.title}</p>
-                  </div>
-                </button>
-              );
-            })}
-          </nav>
-        </aside>
-
+      <div className="mx-auto max-w-4xl px-4 md:px-6 py-6">
         {/* Main */}
         <main className="min-w-0">
           {active === 0 && <Module0 onNext={() => goToModule(1)} />}

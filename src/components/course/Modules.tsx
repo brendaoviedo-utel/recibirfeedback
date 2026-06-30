@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Brain, Zap, Target, Sparkles, BookOpen, Activity, MessageSquare, Heart, Scale, Compass, ShieldAlert, Users, User, ArrowRight } from "lucide-react";
+import feedbackScene from "@/assets/feedback-scene.jpg";
 import {
   SCARF, TRIGGERS, FEEDBACK_TYPES, PNE_STEPS,
   SCENARIO_M1, SCENARIO_M2, SCENARIO_M3, SCENARIO_M4,
@@ -26,13 +27,22 @@ export function Module0({ onNext }: { onNext: () => void }) {
       <Hero color="coral" eyebrow="Módulo 0 · Apertura" title="¿Por qué el feedback duele aunque quieras mejorar?" lead="Una pista: no es por tu actitud. Es por tu cerebro." />
 
       <Section title="La escena que todos hemos vivido" kicker="SITUACIÓN">
-        <DualSplit
-          left={{ title: "Por fuera", lines: ["Asientes.", "Dices: 'gracias, lo tomo en cuenta.'", "Tu cara permanece neutra."] }}
-          right={{ title: "Por dentro", lines: ["'Eso no es cierto.'", "'No entiende el contexto.'", "'¿Cómo no lo vi antes?'", "'¿Quién es él para decírmelo?'"] }}
-        />
-        <p className="mt-5 text-base leading-relaxed text-foreground/80">
-          Aunque parte de ti sabe que el feedback puede ser útil, en ese momento es muy difícil procesarlo así. <b>No significa que seas defensivo o que no quieras crecer. Significa que eres humano.</b>
-        </p>
+        <div className="card-surface overflow-hidden">
+          <img
+            src={feedbackScene}
+            alt="Persona recibiendo feedback en una reunión"
+            width={1024}
+            height={1024}
+            loading="lazy"
+            className="w-full h-auto object-cover"
+          />
+          <div className="p-6 md:p-8 space-y-4 text-base leading-relaxed text-foreground/85">
+            <p><b>No es debilidad, es tu cerebro protegiéndote.</b></p>
+            <p>Está tratando de mantenerte a salvo del rechazo, la crítica o el error.</p>
+            <p>Puedes elegir qué hacer después.</p>
+            <p>Entender lo que pasa dentro de ti te da espacio para responder en lugar de reaccionar.</p>
+          </div>
+        </div>
       </Section>
 
       <Section title="Tres ideas que lo cambian todo" kicker="El marco del curso">
