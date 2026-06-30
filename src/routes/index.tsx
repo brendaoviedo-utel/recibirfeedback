@@ -122,7 +122,7 @@ function Landing({ onStart }: { onStart: () => void }) {
         <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} className="text-center">
           <div className="chip bg-white mb-6 mx-auto">
             <span className="h-2 w-2 rounded-full bg-[var(--coral)]" />
-            Serie Feedback UTEL · Curso 1 de 5
+            Serie Feedback Utel
           </div>
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight max-w-4xl mx-auto">
             Recibir Feedback:<br />
