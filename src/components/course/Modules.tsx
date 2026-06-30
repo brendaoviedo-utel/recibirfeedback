@@ -1,8 +1,10 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { Brain, Zap, Target, Sparkles, BookOpen, Activity, MessageSquare, Heart, Scale, Compass, ShieldAlert, Users, User, ArrowRight } from "lucide-react";
+import { Brain, Zap, Target, Sparkles, BookOpen, Activity, MessageSquare, Heart, Scale, Compass, ShieldAlert, Users, User, ArrowRight, ZoomIn, X } from "lucide-react";
 import feedbackSceneAsset from "@/assets/feedback-scene.png.asset.json";
+import rodrigoStoryAsset from "@/assets/rodrigo-story.png.asset.json";
 const feedbackScene = feedbackSceneAsset.url;
+const rodrigoStory = rodrigoStoryAsset.url;
 import {
   SCARF, TRIGGERS, FEEDBACK_TYPES, PNE_STEPS,
   SCENARIO_M1, SCENARIO_M2, SCENARIO_M3, SCENARIO_M4,
@@ -71,18 +73,10 @@ export function Module0({ onNext }: { onNext: () => void }) {
       </Section>
 
       <Section title="Conoce a Rodrigo" kicker="PARA IR DESCUBRIENDO CÓMO ESAS 3 IDEAS COBRAN VIDA...">
-        <div className="card-surface p-6 grid md:grid-cols-[auto_1fr] gap-5 items-start">
-          <div className="flex h-24 w-24 items-center justify-center rounded-2xl gradient-coral text-white text-3xl font-bold mx-auto md:mx-0">R</div>
-          <div>
-            <p className="text-sm text-muted-foreground mb-3">5 años en UTEL · Competente · Sus compañeros lo buscan cuando hay algo difícil que resolver.</p>
-            <p className="text-base leading-relaxed">
-              Pero hay algo que Rodrigo nunca aprendió a hacer bien: <b>recibir feedback</b>. No por arrogante — sino porque nadie le enseñó que también era una habilidad.
-            </p>
-            <p className="mt-3 text-base leading-relaxed">
-              Esta semana algo va a cambiar. Acaba de recibir el feedback más difícil de su carrera, frente a varios compañeros, sobre algo que en el fondo sabe que es verdad. Verás cómo aprende a procesarlo — no de forma perfecta, pero sí distinta.
-            </p>
-          </div>
-        </div>
+        <ZoomableImage src={rodrigoStory} alt="Conoce a Rodrigo: su historia ilustrada" />
+        <p className="mt-5 text-base leading-relaxed text-foreground/85">
+          A lo largo de este curso, verás cómo Rodrigo aprende a procesar ese feedback. No de forma perfecta. Pero sí de una forma que lo llevará a un lugar diferente al que hubiera llegado de no haberlo recibido.
+        </p>
       </Section>
 
       <Section title="Antes de empezar" kicker="Pregunta detonadora">
@@ -646,5 +640,48 @@ function NextButton({ onClick, label }: { onClick: () => void; label: string }) 
         <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
       </button>
     </div>
+  );
+}
+
+function ZoomableImage({ src, alt }: { src: string; alt: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        className="group relative block w-full overflow-hidden rounded-2xl border border-border shadow-sm hover:shadow-lg transition"
+        aria-label="Ampliar imagen"
+      >
+        <img src={src} alt={alt} className="w-full h-auto object-cover transition group-hover:scale-[1.01]" loading="lazy" />
+        <span className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full bg-black/70 text-white text-xs font-semibold px-3 py-1.5 backdrop-blur">
+          <ZoomIn className="h-3.5 w-3.5" /> Ampliar
+        </span>
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 overflow-auto"
+            onClick={() => setOpen(false)}
+          >
+            <button
+              type="button"
+              onClick={() => setOpen(false)}
+              className="absolute top-4 right-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20"
+              aria-label="Cerrar"
+            >
+              <X className="h-5 w-5" />
+            </button>
+            <motion.img
+              initial={{ scale: 0.95 }} animate={{ scale: 1 }} exit={{ scale: 0.95 }}
+              src={src} alt={alt}
+              className="max-w-[1600px] w-full h-auto rounded-xl cursor-zoom-out"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
