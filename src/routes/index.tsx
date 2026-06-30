@@ -26,8 +26,7 @@ function CoursePage() {
   useEffect(() => { window.scrollTo({ top: 0, behavior: "smooth" }); }, [active]);
 
   const goToModule = (id: number) => {
-    setCompleted((s) => new S 
-et(s).add(active));
+    setCompleted((s) => new Set(s).add(active));
     setActive(id);
   };
 
