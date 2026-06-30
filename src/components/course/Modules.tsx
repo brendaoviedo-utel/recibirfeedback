@@ -1,7 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Brain, Zap, Target, Sparkles, BookOpen, Activity, MessageSquare, Heart, Scale, Compass, ShieldAlert, Users, User, ArrowRight } from "lucide-react";
-import feedbackScene from "@/assets/feedback-scene.jpg";
+import feedbackSceneAsset from "@/assets/feedback-scene.png.asset.json";
+const feedbackScene = feedbackSceneAsset.url;
 import {
   SCARF, TRIGGERS, FEEDBACK_TYPES, PNE_STEPS,
   SCENARIO_M1, SCENARIO_M2, SCENARIO_M3, SCENARIO_M4,
