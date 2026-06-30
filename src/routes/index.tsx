@@ -162,7 +162,7 @@ function Landing({ onStart }: { onStart: () => void }) {
         </div>
 
         <div className="mt-16 card-surface p-8 md:p-10 text-center bg-gradient-to-br from-white to-[var(--soft)]">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-2">Acompáñanos esta semana</p>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-2">&nbsp;</p>
           <h2 className="text-2xl md:text-3xl font-bold max-w-3xl mx-auto leading-tight">
             "El feedback no duele porque seas inseguro. Duele porque tu cerebro está haciendo exactamente lo que aprendió a hacer para protegerte. Este curso te enseña a usar ese instinto a tu favor."
           </h2>
