@@ -71,18 +71,10 @@ export function Module0({ onNext }: { onNext: () => void }) {
       </Section>
 
       <Section title="Conoce a Rodrigo" kicker="PARA IR DESCUBRIENDO CÓMO ESAS 3 IDEAS COBRAN VIDA...">
-        <div className="card-surface p-6 grid md:grid-cols-[auto_1fr] gap-5 items-start">
-          <div className="flex h-24 w-24 items-center justify-center rounded-2xl gradient-coral text-white text-3xl font-bold mx-auto md:mx-0">R</div>
-          <div>
-            <p className="text-sm text-muted-foreground mb-3">5 años en UTEL · Competente · Sus compañeros lo buscan cuando hay algo difícil que resolver.</p>
-            <p className="text-base leading-relaxed">
-              Pero hay algo que Rodrigo nunca aprendió a hacer bien: <b>recibir feedback</b>. No por arrogante — sino porque nadie le enseñó que también era una habilidad.
-            </p>
-            <p className="mt-3 text-base leading-relaxed">
-              Esta semana algo va a cambiar. Acaba de recibir el feedback más difícil de su carrera, frente a varios compañeros, sobre algo que en el fondo sabe que es verdad. Verás cómo aprende a procesarlo — no de forma perfecta, pero sí distinta.
-            </p>
-          </div>
-        </div>
+        <ZoomableImage src={rodrigoStory} alt="Conoce a Rodrigo: su historia ilustrada" />
+        <p className="mt-5 text-base leading-relaxed text-foreground/85">
+          A lo largo de este curso, verás cómo Rodrigo aprende a procesar ese feedback. No de forma perfecta. Pero sí de una forma que lo llevará a un lugar diferente al que hubiera llegado de no haberlo recibido.
+        </p>
       </Section>
 
       <Section title="Antes de empezar" kicker="Pregunta detonadora">
