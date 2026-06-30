@@ -642,3 +642,46 @@ function NextButton({ onClick, label }: { onClick: () => void; label: string }) 
     </div>
   );
 }
+
+function ZoomableImage({ src, alt }: { src: string; alt: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        className="group relative block w-full overflow-hidden rounded-2xl border border-border shadow-sm hover:shadow-lg transition"
+        aria-label="Ampliar imagen"
+      >
+        <img src={src} alt={alt} className="w-full h-auto object-cover transition group-hover:scale-[1.01]" loading="lazy" />
+        <span className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full bg-black/70 text-white text-xs font-semibold px-3 py-1.5 backdrop-blur">
+          <ZoomIn className="h-3.5 w-3.5" /> Ampliar
+        </span>
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 overflow-auto"
+            onClick={() => setOpen(false)}
+          >
+            <button
+              type="button"
+              onClick={() => setOpen(false)}
+              className="absolute top-4 right-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20"
+              aria-label="Cerrar"
+            >
+              <X className="h-5 w-5" />
+            </button>
+            <motion.img
+              initial={{ scale: 0.95 }} animate={{ scale: 1 }} exit={{ scale: 0.95 }}
+              src={src} alt={alt}
+              className="max-w-[1600px] w-full h-auto rounded-xl cursor-zoom-out"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
