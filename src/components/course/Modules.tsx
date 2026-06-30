@@ -70,7 +70,7 @@ export function Module0({ onNext }: { onNext: () => void }) {
         </div>
       </Section>
 
-      <Section title="Conoce a Rodrigo" kicker="Nuestro hilo conductor">
+      <Section title="Conoce a Rodrigo" kicker="PARA IR DESCUBRIENDO CÓMO ESAS 3 IDEAS COBRAN VIDA...">
         <div className="card-surface p-6 grid md:grid-cols-[auto_1fr] gap-5 items-start">
           <div className="flex h-24 w-24 items-center justify-center rounded-2xl gradient-coral text-white text-3xl font-bold mx-auto md:mx-0">R</div>
           <div>
