@@ -136,8 +136,16 @@ export function Module1({ onNext }: { onNext: () => void }) {
       </Section>
 
 
-      <Section title="El modelo SCARF · Explora cada dominio" kicker="Concepto interactivo">
-        <p className="text-sm text-muted-foreground mb-4">David Rock identificó cinco dominios sociales que el cerebro defiende como si fueran amenazas físicas. Toca cada letra:</p>
+      <Section title="El modelo SCARF · Explora cada dominio" kicker="MODELO EXPLICATIVO">
+        <div className="card-surface p-5 mb-5 border-l-4 border-[var(--cobalt)]">
+          <p className="text-sm leading-relaxed text-foreground/85">
+            El neurocientífico <b>David Rock</b> identificó cinco dominios sociales que el cerebro monitorea constantemente en busca de amenazas o recompensas. A este modelo lo llamó <b>SCARF</b> (por sus siglas en inglés). Cuando uno o más de estos dominios se perciben amenazados, el cerebro activa la misma respuesta que ante una amenaza física: aumenta el <b>cortisol</b>, reduce la actividad del <b>córtex prefrontal</b> — la parte que necesitamos para razonar y aprender — y nos pone en modo defensivo.
+          </p>
+          <p className="text-sm leading-relaxed text-foreground/85 mt-3">
+            El feedback crítico casi siempre amenaza <b>varios dominios al mismo tiempo</b>. Por eso es tan difícil recibirlo bien.
+          </p>
+        </div>
+        <p className="text-sm text-muted-foreground mb-4">Toca cada letra para explorar el dominio:</p>
         <div className="grid md:grid-cols-[auto_1fr] gap-6">
           <div className="flex md:flex-col gap-2 justify-center">
             {SCARF.map((s) => {
@@ -163,14 +171,37 @@ export function Module1({ onNext }: { onNext: () => void }) {
                 </div>
                 <h3 className="text-xl font-bold">{sel.name}</h3>
               </div>
-              <Field label="¿Qué protege el cerebro?" value={sel.desc} />
-              <Field label="Ejemplo en feedback" value={sel.example} />
-              <Field label="Cómo se manifiesta" value={sel.how} />
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <Field label="¿Qué protege el cerebro?" value={sel.desc} />
+                  <Field label="Ejemplo en feedback" value={sel.example} />
+                  <Field label="Cómo se manifiesta" value={sel.how} />
+                </div>
+                <div className={`rounded-2xl p-5 ${c.soft} border border-border/50`}>
+                  <p className={`text-xs font-bold uppercase tracking-wider ${c.text} mb-4`}>Esquema · {sel.name}</p>
+                  <div className="space-y-3">
+                    {[
+                      { label: "Disparo", text: sel.example },
+                      { label: "Cerebro", text: `Se activa la amenaza en el dominio ${sel.name.toLowerCase()}: cortisol ↑, córtex prefrontal ↓.` },
+                      { label: "Reacción", text: sel.how },
+                      { label: "Palanca", text: `Nombrar internamente "${sel.name}" reduce la intensidad y devuelve el control.` },
+                    ].map((row, i, arr) => (
+                      <div key={i} className="relative pl-6">
+                        <span className={`absolute left-0 top-1 h-3 w-3 rounded-full ${c.bg}`} />
+                        {i < arr.length - 1 && <span className="absolute left-[5px] top-4 bottom-[-12px] w-px bg-border" />}
+                        <p className={`text-[10px] font-bold uppercase tracking-wider ${c.text}`}>{row.label}</p>
+                        <p className="text-xs text-foreground/80 leading-relaxed">{row.text}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </AnimatePresence>
         </div>
         <p className="mt-5 text-sm italic text-muted-foreground">La clave no es eliminar la respuesta — eso no es posible. Es <b>reconocerla, nombrarla y elegir</b> cómo responder desde ahí.</p>
       </Section>
+
 
       <Section title="La Huella en acción" kicker="Reto">
         <SceneCard quote="Rodrigo identifica: 'Todo el mundo va a pensar que no sé hacer mi trabajo.' Eso es SCARF — dominio Estatus — activándose. Tiene 3 segundos antes de que la reacción tome el control." />
