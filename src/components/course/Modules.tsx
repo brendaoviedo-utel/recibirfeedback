@@ -113,7 +113,7 @@ export function Module1({ onNext }: { onNext: () => void }) {
     <Sections>
       <Hero color="cobalt" eyebrow="Módulo 1 · Neurociencia" title="Lo que le pasa a tu cerebro cuando alguien te da feedback" lead='"La defensividad no es falta de madurez. Es tu cerebro haciendo lo que evolucionó para hacer."' />
 
-      <Section title="Lunes 9:00 a.m. — la reunión" kicker="Gancho">
+      <Section title="Lunes 9:00 a.m. — la reunión" kicker="SITUACIÓN">
         <SceneCard quote="'Rodrigo, creo que la presentación de la semana pasada no comunicó bien el objetivo. Varias personas salieron sin entender qué se esperaba de ellas.'" />
         <p className="text-sm text-muted-foreground mt-3">En menos de 2 segundos, sin que Rodrigo lo decida, su cerebro procesa esto como amenaza. Toca <b>cuatro dominios</b> a la vez:</p>
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3 mt-4">
@@ -202,7 +202,7 @@ export function Module2({ onNext }: { onNext: () => void }) {
     <Sections>
       <Hero color="amber-brand" eyebrow="Módulo 2 · Disparadores" title="Tus tres disparadores: lo que bloquea el feedback antes de que llegue" lead='"No rechazamos el feedback porque sea malo. Lo rechazamos porque activa algo en nosotros."' />
 
-      <Section title="¿Has tenido alguno de estos pensamientos?" kicker="Gancho">
+      <Section title="¿Has tenido alguno de estos pensamientos?" kicker="SITUACIÓN">
         <div className="grid md:grid-cols-3 gap-3">
           {[
             { t: "'Eso no es cierto. No tenía el contexto completo para decirme eso.'", c: "coral" },
@@ -296,7 +296,7 @@ export function Module3({ onNext }: { onNext: () => void }) {
     <Sections>
       <Hero color="mint" eyebrow="Módulo 3 · Tipos de feedback" title="Tres conversaciones que se confunden" lead='"Muchas conversaciones de feedback fallan no porque sea malo, sino porque emisor y receptor hablan de cosas distintas sin saberlo."' />
 
-      <Section title="Dos escenas reconocibles" kicker="Gancho">
+      <Section title="Dos escenas reconocibles" kicker="SITUACIÓN">
         <div className="grid md:grid-cols-2 gap-4">
           <div className="card-surface p-5 border-l-4 border-[var(--coral)]">
             <p className="chip mb-3">Escena A</p>
@@ -381,7 +381,7 @@ export function Module4({ onNext }: { onNext: () => void }) {
     <Sections>
       <Hero color="violet-brand" eyebrow="Módulo 4 · La técnica" title="Pausa, Nombre y Elige" lead='"Entre el feedback que recibes y la respuesta que das, hay un espacio. Pequeño, pero existe. Ese espacio es donde ocurre el aprendizaje — o donde se pierde."' />
 
-      <Section title="El mismo feedback, dos desenlaces" kicker="Gancho">
+      <Section title="El mismo feedback, dos desenlaces" kicker="SITUACIÓN">
         <div className="flex gap-2 mb-4">
           <button onClick={() => setVersion("sin")} className={`flex-1 rounded-full py-2.5 text-sm font-bold ${version === "sin" ? "bg-[var(--coral)] text-white" : "bg-muted"}`}>SIN pausa</button>
           <button onClick={() => setVersion("con")} className={`flex-1 rounded-full py-2.5 text-sm font-bold ${version === "con" ? "bg-[var(--mint)] text-white" : "bg-muted"}`}>CON pausa</button>
