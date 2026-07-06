@@ -114,22 +114,25 @@ export function Module1({ onNext }: { onNext: () => void }) {
       <Hero color="cobalt" eyebrow="Módulo 1 · Neurociencia" title="Lo que le pasa a tu cerebro cuando alguien te da feedback" lead='"La defensividad no es falta de madurez. Es tu cerebro haciendo lo que evolucionó para hacer."' />
 
       <Section title="Lunes 9:00 a.m. — la reunión" kicker="SITUACIÓN">
-        <SceneCard quote="'Rodrigo, creo que la presentación de la semana pasada no comunicó bien el objetivo. Varias personas salieron sin entender qué se esperaba de ellas.'" />
-        <p className="text-sm text-muted-foreground mt-3">En menos de 2 segundos, sin que Rodrigo lo decida, su cerebro procesa esto como amenaza. Toca <b>cuatro dominios</b> a la vez:</p>
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3 mt-4">
+        <ZoomableImage src={m1SituacionAsset.url} alt="Rodrigo recibe feedback: reacción de amenaza en el cerebro" />
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
           {[
-            { d: "Estatus", t: "¿Qué van a pensar de mí ahora?" },
-            { d: "Certeza", t: "¿Hay consecuencias?" },
-            { d: "Equidad", t: "¿Por qué aquí y no en privado?" },
-            { d: "Identidad", t: "¿Me dice que soy incompetente?" },
-          ].map((x, i) => (
-            <div key={i} className="card-surface p-4">
-              <p className="text-xs font-bold uppercase tracking-wider text-[var(--cobalt)] mb-1">{x.d}</p>
-              <p className="text-sm">{x.t}</p>
-            </div>
-          ))}
+            { n: "1", title: "La amenaza es universal", body: "La respuesta de amenaza ante el feedback es universal — no importa el nivel, la experiencia o la confianza: el cerebro responde antes que la razón. Reconocerlo es el primer paso para gestionarlo.", color: "cobalt" },
+            { n: "2", title: "Dos segundos que marcan la diferencia", body: "La diferencia entre los mejores y los demás no es que no sientan la amenaza — es que aprendieron qué hacer en los dos segundos siguientes.", color: "amber-brand" },
+            { n: "3", title: "Responsabilidad compartida", body: "Crear condiciones para que el feedback se reciba bien es responsabilidad compartida — del que da y del que recibe. Este curso trabaja el lado del receptor.", color: "mint" },
+          ].map((x, i) => {
+            const cc = colorOf(x.color);
+            return (
+              <div key={i} className="card-surface p-5 border-t-4" style={{ borderTopColor: `var(--${x.color})` }}>
+                <div className={`inline-flex h-8 w-8 items-center justify-center rounded-full ${cc.bg} text-white text-sm font-bold mb-3`}>{x.n}</div>
+                <h4 className="font-bold mb-2 text-base">{x.title}</h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">{x.body}</p>
+              </div>
+            );
+          })}
         </div>
       </Section>
+
 
       <Section title="El modelo SCARF · Explora cada dominio" kicker="Concepto interactivo">
         <p className="text-sm text-muted-foreground mb-4">David Rock identificó cinco dominios sociales que el cerebro defiende como si fueran amenazas físicas. Toca cada letra:</p>
