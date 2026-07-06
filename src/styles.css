@@ -43,46 +43,46 @@
   --color-ink: var(--ink);
   --color-soft: var(--soft);
 
-  --shadow-soft: 0 4px 24px -8px oklch(0.5 0.05 250 / 0.12);
-  --shadow-glow: 0 16px 48px -16px oklch(0.65 0.22 25 / 0.35);
+  --shadow-soft: 0 4px 24px -8px oklch(0.4 0.05 145 / 0.14);
+  --shadow-glow: 0 16px 48px -16px oklch(0.66 0.24 142 / 0.4);
 }
 
 :root {
   --radius: 1rem;
   --background: oklch(1 0 0);
-  --foreground: oklch(0.18 0.02 260);
+  --foreground: oklch(0.22 0.03 145);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.02 260);
+  --card-foreground: oklch(0.22 0.03 145);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.02 260);
+  --popover-foreground: oklch(0.22 0.03 145);
 
-  /* Coral as primary action */
-  --primary: oklch(0.66 0.22 25);
+  /* Bright green as primary action (#06b706) */
+  --primary: oklch(0.66 0.24 142);
   --primary-foreground: oklch(1 0 0);
 
-  --secondary: oklch(0.97 0.01 250);
-  --secondary-foreground: oklch(0.18 0.02 260);
+  --secondary: oklch(0.97 0.02 145);
+  --secondary-foreground: oklch(0.22 0.03 145);
 
-  --muted: oklch(0.97 0.005 250);
-  --muted-foreground: oklch(0.5 0.02 260);
+  --muted: oklch(0.97 0.01 145);
+  --muted-foreground: oklch(0.45 0.03 145);
 
-  --accent: oklch(0.96 0.02 240);
-  --accent-foreground: oklch(0.18 0.02 260);
+  --accent: oklch(0.95 0.04 142);
+  --accent-foreground: oklch(0.22 0.03 145);
 
   --destructive: oklch(0.6 0.24 27);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.92 0.01 250);
-  --input: oklch(0.92 0.01 250);
-  --ring: oklch(0.66 0.22 25);
+  --border: oklch(0.92 0.02 145);
+  --input: oklch(0.92 0.02 145);
+  --ring: oklch(0.66 0.24 142);
 
-  /* Brand palette */
-  --coral: oklch(0.66 0.22 25);          /* #FF5A4B-ish */
-  --cobalt: oklch(0.55 0.22 260);        /* electric blue */
-  --mint: oklch(0.72 0.16 165);          /* fresh green */
-  --amber-brand: oklch(0.78 0.16 75);    /* warm amber */
-  --violet-brand: oklch(0.6 0.22 295);   /* identity purple */
-  --ink: oklch(0.18 0.02 260);
-  --soft: oklch(0.985 0.005 250);
+  /* Brand palette — Utel Play inspired */
+  --coral: oklch(0.66 0.24 142);         /* bright green #06b706 → primary CTA */
+  --cobalt: oklch(0.3 0.05 145);         /* deep forest #1c2d1a */
+  --mint: oklch(0.78 0.18 155);          /* fresh mint highlight */
+  --amber-brand: oklch(0.78 0.16 95);    /* warm amber accent */
+  --violet-brand: oklch(0.55 0.12 165);  /* teal-green for identity */
+  --ink: oklch(0.22 0.03 145);
+  --soft: oklch(0.985 0.008 145);
 }
 
 .dark { color-scheme: light; }
@@ -115,17 +115,17 @@
 }
 
 @utility gradient-coral {
-  background-image: linear-gradient(135deg, oklch(0.72 0.2 35), oklch(0.62 0.24 18));
+  background-image: linear-gradient(135deg, oklch(0.72 0.22 145), oklch(0.58 0.24 140));
 }
 
 @utility gradient-cobalt {
-  background-image: linear-gradient(135deg, oklch(0.62 0.2 255), oklch(0.5 0.22 270));
+  background-image: linear-gradient(135deg, oklch(0.35 0.06 145), oklch(0.24 0.05 145));
 }
 
 @utility gradient-mint {
-  background-image: linear-gradient(135deg, oklch(0.78 0.16 165), oklch(0.65 0.18 175));
+  background-image: linear-gradient(135deg, oklch(0.82 0.16 155), oklch(0.68 0.2 150));
 }
 
 @utility gradient-violet {
-  background-image: linear-gradient(135deg, oklch(0.7 0.2 300), oklch(0.55 0.24 290));
+  background-image: linear-gradient(135deg, oklch(0.6 0.14 165), oklch(0.42 0.1 155));
 }
