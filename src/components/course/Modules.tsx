@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Brain, Zap, Target, Sparkles, BookOpen, Activity, MessageSquare, Heart, Scale, Compass, ShieldAlert, Users, User, ArrowRight, ZoomIn, X } from "lucide-react";
 import feedbackSceneAsset from "@/assets/feedback-scene.png.asset.json";
 import rodrigoStoryAsset from "@/assets/rodrigo-story.png.asset.json";
+import m1SituacionAsset from "@/assets/m1-situacion.png.asset.json";
+
 const feedbackScene = feedbackSceneAsset.url;
 const rodrigoStory = rodrigoStoryAsset.url;
 import {
@@ -113,26 +115,37 @@ export function Module1({ onNext }: { onNext: () => void }) {
     <Sections>
       <Hero color="cobalt" eyebrow="Módulo 1 · Neurociencia" title="Lo que le pasa a tu cerebro cuando alguien te da feedback" lead='"La defensividad no es falta de madurez. Es tu cerebro haciendo lo que evolucionó para hacer."' />
 
-      <Section title="Lunes 9:00 a.m. — la reunión" kicker="Gancho">
-        <SceneCard quote="'Rodrigo, creo que la presentación de la semana pasada no comunicó bien el objetivo. Varias personas salieron sin entender qué se esperaba de ellas.'" />
-        <p className="text-sm text-muted-foreground mt-3">En menos de 2 segundos, sin que Rodrigo lo decida, su cerebro procesa esto como amenaza. Toca <b>cuatro dominios</b> a la vez:</p>
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3 mt-4">
+      <Section title="Lunes 9:00 a.m. — la reunión" kicker="SITUACIÓN">
+        <ZoomableImage src={m1SituacionAsset.url} alt="Rodrigo recibe feedback: reacción de amenaza en el cerebro" />
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
           {[
-            { d: "Estatus", t: "¿Qué van a pensar de mí ahora?" },
-            { d: "Certeza", t: "¿Hay consecuencias?" },
-            { d: "Equidad", t: "¿Por qué aquí y no en privado?" },
-            { d: "Identidad", t: "¿Me dice que soy incompetente?" },
-          ].map((x, i) => (
-            <div key={i} className="card-surface p-4">
-              <p className="text-xs font-bold uppercase tracking-wider text-[var(--cobalt)] mb-1">{x.d}</p>
-              <p className="text-sm">{x.t}</p>
-            </div>
-          ))}
+            { n: "1", title: "La amenaza es universal", body: "La respuesta de amenaza ante el feedback es universal — no importa el nivel, la experiencia o la confianza: el cerebro responde antes que la razón. Reconocerlo es el primer paso para gestionarlo.", color: "cobalt" },
+            { n: "2", title: "Dos segundos que marcan la diferencia", body: "La diferencia entre los mejores y los demás no es que no sientan la amenaza — es que aprendieron qué hacer en los dos segundos siguientes.", color: "amber-brand" },
+            { n: "3", title: "Responsabilidad compartida", body: "Crear condiciones para que el feedback se reciba bien es responsabilidad compartida — del que da y del que recibe. Este curso trabaja el lado del receptor.", color: "mint" },
+          ].map((x, i) => {
+            const cc = colorOf(x.color);
+            return (
+              <div key={i} className="card-surface p-5 border-t-4" style={{ borderTopColor: `var(--${x.color})` }}>
+                <div className={`inline-flex h-8 w-8 items-center justify-center rounded-full ${cc.bg} text-white text-sm font-bold mb-3`}>{x.n}</div>
+                <h4 className="font-bold mb-2 text-base">{x.title}</h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">{x.body}</p>
+              </div>
+            );
+          })}
         </div>
       </Section>
 
-      <Section title="El modelo SCARF · Explora cada dominio" kicker="Concepto interactivo">
-        <p className="text-sm text-muted-foreground mb-4">David Rock identificó cinco dominios sociales que el cerebro defiende como si fueran amenazas físicas. Toca cada letra:</p>
+
+      <Section title="El modelo SCARF · Explora cada dominio" kicker="MODELO EXPLICATIVO">
+        <div className="card-surface p-5 mb-5 border-l-4 border-[var(--cobalt)]">
+          <p className="text-sm leading-relaxed text-foreground/85">
+            El neurocientífico <b>David Rock</b> identificó cinco dominios sociales que el cerebro monitorea constantemente en busca de amenazas o recompensas. A este modelo lo llamó <b>SCARF</b> (por sus siglas en inglés). Cuando uno o más de estos dominios se perciben amenazados, el cerebro activa la misma respuesta que ante una amenaza física: aumenta el <b>cortisol</b>, reduce la actividad del <b>córtex prefrontal</b> — la parte que necesitamos para razonar y aprender — y nos pone en modo defensivo.
+          </p>
+          <p className="text-sm leading-relaxed text-foreground/85 mt-3">
+            El feedback crítico casi siempre amenaza <b>varios dominios al mismo tiempo</b>. Por eso es tan difícil recibirlo bien.
+          </p>
+        </div>
+        <p className="text-sm text-muted-foreground mb-4">Toca cada letra para explorar el dominio:</p>
         <div className="grid md:grid-cols-[auto_1fr] gap-6">
           <div className="flex md:flex-col gap-2 justify-center">
             {SCARF.map((s) => {
@@ -158,14 +171,37 @@ export function Module1({ onNext }: { onNext: () => void }) {
                 </div>
                 <h3 className="text-xl font-bold">{sel.name}</h3>
               </div>
-              <Field label="¿Qué protege el cerebro?" value={sel.desc} />
-              <Field label="Ejemplo en feedback" value={sel.example} />
-              <Field label="Cómo se manifiesta" value={sel.how} />
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <Field label="¿Qué protege el cerebro?" value={sel.desc} />
+                  <Field label="Ejemplo en feedback" value={sel.example} />
+                  <Field label="Cómo se manifiesta" value={sel.how} />
+                </div>
+                <div className={`rounded-2xl p-5 ${c.soft} border border-border/50`}>
+                  <p className={`text-xs font-bold uppercase tracking-wider ${c.text} mb-4`}>Esquema · {sel.name}</p>
+                  <div className="space-y-3">
+                    {[
+                      { label: "Disparo", text: sel.example },
+                      { label: "Cerebro", text: `Se activa la amenaza en el dominio ${sel.name.toLowerCase()}: cortisol ↑, córtex prefrontal ↓.` },
+                      { label: "Reacción", text: sel.how },
+                      { label: "Palanca", text: `Nombrar internamente "${sel.name}" reduce la intensidad y devuelve el control.` },
+                    ].map((row, i, arr) => (
+                      <div key={i} className="relative pl-6">
+                        <span className={`absolute left-0 top-1 h-3 w-3 rounded-full ${c.bg}`} />
+                        {i < arr.length - 1 && <span className="absolute left-[5px] top-4 bottom-[-12px] w-px bg-border" />}
+                        <p className={`text-[10px] font-bold uppercase tracking-wider ${c.text}`}>{row.label}</p>
+                        <p className="text-xs text-foreground/80 leading-relaxed">{row.text}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </AnimatePresence>
         </div>
         <p className="mt-5 text-sm italic text-muted-foreground">La clave no es eliminar la respuesta — eso no es posible. Es <b>reconocerla, nombrarla y elegir</b> cómo responder desde ahí.</p>
       </Section>
+
 
       <Section title="La Huella en acción" kicker="Reto">
         <SceneCard quote="Rodrigo identifica: 'Todo el mundo va a pensar que no sé hacer mi trabajo.' Eso es SCARF — dominio Estatus — activándose. Tiene 3 segundos antes de que la reacción tome el control." />
@@ -202,7 +238,7 @@ export function Module2({ onNext }: { onNext: () => void }) {
     <Sections>
       <Hero color="amber-brand" eyebrow="Módulo 2 · Disparadores" title="Tus tres disparadores: lo que bloquea el feedback antes de que llegue" lead='"No rechazamos el feedback porque sea malo. Lo rechazamos porque activa algo en nosotros."' />
 
-      <Section title="¿Has tenido alguno de estos pensamientos?" kicker="Gancho">
+      <Section title="¿Has tenido alguno de estos pensamientos?" kicker="SITUACIÓN">
         <div className="grid md:grid-cols-3 gap-3">
           {[
             { t: "'Eso no es cierto. No tenía el contexto completo para decirme eso.'", c: "coral" },
@@ -296,7 +332,7 @@ export function Module3({ onNext }: { onNext: () => void }) {
     <Sections>
       <Hero color="mint" eyebrow="Módulo 3 · Tipos de feedback" title="Tres conversaciones que se confunden" lead='"Muchas conversaciones de feedback fallan no porque sea malo, sino porque emisor y receptor hablan de cosas distintas sin saberlo."' />
 
-      <Section title="Dos escenas reconocibles" kicker="Gancho">
+      <Section title="Dos escenas reconocibles" kicker="SITUACIÓN">
         <div className="grid md:grid-cols-2 gap-4">
           <div className="card-surface p-5 border-l-4 border-[var(--coral)]">
             <p className="chip mb-3">Escena A</p>
@@ -381,7 +417,7 @@ export function Module4({ onNext }: { onNext: () => void }) {
     <Sections>
       <Hero color="violet-brand" eyebrow="Módulo 4 · La técnica" title="Pausa, Nombre y Elige" lead='"Entre el feedback que recibes y la respuesta que das, hay un espacio. Pequeño, pero existe. Ese espacio es donde ocurre el aprendizaje — o donde se pierde."' />
 
-      <Section title="El mismo feedback, dos desenlaces" kicker="Gancho">
+      <Section title="El mismo feedback, dos desenlaces" kicker="SITUACIÓN">
         <div className="flex gap-2 mb-4">
           <button onClick={() => setVersion("sin")} className={`flex-1 rounded-full py-2.5 text-sm font-bold ${version === "sin" ? "bg-[var(--coral)] text-white" : "bg-muted"}`}>SIN pausa</button>
           <button onClick={() => setVersion("con")} className={`flex-1 rounded-full py-2.5 text-sm font-bold ${version === "con" ? "bg-[var(--mint)] text-white" : "bg-muted"}`}>CON pausa</button>
