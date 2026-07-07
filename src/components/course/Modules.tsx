@@ -381,7 +381,17 @@ export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
     <Sections>
       <Hero color="mint" eyebrow="Módulo 2 · Buscar feedback" title="Si no te lo dan, pídelo" lead='"Tu crecimiento no depende solo del feedback que recibes, sino también del que decides buscar."' />
 
-      <Section title="Buscar feedback también es aprender" kicker="INTRODUCCIÓN" intro="Diversas investigaciones en psicología organizacional muestran que las personas que buscan feedback de forma proactiva desarrollan mayor autoconocimiento, aceleran su aprendizaje, fortalecen sus relaciones laborales y se adaptan con mayor rapidez a nuevos desafíos. Solicitar retroalimentación deja de ser una señal de inseguridad para convertirse en una práctica de mejora continua y responsabilidad sobre el propio crecimiento.">
+      <Section title="Del reconocimiento a la acción" kicker="INTRODUCCIÓN" intro="En el módulo anterior aprendiste a identificar los tres disparadores que bloquean el feedback antes de que puedas usarlo: el disparador de verdad, que cuestiona el contenido; el de relación, que reacciona ante la persona que habla; y el de identidad, que amenaza tu narrativa sobre quién eres. Reconocerlos es el primer paso, pero no el único.">
+        <div className="card-surface p-6 space-y-4 text-base leading-relaxed text-foreground/85 border-l-4 border-[var(--mint)]">
+          <p>Ahora que sabes qué puede activarte, es momento de dar el siguiente paso: <b>no esperar a que el feedback llegue, sino ir a buscarlo</b>. Porque incluso cuando los demás no inician la conversación, tú puedes abrirla.</p>
+          <p>Este módulo te invita a convertir la búsqueda de feedback en una práctica deliberada. Verás por qué pedirlo no es una señal de debilidad, cómo elegir el momento adecuado, qué preguntas generan respuestas útiles y cómo recibir la respuesta sin que los disparadores tomen el control.</p>
+          <div className="rounded-xl bg-[var(--mint)]/10 p-4 text-sm">
+            <b>Mensaje clave:</b> tu crecimiento no depende solo del feedback que recibes, sino también del que decides buscar.
+          </div>
+        </div>
+      </Section>
+
+      <Section title="Buscar feedback también es aprender" kicker="¿POR QUÉ PEDIRLO?" intro="Diversas investigaciones en psicología organizacional muestran que las personas que buscan feedback de forma proactiva desarrollan mayor autoconocimiento, aceleran su aprendizaje, fortalecen sus relaciones laborales y se adaptan con mayor rapidez a nuevos desafíos. Solicitar retroalimentación deja de ser una señal de inseguridad para convertirse en una práctica de mejora continua y responsabilidad sobre el propio crecimiento.">
         <div className="card-surface p-6 space-y-3 text-base leading-relaxed text-foreground/85">
           <p>El feedback no siempre ocurre de forma espontánea; también puede impulsarse mediante la iniciativa de quien desea aprender.</p>
           <ul className="space-y-2 pt-2">
