@@ -5,6 +5,7 @@ import feedbackSceneAsset from "@/assets/feedback-scene.png.asset.json";
 import rodrigoStoryAsset from "@/assets/rodrigo-story.png.asset.json";
 import m1SituacionAsset from "@/assets/m1-situacion.png.asset.json";
 import m1ResolucionAsset from "@/assets/m1-resolucion.png.asset.json";
+import m2PedirFeedbackSituacionAsset from "@/assets/m2-pedir-feedback-situacion.png.asset.json";
 
 const feedbackScene = feedbackSceneAsset.url;
 const rodrigoStory = rodrigoStoryAsset.url;
@@ -399,10 +400,8 @@ export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
         <PorQuePedirlo />
       </Section>
 
-      <Section title="La escena" kicker="SITUACIÓN">
-        <div className="card-surface p-8 border-2 border-dashed border-border/60 text-center text-sm text-muted-foreground">
-          Imagen pendiente — aquí se ilustrará la escena en la que Rodrigo termina un proyecto importante y considera pedir feedback.
-        </div>
+      <Section title="La escena" kicker="SITUACIÓN" intro="Rodrigo lleva seis meses en un nuevo proyecto. Ha entregado a tiempo, participa en reuniones y procura hacer un buen trabajo. Pero hay algo que le da vueltas desde hace semanas: nadie le ha dicho cómo va.">
+        <ZoomableImage src={m2PedirFeedbackSituacionAsset.url} alt="Rodrigo se cuestiona si pedir feedback sobre su desempeño en el nuevo proyecto" />
       </Section>
 
       <Section title="De esperar respuestas a generar conversaciones" kicker="CONCEPTO" intro="Cinco ideas, cinco cambios de mentalidad. Recórrelas a tu ritmo: cada pestaña despliega una parte distinta del hábito de pedir feedback. No es lectura pasiva — al abrir cada una, elige quedarte con la idea que más te representa.">
