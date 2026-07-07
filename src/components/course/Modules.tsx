@@ -164,36 +164,52 @@ export function Module1({ onNext }: { onNext: () => void }) {
           </div>
           <AnimatePresence mode="wait">
             <motion.div key={activeScarf} initial={{ opacity: 0, x: 12 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -12 }}
-              className={`card-surface p-6 border-l-4`} style={{ borderLeftColor: `var(--${sel.color})` }}>
+              className={`card-surface p-5 md:p-6 border-l-4`} style={{ borderLeftColor: `var(--${sel.color})` }}>
               <div className="flex items-center gap-3 mb-4">
                 <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${c.soft}`}>
                   <span className={`text-xl font-black ${c.text}`}>{sel.key}</span>
                 </div>
-                <h3 className="text-xl font-bold">{sel.name}</h3>
-              </div>
-              <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <Field label="¿Qué protege el cerebro?" value={sel.desc} />
-                  <Field label="Ejemplo en feedback" value={sel.example} />
-                  <Field label="Cómo se manifiesta" value={sel.how} />
+                  <h3 className="text-xl font-bold">{sel.name}</h3>
+                  <p className="text-xs text-muted-foreground">Dominio SCARF</p>
                 </div>
-                <div className={`rounded-2xl p-5 ${c.soft} border border-border/50`}>
-                  <p className={`text-xs font-bold uppercase tracking-wider ${c.text} mb-4`}>Esquema · {sel.name}</p>
-                  <div className="space-y-3">
-                    {[
-                      { label: "Disparo", text: sel.example },
-                      { label: "Cerebro", text: `Se activa la amenaza en el dominio ${sel.name.toLowerCase()}: cortisol ↑, córtex prefrontal ↓.` },
-                      { label: "Reacción", text: sel.how },
-                      { label: "Palanca", text: `Nombrar internamente "${sel.name}" reduce la intensidad y devuelve el control.` },
-                    ].map((row, i, arr) => (
-                      <div key={i} className="relative pl-6">
-                        <span className={`absolute left-0 top-1 h-3 w-3 rounded-full ${c.bg}`} />
-                        {i < arr.length - 1 && <span className="absolute left-[5px] top-4 bottom-[-12px] w-px bg-border" />}
-                        <p className={`text-[10px] font-bold uppercase tracking-wider ${c.text}`}>{row.label}</p>
+              </div>
+
+              <div className="grid sm:grid-cols-3 gap-3 mb-4">
+                <div className="rounded-xl p-4 bg-soft/60 border border-border/50">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground mb-1">¿Qué protege?</p>
+                  <p className="text-sm leading-snug">{sel.desc}</p>
+                </div>
+                <div className="rounded-xl p-4 bg-soft/60 border border-border/50">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground mb-1">Ejemplo</p>
+                  <p className="text-sm leading-snug">{sel.example}</p>
+                </div>
+                <div className="rounded-xl p-4 bg-soft/60 border border-border/50">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground mb-1">Manifestación</p>
+                  <p className="text-sm leading-snug">{sel.how}</p>
+                </div>
+              </div>
+
+              <div className={`rounded-2xl p-4 md:p-5 ${c.soft} border border-border/50`}>
+                <p className={`text-[10px] font-bold uppercase tracking-wider ${c.text} mb-3`}>Esquema · {sel.name}</p>
+                <div className="flex flex-col md:flex-row gap-3 items-stretch">
+                  {[
+                    { label: "Disparo", text: sel.example },
+                    { label: "Cerebro", text: `Se activa la amenaza en ${sel.name.toLowerCase()}: cortisol ↑, córtex prefrontal ↓.` },
+                    { label: "Reacción", text: sel.how },
+                    { label: "Palanca", text: `Nombrar internamente "${sel.name}" reduce la intensidad y devuelve el control.` },
+                  ].map((row, i, arr) => (
+                    <div key={i} className="flex-1 flex items-stretch gap-2">
+                      <div className="flex-1 rounded-xl p-3 bg-white/60 border border-border/50">
+                        <div className="flex items-center gap-1.5 mb-1.5">
+                          <span className={`flex h-5 w-5 items-center justify-center rounded-full ${c.bg} text-white text-[10px] font-bold`}>{i + 1}</span>
+                          <p className={`text-[10px] font-bold uppercase tracking-wider ${c.text}`}>{row.label}</p>
+                        </div>
                         <p className="text-xs text-foreground/80 leading-relaxed">{row.text}</p>
                       </div>
-                    ))}
-                  </div>
+                      {i < arr.length - 1 && <ArrowRight className="hidden md:block h-4 w-4 text-muted-foreground/40 self-center shrink-0" />}
+                    </div>
+                  ))}
                 </div>
               </div>
             </motion.div>
