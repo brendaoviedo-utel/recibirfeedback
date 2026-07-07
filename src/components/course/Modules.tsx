@@ -116,7 +116,7 @@ export function Module1({ onNext }: { onNext: () => void }) {
     <Sections>
       <Hero color="cobalt" eyebrow="Módulo 1 · Neurociencia" title="Lo que le pasa a tu cerebro cuando alguien te da feedback" lead='"La defensividad no es falta de madurez. Es tu cerebro haciendo lo que evolucionó para hacer."' />
 
-      <Section title="Lunes 9:00 a.m. — la reunión" kicker="SITUACIÓN">
+      <Section title="Lunes 9:00 a.m. — la reunión" kicker="SITUACIÓN" intro="Para entender qué le pasa a tu cerebro cuando recibes feedback, empecemos por una escena concreta. Observa lo que ocurre en Rodrigo en los segundos previos a que la razón tome el control.">
         <ZoomableImage src={m1SituacionAsset.url} alt="Rodrigo recibe feedback: reacción de amenaza en el cerebro" />
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {[
