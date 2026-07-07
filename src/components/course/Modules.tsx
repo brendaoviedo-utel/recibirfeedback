@@ -636,11 +636,12 @@ function Hero({ color, eyebrow, title, lead }: { color: string; eyebrow: string;
   );
 }
 
-function Section({ kicker, title, children }: { kicker: string; title: string; children: React.ReactNode }) {
+function Section({ kicker, title, intro, children }: { kicker: string; title: string; intro?: string; children: React.ReactNode }) {
   return (
     <section>
       <p className="text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground mb-1">{kicker}</p>
-      <h2 className="text-2xl md:text-3xl font-bold mb-5 tracking-tight">{title}</h2>
+      {title && <h2 className="text-2xl md:text-3xl font-bold mb-5 tracking-tight">{title}</h2>}
+      {intro && <p className="text-base leading-relaxed text-foreground/80 mb-5 max-w-3xl">{intro}</p>}
       {children}
     </section>
   );
