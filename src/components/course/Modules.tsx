@@ -6,6 +6,7 @@ import rodrigoStoryAsset from "@/assets/rodrigo-story.png.asset.json";
 import m1SituacionAsset from "@/assets/m1-situacion.png.asset.json";
 import m1ResolucionAsset from "@/assets/m1-resolucion.png.asset.json";
 import m2PedirFeedbackSituacionAsset from "@/assets/m2-pedir-feedback-situacion.png.asset.json";
+import m2PedirFeedbackQueHariasAsset from "@/assets/M2_Pedir_feedback_Que_harias.png.asset.json";
 
 const feedbackScene = feedbackSceneAsset.url;
 const rodrigoStory = rodrigoStoryAsset.url;
@@ -400,7 +401,7 @@ export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
         <PorQuePedirlo />
       </Section>
 
-      <Section title="La escena" kicker="SITUACIÓN" intro="Rodrigo lleva seis meses en un nuevo proyecto. Ha entregado a tiempo, participa en reuniones y procura hacer un buen trabajo. Pero hay algo que le da vueltas desde hace semanas: nadie le ha dicho cómo va.">
+      <Section title="La escena" kicker="SITUACIÓN">
         <ZoomableImage src={m2PedirFeedbackSituacionAsset.url} alt="Rodrigo se cuestiona si pedir feedback sobre su desempeño en el nuevo proyecto" />
       </Section>
 
@@ -416,6 +417,7 @@ export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
 
       <Section title="" kicker="¿TÚ QUÉ HARÍAS?">
         <SceneCard quote={SCENARIO_M3.setup} />
+        <ZoomableImage src={m2PedirFeedbackQueHariasAsset.url} alt="Rodrigo reflexiona sobre qué preguntas hacer para pedir feedback" className="mt-5" />
         <div className="mt-5">
           <ScenarioChoice question={SCENARIO_M3.question} options={SCENARIO_M3.options} accent="mint" />
         </div>
