@@ -255,6 +255,16 @@ export function Module2({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
     <Sections>
       <Hero color="amber-brand" eyebrow="Módulo 3 · Disparadores" title="Los tres disparadores: lo que bloquea el feedback antes de que llegue" lead='"No rechazamos el feedback porque sea malo. Lo rechazamos porque activa algo en nosotros."' />
 
+      <Section title="De pedirlo a recibirlo" kicker="INTRODUCCIÓN" intro="En el módulo anterior aprendiste que no tienes que esperar a que otros te den feedback: puedes pedirlo, elegir el momento adecuado y hacer preguntas que generen respuestas útiles. Pero pedir feedback no garantiza que sea fácil de recibir.">
+        <div className="card-surface p-6 space-y-4 text-base leading-relaxed text-foreground/85 border-l-4 border-[var(--amber-brand)]">
+          <p>Incluso cuando lo solicitamos activamente, el cerebro puede reaccionar como si fuera una amenaza social. Por eso, antes de profundizar en la técnica de respuesta, necesitas conocer los <b>tres disparadores</b> que explican por qué el mismo comentario puede ser útil para una persona y bloqueante para otra.</p>
+          <p>Reconocerlos no los elimina, pero te da una palanca: en lugar de creer todo lo que tu mente te dice en esos primeros segundos, podrás nombrar lo que ocurre y elegir qué hacer con la información.</p>
+          <div className="rounded-xl bg-[var(--amber-brand)]/10 p-4 text-sm">
+            <b>Mensaje clave:</b> nombrar el disparador es el primer paso para dejar de reaccionar y empezar a elegir.
+          </div>
+        </div>
+      </Section>
+
       <Section title="¿Has tenido alguno de estos pensamientos?" kicker="SITUACIÓN" intro="Antes de hablar de los disparadores, reconócelos en ti. Son voces internas que se activan antes de que el contenido del feedback llegue realmente a procesarse. Estas tres frases probablemente ya las has pensado.">
         <div className="grid md:grid-cols-3 gap-3">
           {[
@@ -381,10 +391,10 @@ export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
     <Sections>
       <Hero color="mint" eyebrow="Módulo 2 · Buscar feedback" title="Si no te lo dan, pídelo" lead='"Tu crecimiento no depende solo del feedback que recibes, sino también del que decides buscar."' />
 
-      <Section title="Del reconocimiento a la acción" kicker="INTRODUCCIÓN" intro="En el módulo anterior aprendiste a identificar los tres disparadores que bloquean el feedback antes de que puedas usarlo: el disparador de verdad, que cuestiona el contenido; el de relación, que reacciona ante la persona que habla; y el de identidad, que amenaza tu narrativa sobre quién eres. Reconocerlos es el primer paso, pero no el único.">
+      <Section title="Del cerebro a la iniciativa" kicker="INTRODUCCIÓN" intro="En el módulo anterior viste que el feedback crítico activa una respuesta de amenaza en tu cerebro: el modelo SCARF explica cómo se disparan dominios como el Estatus, la Certeza o la Equidad, reduciendo la actividad del córtex prefrontal y poniéndote en modo defensivo. Reconocer ese mecanismo es el primer paso para recuperar el control.">
         <div className="card-surface p-6 space-y-4 text-base leading-relaxed text-foreground/85 border-l-4 border-[var(--mint)]">
-          <p>Ahora que sabes qué puede activarte, es momento de dar el siguiente paso: <b>no esperar a que el feedback llegue, sino ir a buscarlo</b>. Porque incluso cuando los demás no inician la conversación, tú puedes abrirla.</p>
-          <p>Este módulo te invita a convertir la búsqueda de feedback en una práctica deliberada. Verás por qué pedirlo no es una señal de debilidad, cómo elegir el momento adecuado, qué preguntas generan respuestas útiles y cómo recibir la respuesta sin que los disparadores tomen el control.</p>
+          <p>Ahora que sabes qué le pasa a tu cerebro cuando llega el feedback, puedes dar el siguiente paso: <b>no esperar a que otros inicien la conversación, sino salir a buscarla tú</b>. Pedir feedback de forma proactiva te permite elegir el momento, la pregunta y la persona, y llegar con la mente más preparada para escuchar.</p>
+          <p>Este módulo te invita a convertir la búsqueda de feedback en una práctica deliberada. Verás por qué pedirlo no es una señal de debilidad, cómo elegir el momento adecuado, qué preguntas generan respuestas útiles y cómo recibir la respuesta sin que tu sistema nervioso tome el control.</p>
           <div className="rounded-xl bg-[var(--mint)]/10 p-4 text-sm">
             <b>Mensaje clave:</b> tu crecimiento no depende solo del feedback que recibes, sino también del que decides buscar.
           </div>
