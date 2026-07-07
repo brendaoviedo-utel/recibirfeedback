@@ -1460,9 +1460,8 @@ function IntroToggle() {
           >
             <p className="text-sm font-bold uppercase tracking-wider text-[var(--coral)]">Cerebro reactivo</p>
             <p className="text-base leading-relaxed text-foreground/85">
-              Viste que el feedback crítico activa una <b>respuesta de amenaza</b>: SCARF explica cómo se disparan Estatus, Certeza o Equidad, y tu córtex prefrontal cede el control.
+              Has logrado identificar que el feedback crítico activa una respuesta natural de amenaza en tu cerebro. Además, el modelo SCARF te ayudó a comprender qué necesidades pueden verse afectadas durante una conversación de retroalimentación y cómo gestionarlas para responder con mayor apertura.
             </p>
-            <p className="text-sm text-muted-foreground">Reconocer ese mecanismo fue el primer paso.</p>
           </motion.div>
         ) : (
           <motion.div
@@ -1472,11 +1471,10 @@ function IntroToggle() {
             exit={{ opacity: 0, y: -8 }}
             className="card-surface p-6 border-l-4 border-[var(--mint)] space-y-3"
           >
-            <p className="text-sm font-bold uppercase tracking-wider text-[var(--mint)]">Cerebro proactivo</p>
+            <p className="text-sm font-bold uppercase tracking-wider text-[var(--mint)]">Ahora en el módulo 2</p>
             <p className="text-base leading-relaxed text-foreground/85">
-              El siguiente paso es <b>salir a buscarlo tú</b>: eliges el momento, la pregunta y la persona, y llegas con la mente preparada para escuchar.
+              Ya que conoces cómo gestionar tus reacciones al recibir retroalimentación, descubrirás por qué el feedback no siempre llega de forma espontánea, cuándo es el mejor momento para solicitarlo y cómo formular preguntas que generen comentarios útiles y accionables.
             </p>
-            <p className="text-sm text-muted-foreground">Pedir feedback convierte la reacción en decisión.</p>
           </motion.div>
         )}
       </AnimatePresence>
