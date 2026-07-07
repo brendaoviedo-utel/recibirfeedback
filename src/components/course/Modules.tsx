@@ -220,7 +220,7 @@ export function Module1({ onNext }: { onNext: () => void }) {
       </Section>
 
 
-      <Section title="¿Tú qué harías?" kicker="¿TÚ QUÉ HARÍAS?">
+      <Section title="" kicker="¿TÚ QUÉ HARÍAS?">
         <SceneCard quote="Rodrigo identifica: 'Todo el mundo va a pensar que no sé hacer mi trabajo.' Eso es SCARF — dominio Estatus — activándose. Tiene 3 segundos antes de que la reacción tome el control." />
         <div className="mt-5">
           <ScenarioChoice {...SCENARIO_M1} accent="cobalt" />
