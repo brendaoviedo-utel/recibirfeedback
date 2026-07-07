@@ -101,7 +101,7 @@ export function Module0({ onNext }: { onNext: () => void }) {
         </div>
       </Section>
 
-      <NextButton onClick={onNext} label="Comenzar Módulo 1" />
+      <NavigationButtons onNext={onNext} />
     </Sections>
   );
 }
@@ -246,7 +246,7 @@ export function Module1({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
         <FormativeQuiz items={QUIZ_M1} />
       </Section>
 
-      <NextButton onClick={onNext} label="Continuar al Módulo 2" />
+      <NavigationButtons onNext={onNext} onPrev={onPrev} />
     </Sections>
   );
 }
@@ -350,7 +350,7 @@ export function Module2({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
         <FormativeQuiz items={QUIZ_M2} />
       </Section>
 
-      <NextButton onClick={onNext} label="Continuar al Módulo 3" />
+      <NavigationButtons onNext={onNext} onPrev={onPrev} />
     </Sections>
   );
 }
@@ -437,7 +437,7 @@ export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
         <FormativeQuiz items={QUIZ_M3} />
       </Section>
 
-      <NextButton onClick={onNext} label="Continuar al Módulo 4" />
+      <NavigationButtons onNext={onNext} onPrev={onPrev} />
     </Sections>
   );
 }
@@ -544,7 +544,7 @@ export function Module4({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
         <FormativeQuiz items={QUIZ_M4} />
       </Section>
 
-      <NextButton onClick={onNext} label="Continuar al Módulo 5" />
+      <NavigationButtons onNext={onNext} onPrev={onPrev} />
     </Sections>
   );
 }
