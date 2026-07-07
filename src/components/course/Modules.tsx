@@ -253,7 +253,7 @@ export function Module2({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
 
   return (
     <Sections>
-      <Hero color="amber-brand" eyebrow="Módulo 2 · Disparadores" title="Tus tres disparadores: lo que bloquea el feedback antes de que llegue" lead='"No rechazamos el feedback porque sea malo. Lo rechazamos porque activa algo en nosotros."' />
+      <Hero color="amber-brand" eyebrow="Módulo 3 · Disparadores" title="Los tres disparadores: lo que bloquea el feedback antes de que llegue" lead='"No rechazamos el feedback porque sea malo. Lo rechazamos porque activa algo en nosotros."' />
 
       <Section title="¿Has tenido alguno de estos pensamientos?" kicker="SITUACIÓN" intro="Antes de hablar de los disparadores, reconócelos en ti. Son voces internas que se activan antes de que el contenido del feedback llegue realmente a procesarse. Estas tres frases probablemente ya las has pensado.">
         <div className="grid md:grid-cols-3 gap-3">
@@ -379,7 +379,7 @@ export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
   ];
   return (
     <Sections>
-      <Hero color="mint" eyebrow="Módulo 3 · Buscar feedback" title="Para recibir feedback, a veces hay que pedirlo" lead='"Tu crecimiento no depende solo del feedback que recibes, sino también del que decides buscar."' />
+      <Hero color="mint" eyebrow="Módulo 2 · Buscar feedback" title="Si no te lo dan, pídelo" lead='"Tu crecimiento no depende solo del feedback que recibes, sino también del que decides buscar."' />
 
       <Section title="Buscar feedback también es aprender" kicker="INTRODUCCIÓN" intro="Diversas investigaciones en psicología organizacional muestran que las personas que buscan feedback de forma proactiva desarrollan mayor autoconocimiento, aceleran su aprendizaje, fortalecen sus relaciones laborales y se adaptan con mayor rapidez a nuevos desafíos. Solicitar retroalimentación deja de ser una señal de inseguridad para convertirse en una práctica de mejora continua y responsabilidad sobre el propio crecimiento.">
         <div className="card-surface p-6 space-y-3 text-base leading-relaxed text-foreground/85">

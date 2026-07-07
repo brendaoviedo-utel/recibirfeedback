@@ -339,8 +339,8 @@ export const FINAL_QUIZ: QuizQ[] = [
 export const MODULES = [
   { id: 0, code: "M0", title: "¿Por qué duele aunque quieras mejorar?", subtitle: "Introducción", color: "coral", duration: "5 min" },
   { id: 1, code: "M1", title: "Lo que le pasa a tu cerebro", subtitle: "Modelo SCARF", color: "cobalt", duration: "12 min" },
-  { id: 2, code: "M2", title: "Tus tres disparadores", subtitle: "Verdad, relación, identidad", color: "amber-brand", duration: "12 min" },
-  { id: 3, code: "M3", title: "Para recibir feedback, a veces hay que pedirlo", subtitle: "Buscar feedback proactivamente", color: "mint", duration: "12 min" },
+  { id: 2, code: "M2", title: "Si no te lo dan, pídelo", subtitle: "Buscar feedback proactivamente", color: "mint", duration: "12 min" },
+  { id: 3, code: "M3", title: "Los tres disparadores", subtitle: "Verdad, relación, identidad", color: "amber-brand", duration: "12 min" },
   { id: 4, code: "M4", title: "Pausa, nombre y elige", subtitle: "La secuencia clave", color: "violet-brand", duration: "12 min" },
   { id: 5, code: "M5", title: "De la emoción a la acción", subtitle: "Tu plan real", color: "coral", duration: "8 min" },
 ] as const;
