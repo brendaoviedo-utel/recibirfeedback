@@ -11,9 +11,8 @@ const rodrigoStory = rodrigoStoryAsset.url;
 import {
   SCARF, TRIGGERS, FEEDBACK_TYPES, PNE_STEPS,
   SCENARIO_M1, SCENARIO_M2, SCENARIO_M3, SCENARIO_M4,
-  QUIZ_M1, QUIZ_M2, QUIZ_M3, QUIZ_M4,
 } from "@/lib/course-data";
-import { ScenarioChoice, ReflectionCard, FormativeQuiz, colorOf } from "./Interactives";
+import { ScenarioChoice, ReflectionCard, colorOf } from "./Interactives";
 
 const SCARF_ICONS: Record<string, any> = { S: Compass, C: Target, A: Sparkles, R: Heart, F: Scale };
 const TRIG_ICONS: Record<string, any> = { verdad: ShieldAlert, relacion: Users, identidad: User };
@@ -242,9 +241,6 @@ export function Module1({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
         ]} />
       </Section>
 
-      <Section title="Comprueba lo aprendido" kicker="Evaluación formativa">
-        <FormativeQuiz items={QUIZ_M1} />
-      </Section>
 
       <NavigationButtons onNext={onNext} onPrev={onPrev} />
     </Sections>
@@ -346,9 +342,6 @@ export function Module2({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
         ]} />
       </Section>
 
-      <Section title="Comprueba lo aprendido" kicker="Evaluación formativa">
-        <FormativeQuiz items={QUIZ_M2} />
-      </Section>
 
       <NavigationButtons onNext={onNext} onPrev={onPrev} />
     </Sections>
@@ -433,9 +426,6 @@ export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
         ]} />
       </Section>
 
-      <Section title="Comprueba lo aprendido" kicker="Evaluación formativa">
-        <FormativeQuiz items={QUIZ_M3} />
-      </Section>
 
       <NavigationButtons onNext={onNext} onPrev={onPrev} />
     </Sections>
@@ -540,9 +530,6 @@ export function Module4({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
         ]} />
       </Section>
 
-      <Section title="Comprueba lo aprendido" kicker="Evaluación formativa">
-        <FormativeQuiz items={QUIZ_M4} />
-      </Section>
 
       <NavigationButtons onNext={onNext} onPrev={onPrev} />
     </Sections>
