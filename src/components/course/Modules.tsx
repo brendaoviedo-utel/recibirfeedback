@@ -398,79 +398,15 @@ export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
         </div>
       </Section>
 
-      <Section title="De esperar respuestas a generar conversaciones" kicker="CONCEPTO">
-        <div className="space-y-6">
-          <div className="card-surface p-6 border-l-4 border-[var(--mint)]">
-            <h4 className="font-bold text-lg mb-3">¿Por qué esperar feedback no siempre funciona?</h4>
-            <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Ideas clave</p>
-            <ul className="space-y-1.5 text-sm mb-4">
-              <li>• El feedback no siempre ocurre de manera espontánea.</li>
-              <li>• Los líderes equilibran múltiples prioridades y pueden asumir que "si no hay problemas, todo va bien".</li>
-              <li>• Esperar pasivamente limita las oportunidades de aprendizaje.</li>
-              <li>• Buscar feedback es asumir un rol activo en el propio desarrollo.</li>
-            </ul>
-            <div className="rounded-xl bg-[var(--mint)]/10 p-4 text-sm italic">
-              <b>Reflexión:</b> el feedback no es únicamente responsabilidad del líder; también es responsabilidad de quien desea crecer.
-            </div>
-          </div>
-
-          <div className="card-surface p-6 border-l-4 border-[var(--cobalt)]">
-            <h4 className="font-bold text-lg mb-3">El momento adecuado para pedir feedback</h4>
-            <p className="text-sm text-foreground/80 mb-3">Estas son situaciones en las que es más probable obtener comentarios útiles:</p>
-            <ul className="grid md:grid-cols-2 gap-1.5 text-sm mb-4">
-              {momentos.map((m, i) => (
-                <li key={i} className="flex gap-2"><span className="text-[var(--cobalt)] font-bold">›</span><span>{m}</span></li>
-              ))}
-            </ul>
-            <div className="rounded-xl bg-[var(--cobalt)]/10 p-4 text-sm">
-              <b>Mensaje clave:</b> mientras más cercana esté la conversación al evento, más útil será la retroalimentación.
-            </div>
-          </div>
-
-          <div className="card-surface p-6 border-l-4 border-[var(--amber-brand)]">
-            <h4 className="font-bold text-lg mb-1">Las preguntas que generan buen feedback</h4>
-            <p className="text-sm text-muted-foreground mb-4">Aquí está el corazón del módulo: cambiar la pregunta cambia la respuesta.</p>
-            <div className="overflow-hidden rounded-xl border border-border">
-              <div className="grid grid-cols-2 text-xs font-bold uppercase tracking-wider">
-                <div className="bg-[var(--coral)]/10 text-[var(--coral)] p-3">En lugar de preguntar…</div>
-                <div className="bg-[var(--mint)]/10 text-[var(--mint)] p-3">Prueba preguntar…</div>
-              </div>
-              {preguntas.map((p, i) => (
-                <div key={i} className="grid grid-cols-2 text-sm border-t border-border">
-                  <div className="p-3 text-foreground/70 italic">{p.poor}</div>
-                  <div className="p-3 font-semibold">{p.good}</div>
-                </div>
-              ))}
-            </div>
-            <div className="mt-4 rounded-xl bg-[var(--amber-brand)]/10 p-4 text-sm">
-              <b>Principio:</b> las preguntas específicas generan respuestas específicas.
-            </div>
-          </div>
-
-          <div className="card-surface p-6 border-l-4 border-[var(--violet-brand)]">
-            <h4 className="font-bold text-lg mb-3">Cómo recibir la respuesta</h4>
-            <p className="text-sm text-foreground/80 mb-3">Pedir feedback también implica saber qué hacer cuando llega. Buenas prácticas:</p>
-            <ul className="space-y-1.5 text-sm">
-              {recibir.map((r, i) => (
-                <li key={i} className="flex gap-2"><span className="text-[var(--violet-brand)] font-bold">✓</span><span>{r}</span></li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="card-surface p-6 border-l-4 border-[var(--coral)]">
-            <h4 className="font-bold text-lg mb-3">Convierte el feedback en un hábito</h4>
-            <p className="text-sm text-foreground/80 mb-3">No lo pidas únicamente cuando algo salió mal. Algunas prácticas:</p>
-            <ul className="space-y-1.5 text-sm mb-4">
-              {habito.map((h, i) => (
-                <li key={i} className="flex gap-2"><span className="text-[var(--coral)] font-bold">•</span><span>{h}</span></li>
-              ))}
-            </ul>
-            <div className="rounded-xl bg-[var(--coral)]/10 p-4 text-sm italic">
-              <b>Idea final:</b> el feedback deja de ser un evento y se convierte en un hábito de aprendizaje.
-            </div>
-          </div>
-        </div>
+      <Section title="De esperar respuestas a generar conversaciones" kicker="CONCEPTO" intro="Cinco ideas, cinco cambios de mentalidad. Recórrelas a tu ritmo: cada pestaña despliega una parte distinta del hábito de pedir feedback. No es lectura pasiva — al abrir cada una, elige quedarte con la idea que más te representa.">
+        <ConceptoInteractivo
+          momentos={momentos}
+          preguntas={preguntas}
+          recibir={recibir}
+          habito={habito}
+        />
       </Section>
+
 
       <Section title="" kicker="¿TÚ QUÉ HARÍAS?">
         <SceneCard quote={SCENARIO_M3.setup} />
