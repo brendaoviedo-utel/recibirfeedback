@@ -4,6 +4,7 @@ import { Brain, Zap, Target, Sparkles, BookOpen, Activity, MessageSquare, Heart,
 import feedbackSceneAsset from "@/assets/feedback-scene.png.asset.json";
 import rodrigoStoryAsset from "@/assets/rodrigo-story.png.asset.json";
 import m1SituacionAsset from "@/assets/m1-situacion.png.asset.json";
+import m1ResolucionAsset from "@/assets/m1-resolucion.png.asset.json";
 
 const feedbackScene = feedbackSceneAsset.url;
 const rodrigoStory = rodrigoStoryAsset.url;
@@ -219,15 +220,19 @@ export function Module1({ onNext }: { onNext: () => void }) {
       </Section>
 
 
-      <Section title="La Huella en acción" kicker="Reto">
+      <Section title="¿Tú qué harías?" kicker="¿TÚ QUÉ HARÍAS?">
         <SceneCard quote="Rodrigo identifica: 'Todo el mundo va a pensar que no sé hacer mi trabajo.' Eso es SCARF — dominio Estatus — activándose. Tiene 3 segundos antes de que la reacción tome el control." />
         <div className="mt-5">
           <ScenarioChoice {...SCENARIO_M1} accent="cobalt" />
         </div>
-        <blockquote className="mt-6 border-l-4 border-[var(--cobalt)] pl-4 italic text-foreground/80">
-          "Dos segundos. Eso fue todo lo que necesité para que mi cerebro dejara de estar en modo defensa y empezara a estar en modo aprendizaje." — Rodrigo
-        </blockquote>
       </Section>
+
+      <Section title="Dos segundos que lo cambian todo" kicker="RESOLUCIÓN">
+        <ZoomableImage src={m1ResolucionAsset.url} alt="Rodrigo pasa de modo defensa a modo aprendizaje en dos segundos" />
+      </Section>
+
+      <ScarfSelfDiscovery />
+
 
       <Section title="Tu turno" kicker="Reflexión personal">
         <ReflectionCard accent="cobalt" prompts={[
@@ -735,5 +740,139 @@ function ZoomableImage({ src, alt }: { src: string; alt: string }) {
         )}
       </AnimatePresence>
     </>
+  );
+}
+
+/* ============== SCARF Self-Discovery Quiz (Módulo 1) ============== */
+const SCARF_QUIZ: { q: string; options: { text: string; key: "S" | "C" | "A" | "R" | "F" }[] }[] = [
+  {
+    q: "Cuando recibes feedback crítico frente a otros, lo que más te incomoda es…",
+    options: [
+      { text: "Que mi imagen o competencia queden en duda ante los demás.", key: "S" },
+      { text: "No entender exactamente qué esperan de mí a partir de ahora.", key: "C" },
+      { text: "Sentir que me imponen cómo debo trabajar.", key: "A" },
+      { text: "Que venga de alguien con quien no siento confianza.", key: "R" },
+      { text: "Percibir que el criterio no se aplica igual a todos.", key: "F" },
+    ],
+  },
+  {
+    q: "El tipo de feedback que más te descoloca es…",
+    options: [
+      { text: "El que expone un error mío frente al equipo.", key: "S" },
+      { text: "El que es vago, sin ejemplos ni consecuencias claras.", key: "C" },
+      { text: "El que suena a orden más que a conversación.", key: "A" },
+      { text: "El que llega de alguien con quien hay tensión previa.", key: "R" },
+      { text: "El que percibo como arbitrario o inconsistente.", key: "F" },
+    ],
+  },
+  {
+    q: "Cuando algo te activa, tu reacción interna más frecuente es…",
+    options: [
+      { text: "Vergüenza y ganas de justificarme.", key: "S" },
+      { text: "Ansiedad y rumiación: ¿y ahora qué?", key: "C" },
+      { text: "Resistencia: quiero contradecir o negociar.", key: "A" },
+      { text: "'No es quién para decirme esto.'", key: "R" },
+      { text: "Indignación y cierre emocional.", key: "F" },
+    ],
+  },
+  {
+    q: "Lo que más valoras cuando alguien te da feedback es que…",
+    options: [
+      { text: "Cuide la forma y no me deje mal parado.", key: "S" },
+      { text: "Sea concreto, con ejemplos y próximos pasos.", key: "C" },
+      { text: "Me deje elegir cómo aplicarlo.", key: "A" },
+      { text: "Haya una relación de confianza detrás.", key: "R" },
+      { text: "Use el mismo criterio con todos.", key: "F" },
+    ],
+  },
+  {
+    q: "Lo que más te cuesta soltar después de una conversación difícil es…",
+    options: [
+      { text: "La sensación de haber quedado mal ante otros.", key: "S" },
+      { text: "La incertidumbre de qué pasará ahora.", key: "C" },
+      { text: "Sentir que perdí control sobre mi trabajo.", key: "A" },
+      { text: "El vínculo dañado con esa persona.", key: "R" },
+      { text: "La sensación de injusticia.", key: "F" },
+    ],
+  },
+];
+
+const SCARF_FEEDBACK: Record<string, { name: string; color: string; insight: string; palanca: string }> = {
+  S: { name: "Estatus", color: "coral", insight: "Te activas cuando sientes que tu posición o competencia queda en entredicho — sobre todo frente a otros.", palanca: "Recuérdate: el feedback describe un comportamiento, no define tu valor. Escuchar no te rebaja; te da información." },
+  C: { name: "Certeza", color: "cobalt", insight: "Te activas cuando el feedback es vago o abre demasiadas incógnitas sobre lo que sigue.", palanca: "Pide concreción: '¿Qué ejemplo específico? ¿Qué esperas la próxima vez?' Recuperas certeza convirtiendo lo ambiguo en acción." },
+  A: { name: "Autonomía", color: "mint", insight: "Te activas cuando el feedback suena a imposición o cierra tu margen de decisión.", palanca: "Recupera autonomía preguntando: '¿Qué parte queda a mi criterio?' Elegir cómo aplicarlo te devuelve control." },
+  R: { name: "Relación", color: "violet-brand", insight: "Te activas cuando el mensaje viene de alguien con quien no hay confianza o hay conflicto previo.", palanca: "Separa el mensajero del mensaje: '¿Qué de esto sería útil si viniera de alguien en quien confío?'" },
+  F: { name: "Equidad", color: "amber-brand", insight: "Te activas cuando percibes que las reglas o el criterio no se aplican igual para todos.", palanca: "Nombra la percepción sin acusar: 'Quiero entender el criterio detrás de esto.' Reduces la sensación de injusticia sin cerrarte." },
+};
+
+function ScarfSelfDiscovery() {
+  const [answers, setAnswers] = useState<Record<number, "S" | "C" | "A" | "R" | "F">>({});
+  const done = Object.keys(answers).length === SCARF_QUIZ.length;
+
+  const tally = Object.values(answers).reduce<Record<string, number>>((acc, k) => {
+    acc[k] = (acc[k] || 0) + 1;
+    return acc;
+  }, {});
+  const dominant = done
+    ? (Object.entries(tally).sort((a, b) => b[1] - a[1])[0][0] as "S" | "C" | "A" | "R" | "F")
+    : null;
+  const result = dominant ? SCARF_FEEDBACK[dominant] : null;
+  const rc = result ? colorOf(result.color) : null;
+
+  return (
+    <Section title="¿Cuál es tu dominio SCARF dominante?" kicker="AUTODESCUBRIMIENTO">
+      <p className="text-sm text-muted-foreground mb-5">
+        Responde honestamente. Al terminar, verás cuál dominio se activa más en ti al recibir feedback — y una palanca concreta para trabajarlo.
+      </p>
+      <div className="space-y-4">
+        {SCARF_QUIZ.map((item, i) => (
+          <div key={i} className="card-surface p-5">
+            <p className="text-sm font-bold text-muted-foreground mb-1">Pregunta {i + 1} de {SCARF_QUIZ.length}</p>
+            <p className="text-base font-semibold mb-3">{item.q}</p>
+            <div className="grid gap-2">
+              {item.options.map((opt, j) => {
+                const active = answers[i] === opt.key;
+                return (
+                  <button
+                    key={j}
+                    type="button"
+                    onClick={() => setAnswers((a) => ({ ...a, [i]: opt.key }))}
+                    className={`text-left rounded-xl border-2 px-4 py-3 text-sm transition ${active ? "border-[var(--cobalt)] bg-[var(--cobalt)]/8 font-semibold" : "border-border hover:border-foreground/30"}`}
+                  >
+                    {opt.text}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <AnimatePresence>
+        {done && result && rc && (
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-6 card-surface p-6 border-t-4"
+            style={{ borderTopColor: `var(--${result.color})` }}
+          >
+            <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">Tu dominio dominante</p>
+            <h4 className="text-2xl font-bold mb-2">{result.name}</h4>
+            <p className="text-sm text-foreground/85 leading-relaxed mb-4">{result.insight}</p>
+            <div className={`rounded-xl ${rc.soft} p-4`}>
+              <p className={`text-xs font-bold uppercase tracking-wider ${rc.text} mb-1`}>Tu palanca</p>
+              <p className="text-sm text-foreground/85 leading-relaxed">{result.palanca}</p>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {(["S", "C", "A", "R", "F"] as const).map((k) => (
+                <span key={k} className="text-xs rounded-full border border-border px-3 py-1 text-muted-foreground">
+                  {SCARF_FEEDBACK[k].name}: <b className="text-foreground">{tally[k] || 0}</b>
+                </span>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </Section>
   );
 }
