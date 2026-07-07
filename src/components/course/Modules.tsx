@@ -235,7 +235,7 @@ export function Module1({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
 
 
       <Section title="Tu turno" kicker="Reflexión personal">
-        <ReflectionCard accent="cobalt" prompts={[
+        <ReflectionWithSave accent="cobalt" prompts={[
           "¿Cuál de los 5 dominios SCARF sientes que se activa más cuando recibes feedback? ¿Qué situaciones lo disparan?",
           "¿Cómo se manifiesta en ti? ¿Qué haces o dejas de hacer en ese momento?",
           "Compromiso: La próxima vez que reciba feedback que active mi dominio dominante, voy a…",
@@ -339,7 +339,7 @@ export function Module2({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
 
 
       <Section title="Tu turno" kicker="Reflexión personal">
-        <ReflectionCard accent="amber-brand" prompts={[
+        <ReflectionWithSave accent="amber-brand" prompts={[
           "¿Cuál de los 3 disparadores reconoces como más frecuente en ti? ¿En qué situaciones se activa con más fuerza?",
           "Piensa en un feedback reciente que te costó recibir. ¿Qué disparador estaba activo? ¿Había algo válido que no pudiste procesar?",
           "Mi protocolo cuando se activa mi disparador dominante: 'Cuando sienta que se activa, voy a… antes de responder.'",
@@ -426,7 +426,7 @@ export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
       </Section>
 
       <Section title="Tu turno" kicker="Reflexión personal">
-        <ReflectionCard accent="mint" prompts={[
+        <ReflectionWithSave accent="mint" prompts={[
           "¿Recuerdas una conversación de feedback que generó frustración? ¿Hubo confusión entre los tres tipos?",
           "¿Qué tipo de feedback recibes más en tu área? ¿Cuál recibes menos y necesitarías más?",
           "Compromiso: La próxima vez que tenga una conversación de feedback, antes de empezar voy a preguntar…",
@@ -533,7 +533,7 @@ export function Module4({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
       </Section>
 
       <Section title="Tu turno" kicker="Reflexión personal">
-        <ReflectionCard accent="violet-brand" prompts={[
+        <ReflectionWithSave accent="violet-brand" prompts={[
           "Piensa en la última vez que recibiste feedback que activó algo fuerte. ¿Cuánto pasó entre el feedback y tu respuesta? ¿Qué hubiera cambiado con 3 segundos más?",
           "¿En qué situaciones (público, líder, alguien que no respetas) te será más difícil aplicar la pausa?",
           "Si recibo feedback que activa [disparador] en [contexto], entonces voy a [acción concreta].",
