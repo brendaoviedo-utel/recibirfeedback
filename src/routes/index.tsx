@@ -117,7 +117,7 @@ function Landing({ onStart }: { onStart: () => void }) {
           {MODULES.map((m, i) => (
             <motion.div key={m.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 * i }}
               className="card-surface p-5 hover:shadow-lg transition">
-              <p className="text-3xl font-black mb-2" style={{ color: `var(--${m.color})` }}>{m.code.replace("M", "")}</p>
+              <p className="text-3xl font-black mb-2" style={{ color: `var(--${m.color})` }}>{m.code.replace("M", "").padStart(2, "0")}</p>
               <h3 className="font-bold mb-1.5">{m.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{m.subtitle}</p>
             </motion.div>
