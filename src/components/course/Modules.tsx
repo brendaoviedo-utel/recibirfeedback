@@ -1426,3 +1426,151 @@ function SteppedQuiz({ items, accent = "mint" }: { items: typeof QUIZ_M3_AUTO; a
     </div>
   );
 }
+
+/* ---------- Intro interactivo Módulo 2 ---------- */
+function IntroToggle() {
+  const [side, setSide] = useState<"antes" | "ahora">("antes");
+  const isAntes = side === "antes";
+  return (
+    <div className="space-y-4">
+      <div className="inline-flex rounded-full bg-muted p-1 gap-1">
+        <button
+          onClick={() => setSide("antes")}
+          className={`px-4 py-2 rounded-full text-sm font-semibold transition ${isAntes ? "bg-white shadow text-foreground" : "text-muted-foreground"}`}
+        >
+          <Brain className="inline h-4 w-4 mr-1.5 -mt-0.5" />
+          En el módulo 1
+        </button>
+        <button
+          onClick={() => setSide("ahora")}
+          className={`px-4 py-2 rounded-full text-sm font-semibold transition ${!isAntes ? "bg-white shadow text-foreground" : "text-muted-foreground"}`}
+        >
+          <Zap className="inline h-4 w-4 mr-1.5 -mt-0.5" />
+          Ahora en el módulo 2
+        </button>
+      </div>
+
+      <AnimatePresence mode="wait">
+        {isAntes ? (
+          <motion.div
+            key="antes"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            className="card-surface p-6 border-l-4 border-[var(--coral)] space-y-3"
+          >
+            <p className="text-sm font-bold uppercase tracking-wider text-[var(--coral)]">Cerebro reactivo</p>
+            <p className="text-base leading-relaxed text-foreground/85">
+              Viste que el feedback crítico activa una <b>respuesta de amenaza</b>: SCARF explica cómo se disparan Estatus, Certeza o Equidad, y tu córtex prefrontal cede el control.
+            </p>
+            <p className="text-sm text-muted-foreground">Reconocer ese mecanismo fue el primer paso.</p>
+          </motion.div>
+        ) : (
+          <motion.div
+            key="ahora"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            className="card-surface p-6 border-l-4 border-[var(--mint)] space-y-3"
+          >
+            <p className="text-sm font-bold uppercase tracking-wider text-[var(--mint)]">Cerebro proactivo</p>
+            <p className="text-base leading-relaxed text-foreground/85">
+              El siguiente paso es <b>salir a buscarlo tú</b>: eliges el momento, la pregunta y la persona, y llegas con la mente preparada para escuchar.
+            </p>
+            <p className="text-sm text-muted-foreground">Pedir feedback convierte la reacción en decisión.</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <div className="rounded-xl bg-[var(--mint)]/10 p-4 text-sm">
+        <b>Mensaje clave:</b> tu crecimiento no depende solo del feedback que recibes, sino también del que decides buscar.
+      </div>
+    </div>
+  );
+}
+
+/* ---------- ¿Por qué pedirlo? interactivo ---------- */
+function PorQuePedirlo() {
+  const beneficios = [
+    { icon: Compass, title: "Autoconocimiento", short: "Ves puntos ciegos", detail: "Pedir feedback específico revela cómo te perciben y qué patrones repites sin darte cuenta." },
+    { icon: BookOpen, title: "Aprendizaje", short: "Acelera tu curva", detail: "Cada conversación acorta el ciclo prueba-error: aprendes en semanas lo que tomaría meses de intuición." },
+    { icon: Users, title: "Relaciones", short: "Genera confianza", detail: "Preguntar comunica interés genuino y madurez profesional. Las personas se sienten valoradas al ser consultadas." },
+    { icon: Activity, title: "Adaptación", short: "Te mueves más rápido", detail: "Detectas cambios de contexto y expectativas antes de que se vuelvan un problema visible." },
+  ];
+  const [open, setOpen] = useState<number | null>(0);
+  const [mito, setMito] = useState(false);
+  return (
+    <div className="space-y-5">
+      <div className="grid sm:grid-cols-2 gap-3">
+        {beneficios.map((b, i) => {
+          const Icon = b.icon;
+          const isOpen = open === i;
+          return (
+            <motion.button
+              key={i}
+              whileHover={{ y: -2 }}
+              onClick={() => setOpen(isOpen ? null : i)}
+              className={`text-left rounded-2xl border-2 p-4 transition ${isOpen ? "border-[var(--mint)] bg-[var(--mint)]/8" : "border-border bg-card hover:border-foreground/20"}`}
+            >
+              <div className="flex items-center gap-3">
+                <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${isOpen ? "bg-[var(--mint)] text-white" : "bg-[var(--mint)]/10 text-[var(--mint)]"}`}>
+                  <Icon className="h-5 w-5" />
+                </div>
+                <div className="flex-1">
+                  <p className="font-bold text-sm">{b.title}</p>
+                  <p className="text-xs text-muted-foreground">{b.short}</p>
+                </div>
+                <ChevronRight className={`h-4 w-4 text-muted-foreground transition ${isOpen ? "rotate-90" : ""}`} />
+              </div>
+              <AnimatePresence>
+                {isOpen && (
+                  <motion.p
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="text-sm text-foreground/80 leading-relaxed mt-3 overflow-hidden"
+                  >
+                    {b.detail}
+                  </motion.p>
+                )}
+              </AnimatePresence>
+            </motion.button>
+          );
+        })}
+      </div>
+
+      <div className="card-surface p-5">
+        <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">Mito vs realidad</p>
+        <div className="grid sm:grid-cols-2 gap-3">
+          <button
+            onClick={() => setMito(false)}
+            className={`text-left rounded-xl border-2 p-4 transition ${!mito ? "border-[var(--coral)] bg-[var(--coral)]/8" : "border-border bg-card"}`}
+          >
+            <p className="text-xs font-bold text-[var(--coral)] mb-1">MITO</p>
+            <p className="text-sm font-semibold">"Pedir feedback me hace ver inseguro."</p>
+          </button>
+          <button
+            onClick={() => setMito(true)}
+            className={`text-left rounded-xl border-2 p-4 transition ${mito ? "border-[var(--mint)] bg-[var(--mint)]/8" : "border-border bg-card"}`}
+          >
+            <p className="text-xs font-bold text-[var(--mint)] mb-1">REALIDAD</p>
+            <p className="text-sm font-semibold">Pedirlo demuestra compromiso con mejorar.</p>
+          </button>
+        </div>
+        <AnimatePresence mode="wait">
+          <motion.p
+            key={mito ? "r" : "m"}
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            className="text-sm text-foreground/80 leading-relaxed mt-4"
+          >
+            {mito
+              ? "Quienes piden feedback con frecuencia son percibidos como más competentes y responsables de su desarrollo, no como personas dudosas de sí mismas."
+              : "En realidad, esperar a que el feedback llegue solo es lo que retrasa el aprendizaje. La iniciativa es una señal de madurez profesional."}
+          </motion.p>
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+}
