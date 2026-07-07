@@ -753,14 +753,14 @@ function ReflectionWithSave({ prompts, accent }: { prompts: string[]; accent?: s
   );
 }
 
-function ZoomableImage({ src, alt }: { src: string; alt: string }) {
+function ZoomableImage({ src, alt, className }: { src: string; alt: string; className?: string }) {
   const [open, setOpen] = useState(false);
   return (
     <>
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="group relative block w-full overflow-hidden rounded-2xl border border-border shadow-sm hover:shadow-lg transition"
+        className={`group relative block w-full overflow-hidden rounded-2xl border border-border shadow-sm hover:shadow-lg transition ${className ?? ""}`}
         aria-label="Ampliar imagen"
       >
         <img src={src} alt={alt} className="w-full h-auto object-cover transition group-hover:scale-[1.01]" loading="lazy" />
