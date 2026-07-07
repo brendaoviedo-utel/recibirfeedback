@@ -12,7 +12,7 @@ import {
   SCARF, TRIGGERS, FEEDBACK_TYPES, PNE_STEPS,
   SCENARIO_M1, SCENARIO_M2, SCENARIO_M3, SCENARIO_M4,
 } from "@/lib/course-data";
-import { ScenarioChoice, ReflectionCard, colorOf } from "./Interactives";
+import { ScenarioChoice, ReflectionCard, FormativeQuiz, colorOf } from "./Interactives";
 
 const SCARF_ICONS: Record<string, any> = { S: Compass, C: Target, A: Sparkles, R: Heart, F: Scale };
 const TRIG_ICONS: Record<string, any> = { verdad: ShieldAlert, relacion: Users, identidad: User };
