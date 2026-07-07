@@ -94,15 +94,62 @@ export const SCENARIO_M2: { setup: string; voices: string[]; question: string; o
 };
 
 export const SCENARIO_M3: { setup: string; question: string; options: ScenarioOption[] } = {
-  setup: "Miércoles. Rodrigo llegó esperando reconocimiento por resolver una crisis. Su líder abre con: 'Quería hablar contigo sobre la crisis. Creo que hay aprendizajes importantes en cómo anticipar este tipo de situaciones.' Rodrigo esperaba apreciación, recibió coaching.",
-  question: "¿Qué harías?",
+  setup: "Rodrigo quiere saber qué hizo bien y qué podría mejorar para futuros proyectos, pero no está seguro de cómo abordar el tema.",
+  question: "Si estuvieras en su lugar, ¿qué harías?",
   options: [
-    { id: "A", label: "Escuchar el coaching con resentimiento y procesarlo como falta de reconocimiento.", feedback: "La emoción no procesada interfiere con el aprendizaje. Puedes salir con el coaching y sin la apreciación — y ninguna sirve bien." },
-    { id: "B", label: "Interrumpir para pedir reconocimiento primero.", feedback: "Expresar lo que necesitas es válido. El riesgo es el tono: 'primero reconóceme' cierra; 'quiero recibirlo bien, ¿podemos también hablar de…?' abre." },
-    { id: "C", label: "Escuchar el coaching con apertura y al final pedir: 'Gracias, esto es útil. ¿Lo de la semana pasada estuvo bien desde tu perspectiva?'", correct: true, feedback: "¡Correcto! Separar la necesidad de apreciación del coaching permite recibir ambas. El líder respondió con reconocimiento real. Ninguna conversación interfirió con la otra." },
-    { id: "D", label: "Preguntar al inicio: '¿Es para darme retroalimentación de desarrollo o para reconocer algo?'", correct: true, feedback: "¡También válido! La pregunta de alineación previene la frustración antes de que ocurra. C y D son las dos respuestas más alineadas con la habilidad." },
+    { id: "A", label: "Esperaría a que mi líder me diera feedback cuando lo considerara necesario.", feedback: "Es una reacción común, pero esperar pasivamente puede retrasar tu aprendizaje. Si nadie inicia la conversación, podrías perder oportunidades valiosas para mejorar." },
+    { id: "B", label: "Le preguntaría a mi líder: '¿Todo estuvo bien con el proyecto?'", feedback: "Es un buen primer paso porque tomas la iniciativa. Sin embargo, una pregunta tan general suele generar respuestas igual de generales, como 'Sí, todo bien', sin información realmente útil." },
+    { id: "C", label: "Solicitaría unos minutos para conversar y preguntaría: 'Quisiera seguir mejorando. ¿Qué consideras que hice bien en este proyecto y cuál sería una acción concreta que podría implementar para obtener mejores resultados en el siguiente?'", correct: true, feedback: "¡Excelente decisión! Pides feedback de forma oportuna, expresas tu intención de aprender y haces preguntas específicas que facilitan recibir comentarios claros y accionables." },
+    { id: "D", label: "Le pediría retroalimentación a varios compañeros para comparar opiniones y decidir cuál seguir.", feedback: "Buscar diferentes perspectivas puede enriquecer tu aprendizaje. Sin embargo, cuando se trata de expectativas sobre tu desempeño, es recomendable comenzar con la persona que observa tu trabajo desde el rol de liderazgo y puede orientarte con mayor claridad." },
   ],
 };
+
+export const QUIZ_M3_AUTO: QuizQ[] = [
+  {
+    q: "Terminas un proyecto importante y nadie comenta tu desempeño. ¿Qué haces?",
+    options: [
+      { id: "A", text: "Espero a que mi líder me dé feedback cuando tenga oportunidad." },
+      { id: "B", text: "Pregunto si todo estuvo bien." },
+      { id: "C", text: "Solicito unos minutos para pedir retroalimentación específica sobre lo que hice bien y lo que puedo mejorar." },
+    ],
+    correct: "C",
+    fbCorrect: "¡Correcto! La iniciativa y las preguntas específicas generan un feedback de mayor valor.",
+    fbIncorrect: "Esperar puede retrasar oportunidades de aprendizaje y una pregunta general suele generar respuestas poco útiles. La opción C combina iniciativa y especificidad.",
+  },
+  {
+    q: "¿Cuál de estas preguntas tiene más probabilidades de generar feedback útil?",
+    options: [
+      { id: "A", text: "¿Todo bien?" },
+      { id: "B", text: "¿Qué opinas?" },
+      { id: "C", text: "¿Qué acción tendría mayor impacto si quiero mejorar mi desempeño en la siguiente entrega?" },
+    ],
+    correct: "C",
+    fbCorrect: "¡Correcto! Las preguntas específicas ayudan a recibir respuestas específicas y accionables.",
+    fbIncorrect: "Las preguntas generales generan respuestas generales. Las preguntas específicas generan feedback accionable.",
+  },
+  {
+    q: "Recibes un comentario con el que no estás completamente de acuerdo. ¿Qué haces primero?",
+    options: [
+      { id: "A", text: "Explico inmediatamente por qué actué así." },
+      { id: "B", text: "Escucho, hago preguntas para entender mejor el comentario y agradezco la retroalimentación." },
+      { id: "C", text: "Lo ignoro porque cada persona tiene una opinión diferente." },
+    ],
+    correct: "B",
+    fbCorrect: "¡Correcto! Antes de responder, procura comprender. Escuchar con apertura te permitirá identificar qué información puede ayudarte a mejorar.",
+    fbIncorrect: "Antes de justificar o descartar, escucha y pregunta para comprender. Ahí está la información útil.",
+  },
+  {
+    q: "¿Cuál es el mejor momento para pedir feedback?",
+    options: [
+      { id: "A", text: "Durante la evaluación anual." },
+      { id: "B", text: "Cuando haya un problema." },
+      { id: "C", text: "Poco después de una actividad o proyecto importante, mientras los hechos aún están recientes." },
+    ],
+    correct: "C",
+    fbCorrect: "¡Correcto! Mientras más cercana esté la conversación al evento, más fácil será recibir ejemplos concretos y recomendaciones útiles.",
+    fbIncorrect: "Mientras más cercano al evento, mejor. Esperar a la evaluación o al problema reduce la utilidad del feedback.",
+  },
+];
 
 export const SCENARIO_M4: { setup: string; question: string; options: ScenarioOption[] } = {
   setup: "Jueves. Reunión de dirección. Un director que respetas dice: 'Rodrigo, tomaste decisiones unilaterales que debieron consultarse. Eso generó fricciones evitables.' Silencio. Todos miran. Los tres disparadores se activan a la vez.",
@@ -293,7 +340,7 @@ export const MODULES = [
   { id: 0, code: "M0", title: "¿Por qué duele aunque quieras mejorar?", subtitle: "Introducción", color: "coral", duration: "5 min" },
   { id: 1, code: "M1", title: "Lo que le pasa a tu cerebro", subtitle: "Modelo SCARF", color: "cobalt", duration: "12 min" },
   { id: 2, code: "M2", title: "Tus tres disparadores", subtitle: "Verdad, relación, identidad", color: "amber-brand", duration: "12 min" },
-  { id: 3, code: "M3", title: "Tres conversaciones que se confunden", subtitle: "Apreciación, coaching, evaluación", color: "mint", duration: "10 min" },
+  { id: 3, code: "M3", title: "Para recibir feedback, a veces hay que pedirlo", subtitle: "Buscar feedback proactivamente", color: "mint", duration: "12 min" },
   { id: 4, code: "M4", title: "Pausa, nombre y elige", subtitle: "La secuencia clave", color: "violet-brand", duration: "12 min" },
   { id: 5, code: "M5", title: "De la emoción a la acción", subtitle: "Tu plan real", color: "coral", duration: "8 min" },
 ] as const;

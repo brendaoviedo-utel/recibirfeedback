@@ -10,9 +10,9 @@ const feedbackScene = feedbackSceneAsset.url;
 const rodrigoStory = rodrigoStoryAsset.url;
 import {
   SCARF, TRIGGERS, FEEDBACK_TYPES, PNE_STEPS,
-  SCENARIO_M1, SCENARIO_M2, SCENARIO_M3, SCENARIO_M4,
+  SCENARIO_M1, SCENARIO_M2, SCENARIO_M3, SCENARIO_M4, QUIZ_M3_AUTO,
 } from "@/lib/course-data";
-import { ScenarioChoice, ReflectionCard, colorOf } from "./Interactives";
+import { ScenarioChoice, ReflectionCard, FormativeQuiz, colorOf } from "./Interactives";
 
 const SCARF_ICONS: Record<string, any> = { S: Compass, C: Target, A: Sparkles, R: Heart, F: Scale };
 const TRIG_ICONS: Record<string, any> = { verdad: ShieldAlert, relacion: Users, identidad: User };
@@ -350,61 +350,125 @@ export function Module2({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
 
 /* ============== MODULE 3 — Three types ============== */
 export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => void }) {
-  const [tab, setTab] = useState(0);
-  const t = FEEDBACK_TYPES[tab];
-  const c = colorOf(t.color);
+  const momentos = [
+    "Después de una presentación.",
+    "Al terminar un proyecto.",
+    "Tras atender un cliente importante.",
+    "Después de una reunión relevante.",
+    "Al finalizar el primer mes en un nuevo puesto.",
+    "Después de implementar una mejora.",
+  ];
+  const preguntas = [
+    { poor: "¿Cómo voy?", good: "¿Qué hice bien en esta presentación?" },
+    { poor: "¿Todo estuvo bien?", good: "¿Qué podría hacer diferente la próxima vez?" },
+    { poor: "¿Qué opinas?", good: "Si solo pudiera mejorar una cosa, ¿cuál tendría mayor impacto?" },
+    { poor: "¿Algún comentario?", good: "¿Hubo algún momento en el que pude haber generado más valor?" },
+  ];
+  const recibir = [
+    "Escuchar sin interrumpir.",
+    "Evitar justificar cada comentario.",
+    "Hacer preguntas para comprender.",
+    "Agradecer el tiempo.",
+    "Elegir una acción concreta para aplicar.",
+  ];
+  const habito = [
+    "Agendar conversaciones periódicas.",
+    "Solicitar feedback después de proyectos importantes.",
+    "Preguntar a compañeros, clientes internos y líderes.",
+    "Dar seguimiento mostrando qué cambió gracias al feedback recibido.",
+  ];
   return (
     <Sections>
-      <Hero color="mint" eyebrow="Módulo 3 · Tipos de feedback" title="Tres conversaciones que se confunden" lead='"Muchas conversaciones de feedback fallan no porque sea malo, sino porque emisor y receptor hablan de cosas distintas sin saberlo."' />
+      <Hero color="mint" eyebrow="Módulo 3 · Buscar feedback" title="Para recibir feedback, a veces hay que pedirlo" lead='"Tu crecimiento no depende solo del feedback que recibes, sino también del que decides buscar."' />
 
-      <Section title="Dos escenas reconocibles" kicker="SITUACIÓN" intro="No todo feedback busca lo mismo. Cuando el tipo de conversación no está claro entre quien lo da y quien lo recibe, la frustración es casi inevitable. Observa dos escenas que probablemente reconoces.">
-        <div className="grid md:grid-cols-2 gap-4">
-          <div className="card-surface p-5 border-l-4 border-[var(--coral)]">
-            <p className="chip mb-3">Escena A</p>
-            <p className="text-sm leading-relaxed">Termina un proyecto exigente. Comparte el resultado con su líder esperando <b>reconocimiento</b>. El líder le da una lista detallada de mejoras para la próxima vez.</p>
-            <p className="mt-3 text-sm text-muted-foreground italic">Sale frustrado — aunque el feedback era técnicamente correcto.</p>
-          </div>
-          <div className="card-surface p-5 border-l-4 border-[var(--amber-brand)]">
-            <p className="chip mb-3">Escena B</p>
-            <p className="text-sm leading-relaxed">Recibe retroalimentación en una reunión. Al final pregunta: '¿Entonces cómo me fue en mi evaluación?' El líder responde: 'Esto no era una evaluación, era una conversación de desarrollo.'</p>
-            <p className="mt-3 text-sm text-muted-foreground italic">Sale confundido y sin saber cómo usar la información.</p>
-          </div>
+      <Section title="Buscar feedback también es aprender" kicker="INTRODUCCIÓN" intro="Diversas investigaciones en psicología organizacional muestran que las personas que buscan feedback de forma proactiva desarrollan mayor autoconocimiento, aceleran su aprendizaje, fortalecen sus relaciones laborales y se adaptan con mayor rapidez a nuevos desafíos. Solicitar retroalimentación deja de ser una señal de inseguridad para convertirse en una práctica de mejora continua y responsabilidad sobre el propio crecimiento.">
+        <div className="card-surface p-6 space-y-3 text-base leading-relaxed text-foreground/85">
+          <p>El feedback no siempre ocurre de forma espontánea; también puede impulsarse mediante la iniciativa de quien desea aprender.</p>
+          <ul className="space-y-2 pt-2">
+            <li className="flex gap-2"><span className="text-[var(--mint)] font-bold">•</span><span>Buscar feedback de manera proactiva favorece el aprendizaje continuo, el autoconocimiento y el desarrollo profesional.</span></li>
+            <li className="flex gap-2"><span className="text-[var(--mint)] font-bold">•</span><span>Solicitar retroalimentación efectiva implica elegir el momento adecuado y hacer preguntas específicas que generen comentarios útiles y accionables.</span></li>
+            <li className="flex gap-2"><span className="text-[var(--mint)] font-bold">•</span><span>Pedir feedback no es una señal de debilidad, sino una muestra de compromiso con la mejora continua y el crecimiento.</span></li>
+          </ul>
         </div>
-        <p className="mt-5 text-base text-foreground/80">No fue un problema de contenido. Fue un problema de <b>tipo</b>. Emisor y receptor no estaban hablando del mismo tipo de feedback.</p>
       </Section>
 
-      <Section title="Los tres tipos · Compara" kicker="Concepto">
-        <div className="flex gap-2 mb-4 overflow-x-auto">
-          {FEEDBACK_TYPES.map((ft, i) => {
-            const cc = colorOf(ft.color);
-            return (
-              <button key={ft.key} onClick={() => setTab(i)}
-                className={`px-5 py-2.5 rounded-full text-sm font-bold whitespace-nowrap transition ${tab === i ? `${cc.bg} text-white shadow-lg` : "bg-muted hover:bg-muted/70"}`}>
-                {ft.name}
-              </button>
-            );
-          })}
+      <Section title="La escena" kicker="SITUACIÓN">
+        <div className="card-surface p-8 border-2 border-dashed border-border/60 text-center text-sm text-muted-foreground">
+          Imagen pendiente — aquí se ilustrará la escena en la que Rodrigo termina un proyecto importante y considera pedir feedback.
         </div>
-        <AnimatePresence mode="wait">
-          <motion.div key={tab} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-            className="card-surface p-6 border-t-4" style={{ borderTopColor: `var(--${t.color})` }}>
-            <h3 className={`text-2xl font-bold ${c.text} mb-4`}>{t.name}</h3>
-            <Field label="¿Qué es?" value={t.what} />
-            <Field label="Propósito" value={t.purpose} />
-            <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mt-4 mb-2">Señales que lo identifican</p>
-            <ul className="space-y-1.5">
-              {t.signals.map((s, i) => (
-                <li key={i} className="text-sm italic flex items-start gap-2">
-                  <MessageSquare className={`h-3.5 w-3.5 mt-1 ${c.text} shrink-0`} />
-                  <span>{s}</span>
-                </li>
+      </Section>
+
+      <Section title="De esperar respuestas a generar conversaciones" kicker="CONCEPTO">
+        <div className="space-y-6">
+          <div className="card-surface p-6 border-l-4 border-[var(--mint)]">
+            <h4 className="font-bold text-lg mb-3">¿Por qué esperar feedback no siempre funciona?</h4>
+            <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Ideas clave</p>
+            <ul className="space-y-1.5 text-sm mb-4">
+              <li>• El feedback no siempre ocurre de manera espontánea.</li>
+              <li>• Los líderes equilibran múltiples prioridades y pueden asumir que "si no hay problemas, todo va bien".</li>
+              <li>• Esperar pasivamente limita las oportunidades de aprendizaje.</li>
+              <li>• Buscar feedback es asumir un rol activo en el propio desarrollo.</li>
+            </ul>
+            <div className="rounded-xl bg-[var(--mint)]/10 p-4 text-sm italic">
+              <b>Reflexión:</b> el feedback no es únicamente responsabilidad del líder; también es responsabilidad de quien desea crecer.
+            </div>
+          </div>
+
+          <div className="card-surface p-6 border-l-4 border-[var(--cobalt)]">
+            <h4 className="font-bold text-lg mb-3">El momento adecuado para pedir feedback</h4>
+            <p className="text-sm text-foreground/80 mb-3">Estas son situaciones en las que es más probable obtener comentarios útiles:</p>
+            <ul className="grid md:grid-cols-2 gap-1.5 text-sm mb-4">
+              {momentos.map((m, i) => (
+                <li key={i} className="flex gap-2"><span className="text-[var(--cobalt)] font-bold">›</span><span>{m}</span></li>
               ))}
             </ul>
-          </motion.div>
-        </AnimatePresence>
-        <div className="mt-5 card-surface p-5 bg-[var(--mint)]/5 border-l-4 border-[var(--mint)]">
-          <p className="text-xs font-bold uppercase tracking-wider text-[var(--mint)] mb-2">Pregunta de alineación más poderosa</p>
-          <p className="text-base font-semibold">"¿Me estás dando esto para que sepa cómo me ves, para mejorar algo específico, o para reconocer algo que hice bien?"</p>
+            <div className="rounded-xl bg-[var(--cobalt)]/10 p-4 text-sm">
+              <b>Mensaje clave:</b> mientras más cercana esté la conversación al evento, más útil será la retroalimentación.
+            </div>
+          </div>
+
+          <div className="card-surface p-6 border-l-4 border-[var(--amber-brand)]">
+            <h4 className="font-bold text-lg mb-1">Las preguntas que generan buen feedback</h4>
+            <p className="text-sm text-muted-foreground mb-4">Aquí está el corazón del módulo: cambiar la pregunta cambia la respuesta.</p>
+            <div className="overflow-hidden rounded-xl border border-border">
+              <div className="grid grid-cols-2 text-xs font-bold uppercase tracking-wider">
+                <div className="bg-[var(--coral)]/10 text-[var(--coral)] p-3">En lugar de preguntar…</div>
+                <div className="bg-[var(--mint)]/10 text-[var(--mint)] p-3">Prueba preguntar…</div>
+              </div>
+              {preguntas.map((p, i) => (
+                <div key={i} className="grid grid-cols-2 text-sm border-t border-border">
+                  <div className="p-3 text-foreground/70 italic">{p.poor}</div>
+                  <div className="p-3 font-semibold">{p.good}</div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-4 rounded-xl bg-[var(--amber-brand)]/10 p-4 text-sm">
+              <b>Principio:</b> las preguntas específicas generan respuestas específicas.
+            </div>
+          </div>
+
+          <div className="card-surface p-6 border-l-4 border-[var(--violet-brand)]">
+            <h4 className="font-bold text-lg mb-3">Cómo recibir la respuesta</h4>
+            <p className="text-sm text-foreground/80 mb-3">Pedir feedback también implica saber qué hacer cuando llega. Buenas prácticas:</p>
+            <ul className="space-y-1.5 text-sm">
+              {recibir.map((r, i) => (
+                <li key={i} className="flex gap-2"><span className="text-[var(--violet-brand)] font-bold">✓</span><span>{r}</span></li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="card-surface p-6 border-l-4 border-[var(--coral)]">
+            <h4 className="font-bold text-lg mb-3">Convierte el feedback en un hábito</h4>
+            <p className="text-sm text-foreground/80 mb-3">No lo pidas únicamente cuando algo salió mal. Algunas prácticas:</p>
+            <ul className="space-y-1.5 text-sm mb-4">
+              {habito.map((h, i) => (
+                <li key={i} className="flex gap-2"><span className="text-[var(--coral)] font-bold">•</span><span>{h}</span></li>
+              ))}
+            </ul>
+            <div className="rounded-xl bg-[var(--coral)]/10 p-4 text-sm italic">
+              <b>Idea final:</b> el feedback deja de ser un evento y se convierte en un hábito de aprendizaje.
+            </div>
+          </div>
         </div>
       </Section>
 
@@ -413,24 +477,40 @@ export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
         <div className="mt-5">
           <ScenarioChoice question={SCENARIO_M3.question} options={SCENARIO_M3.options} accent="mint" />
         </div>
-        <blockquote className="mt-6 border-l-4 border-[var(--mint)] pl-4 italic text-foreground/80">
-          "El problema no era que mi líder no me reconociera. Era que yo esperaba una conversación y llegué a otra. Cuando lo entendí, las dos tuvieron lugar." — Rodrigo
-        </blockquote>
+        <div className="mt-6 rounded-xl bg-[var(--mint)]/10 p-5 text-sm">
+          <b>Cierre:</b> el feedback más útil no siempre aparece por iniciativa de otros. Con frecuencia comienza cuando tú eliges iniciar la conversación y haces las preguntas correctas.
+        </div>
       </Section>
 
-      <Section title="Tu turno" kicker="Reflexión personal">
+      <Section title="¿Qué tan proactivo eres para buscar feedback?" kicker="AUTOCONOCIMIENTO" intro="Lee cada situación y elige la opción que más se parece a lo que normalmente harías. Al responder verás retroalimentación inmediata.">
+        <FormativeQuiz items={QUIZ_M3_AUTO} />
+        <div className="mt-6 rounded-xl bg-[var(--mint)]/10 p-5 text-sm">
+          <b>Mensaje de cierre:</b> buscar feedback es una habilidad. Cuanto más practiques hacer preguntas oportunas y específicas, más información tendrás para aprender, mejorar y fortalecer tu desempeño.
+        </div>
+      </Section>
+
+      <Section title="Cómo termina la escena" kicker="RESOLUCIÓN">
+        <div className="card-surface p-8 border-2 border-dashed border-border/60 text-center text-sm text-muted-foreground">
+          Imagen pendiente — aquí se mostrará la resolución de la escena tras pedir feedback de forma proactiva.
+        </div>
+      </Section>
+
+      <Section title="Mi reflexión y compromiso" kicker="Reflexión personal" intro="El feedback tiene mayor impacto cuando se convierte en una práctica personal, no en una conversación ocasional. Antes de continuar, dedica unos minutos a reflexionar sobre cómo puedes asumir un papel más activo en tu desarrollo.">
         <ReflectionWithSave accent="mint" prompts={[
-          "¿Recuerdas una conversación de feedback que generó frustración? ¿Hubo confusión entre los tres tipos?",
-          "¿Qué tipo de feedback recibes más en tu área? ¿Cuál recibes menos y necesitarías más?",
-          "Compromiso: La próxima vez que tenga una conversación de feedback, antes de empezar voy a preguntar…",
+          "Piensa en una actividad o proyecto reciente: ¿sobre qué situación específica te gustaría pedir feedback y por qué consideras que podría ayudarte a mejorar?",
+          "Identifica una oportunidad: ¿a qué persona le pedirás feedback durante los próximos días y qué pregunta específica le harás para obtener comentarios útiles?",
+          "Asume un compromiso: ¿qué acción concreta pondrás en práctica para convertir la búsqueda de feedback en un hábito y no esperar a que otros inicien la conversación?",
         ]} />
+        <div className="mt-6 rounded-xl bg-muted/40 p-5 text-sm italic">
+          El crecimiento profesional no depende únicamente del feedback que recibes, sino de tu disposición para buscarlo, escucharlo y convertirlo en acciones de mejora.
+        </div>
       </Section>
-
 
       <NavigationButtons onNext={onNext} onPrev={onPrev} />
     </Sections>
   );
 }
+
 
 /* ============== MODULE 4 — PNE ============== */
 export function Module4({ onNext, onPrev }: { onNext: () => void; onPrev: () => void }) {
