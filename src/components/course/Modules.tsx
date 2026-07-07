@@ -220,15 +220,19 @@ export function Module1({ onNext }: { onNext: () => void }) {
       </Section>
 
 
-      <Section title="La Huella en acción" kicker="Reto">
+      <Section title="¿Tú qué harías?" kicker="¿TÚ QUÉ HARÍAS?">
         <SceneCard quote="Rodrigo identifica: 'Todo el mundo va a pensar que no sé hacer mi trabajo.' Eso es SCARF — dominio Estatus — activándose. Tiene 3 segundos antes de que la reacción tome el control." />
         <div className="mt-5">
           <ScenarioChoice {...SCENARIO_M1} accent="cobalt" />
         </div>
-        <blockquote className="mt-6 border-l-4 border-[var(--cobalt)] pl-4 italic text-foreground/80">
-          "Dos segundos. Eso fue todo lo que necesité para que mi cerebro dejara de estar en modo defensa y empezara a estar en modo aprendizaje." — Rodrigo
-        </blockquote>
       </Section>
+
+      <Section title="Dos segundos que lo cambian todo" kicker="RESOLUCIÓN">
+        <ZoomableImage src={m1ResolucionAsset.url} alt="Rodrigo pasa de modo defensa a modo aprendizaje en dos segundos" />
+      </Section>
+
+      <ScarfSelfDiscovery />
+
 
       <Section title="Tu turno" kicker="Reflexión personal">
         <ReflectionCard accent="cobalt" prompts={[
