@@ -313,19 +313,30 @@ export function Module2({ onNext }: { onNext: () => void }) {
 
       <Section title="" kicker="¿TÚ QUÉ HARÍAS?">
         <SceneCard quote={SCENARIO_M2.setup} />
-        <div className="my-4 grid gap-2">
-          {SCENARIO_M2.voices.map((v, i) => (
-            <div key={i} className="flex items-start gap-3 rounded-xl bg-muted/40 p-3">
-              <span className={`mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white ${["bg-[var(--coral)]","bg-[var(--amber-brand)]","bg-[var(--violet-brand)]"][i]}`}>{i + 1}</span>
-              <p className="text-sm italic">{v}</p>
-            </div>
-          ))}
+        <div className="my-5 grid md:grid-cols-3 gap-4">
+          {[
+            { text: "Creo que está exagerando. No salió tan mal.", trigger: "Disparador de verdad", color: "coral" },
+            { text: "¿Por qué decidió comentarlo justo en esta reunión?", trigger: "Disparador de relación", color: "violet-brand" },
+            { text: "¿Y si esto confirma que no estoy dando el nivel?", trigger: "Disparador de identidad", color: "cobalt" },
+          ].map((item, i) => {
+            const cc = colorOf(item.color);
+            return (
+              <motion.div key={i} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}
+                className={`rounded-2xl p-5 border-2 ${cc.soft}`} style={{ borderColor: `var(--${item.color})` }}>
+                <p className={`text-xs font-bold uppercase tracking-wider ${cc.text} mb-2`}>{item.trigger}</p>
+                <p className="text-base font-medium italic leading-relaxed">"{item.text}"</p>
+              </motion.div>
+            );
+          })}
         </div>
         <ScenarioChoice question={SCENARIO_M2.question} options={SCENARIO_M2.options} accent="amber-brand" />
         <blockquote className="mt-6 border-l-4 border-[var(--amber-brand)] pl-4 italic text-foreground/80">
           "Nombrar los disparadores no los hizo desaparecer. Pero los hizo más pequeños que el feedback mismo." — Rodrigo
         </blockquote>
       </Section>
+
+      <TriggerSelfDiscovery />
+
 
       <Section title="Tu turno" kicker="Reflexión personal">
         <ReflectionCard accent="amber-brand" prompts={[
