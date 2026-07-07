@@ -192,14 +192,14 @@ export function Module1({ onNext }: { onNext: () => void }) {
 
               <div className={`rounded-2xl p-4 md:p-5 ${c.soft} border border-border/50`}>
                 <p className={`text-[10px] font-bold uppercase tracking-wider ${c.text} mb-3`}>Esquema · {sel.name}</p>
-                <div className="flex flex-col md:flex-row gap-3">
+                <div className="flex flex-col md:flex-row gap-3 items-stretch">
                   {[
                     { label: "Disparo", text: sel.example },
                     { label: "Cerebro", text: `Se activa la amenaza en ${sel.name.toLowerCase()}: cortisol ↑, córtex prefrontal ↓.` },
                     { label: "Reacción", text: sel.how },
                     { label: "Palanca", text: `Nombrar internamente "${sel.name}" reduce la intensidad y devuelve el control.` },
                   ].map((row, i, arr) => (
-                    <div key={i} className="flex-1 flex items-start gap-2">
+                    <div key={i} className="flex-1 flex items-stretch gap-2">
                       <div className="flex-1 rounded-xl p-3 bg-white/60 border border-border/50">
                         <div className="flex items-center gap-1.5 mb-1.5">
                           <span className={`flex h-5 w-5 items-center justify-center rounded-full ${c.bg} text-white text-[10px] font-bold`}>{i + 1}</span>
@@ -207,7 +207,7 @@ export function Module1({ onNext }: { onNext: () => void }) {
                         </div>
                         <p className="text-xs text-foreground/80 leading-relaxed">{row.text}</p>
                       </div>
-                      {i < arr.length - 1 && <ArrowRight className="hidden md:block h-4 w-4 text-muted-foreground/40 mt-6 shrink-0" />}
+                      {i < arr.length - 1 && <ArrowRight className="hidden md:block h-4 w-4 text-muted-foreground/40 self-center shrink-0" />}
                     </div>
                   ))}
                 </div>
