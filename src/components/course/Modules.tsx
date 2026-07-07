@@ -880,7 +880,7 @@ function ScarfSelfDiscovery() {
             <button
               type="button"
               onClick={() => setStep((s) => Math.min(total - 1, s + 1))}
-              disabled={!answered || isLast}
+              disabled={!answered}
               className="rounded-full bg-[var(--cobalt)] text-white text-sm font-bold px-5 py-2 disabled:opacity-40 transition"
             >
               {isLast ? "Ver resultado" : "Siguiente →"}
