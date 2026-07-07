@@ -279,7 +279,7 @@ export function Module2({ onNext }: { onNext: () => void }) {
         <p className="mt-5 text-base text-foreground/80">No existe una respuesta correcta. Todos tenemos disparadores distintos. Estos pensamientos aparecen en segundos. No son el problema. El problema es creer que son la realidad. El objetivo no es eliminarlos, sino reconocerlos para responder con mayor conciencia.</p>
       </Section>
 
-      <Section title="Los tres disparadores" kicker="Conceptos" intro="Stone y Heen identificaron tres disparadores que explican por qué el mismo feedback puede ser útil para una persona y bloqueante para otra. Toca cada tarjeta para descubrir cuál se activa en ti.">
+      <Section title="Los tres disparadores" kicker="Conceptos" intro="Stone y Heen identificaron tres disparadores que explican por qué el mismo feedback puede ser útil para una persona y bloqueante para otra. Toca cada tarjeta para descubrirlos.\u00a0">
         <div className="grid md:grid-cols-3 gap-4 perspective-[1200px]">
           {TRIGGERS.map((t) => {
             const cc = colorOf(t.color);
