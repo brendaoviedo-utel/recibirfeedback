@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Sparkles, ArrowRight, Home } from "lucide-react";
 import { MODULES } from "@/lib/course-data";
 import { Module0, Module1, Module2, Module3, Module4, Module5 } from "@/components/course/Modules";
-import { FinalQuiz } from "@/components/course/Interactives";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
