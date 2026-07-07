@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { Brain, Zap, Target, Sparkles, BookOpen, Activity, MessageSquare, Heart, Scale, Compass, ShieldAlert, Users, User, ArrowRight, ArrowLeft, ZoomIn, X, Save } from "lucide-react";
+import { Brain, Zap, Target, Sparkles, BookOpen, Activity, MessageSquare, Heart, Scale, Compass, ShieldAlert, Users, User, ArrowRight, ArrowLeft, ZoomIn, X, Save, Clock, HelpCircle, Ear, Repeat, ChevronRight, Check, HandHelping } from "lucide-react";
 import feedbackSceneAsset from "@/assets/feedback-scene.png.asset.json";
 import rodrigoStoryAsset from "@/assets/rodrigo-story.png.asset.json";
 import m1SituacionAsset from "@/assets/m1-situacion.png.asset.json";
@@ -398,79 +398,15 @@ export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
         </div>
       </Section>
 
-      <Section title="De esperar respuestas a generar conversaciones" kicker="CONCEPTO">
-        <div className="space-y-6">
-          <div className="card-surface p-6 border-l-4 border-[var(--mint)]">
-            <h4 className="font-bold text-lg mb-3">¿Por qué esperar feedback no siempre funciona?</h4>
-            <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Ideas clave</p>
-            <ul className="space-y-1.5 text-sm mb-4">
-              <li>• El feedback no siempre ocurre de manera espontánea.</li>
-              <li>• Los líderes equilibran múltiples prioridades y pueden asumir que "si no hay problemas, todo va bien".</li>
-              <li>• Esperar pasivamente limita las oportunidades de aprendizaje.</li>
-              <li>• Buscar feedback es asumir un rol activo en el propio desarrollo.</li>
-            </ul>
-            <div className="rounded-xl bg-[var(--mint)]/10 p-4 text-sm italic">
-              <b>Reflexión:</b> el feedback no es únicamente responsabilidad del líder; también es responsabilidad de quien desea crecer.
-            </div>
-          </div>
-
-          <div className="card-surface p-6 border-l-4 border-[var(--cobalt)]">
-            <h4 className="font-bold text-lg mb-3">El momento adecuado para pedir feedback</h4>
-            <p className="text-sm text-foreground/80 mb-3">Estas son situaciones en las que es más probable obtener comentarios útiles:</p>
-            <ul className="grid md:grid-cols-2 gap-1.5 text-sm mb-4">
-              {momentos.map((m, i) => (
-                <li key={i} className="flex gap-2"><span className="text-[var(--cobalt)] font-bold">›</span><span>{m}</span></li>
-              ))}
-            </ul>
-            <div className="rounded-xl bg-[var(--cobalt)]/10 p-4 text-sm">
-              <b>Mensaje clave:</b> mientras más cercana esté la conversación al evento, más útil será la retroalimentación.
-            </div>
-          </div>
-
-          <div className="card-surface p-6 border-l-4 border-[var(--amber-brand)]">
-            <h4 className="font-bold text-lg mb-1">Las preguntas que generan buen feedback</h4>
-            <p className="text-sm text-muted-foreground mb-4">Aquí está el corazón del módulo: cambiar la pregunta cambia la respuesta.</p>
-            <div className="overflow-hidden rounded-xl border border-border">
-              <div className="grid grid-cols-2 text-xs font-bold uppercase tracking-wider">
-                <div className="bg-[var(--coral)]/10 text-[var(--coral)] p-3">En lugar de preguntar…</div>
-                <div className="bg-[var(--mint)]/10 text-[var(--mint)] p-3">Prueba preguntar…</div>
-              </div>
-              {preguntas.map((p, i) => (
-                <div key={i} className="grid grid-cols-2 text-sm border-t border-border">
-                  <div className="p-3 text-foreground/70 italic">{p.poor}</div>
-                  <div className="p-3 font-semibold">{p.good}</div>
-                </div>
-              ))}
-            </div>
-            <div className="mt-4 rounded-xl bg-[var(--amber-brand)]/10 p-4 text-sm">
-              <b>Principio:</b> las preguntas específicas generan respuestas específicas.
-            </div>
-          </div>
-
-          <div className="card-surface p-6 border-l-4 border-[var(--violet-brand)]">
-            <h4 className="font-bold text-lg mb-3">Cómo recibir la respuesta</h4>
-            <p className="text-sm text-foreground/80 mb-3">Pedir feedback también implica saber qué hacer cuando llega. Buenas prácticas:</p>
-            <ul className="space-y-1.5 text-sm">
-              {recibir.map((r, i) => (
-                <li key={i} className="flex gap-2"><span className="text-[var(--violet-brand)] font-bold">✓</span><span>{r}</span></li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="card-surface p-6 border-l-4 border-[var(--coral)]">
-            <h4 className="font-bold text-lg mb-3">Convierte el feedback en un hábito</h4>
-            <p className="text-sm text-foreground/80 mb-3">No lo pidas únicamente cuando algo salió mal. Algunas prácticas:</p>
-            <ul className="space-y-1.5 text-sm mb-4">
-              {habito.map((h, i) => (
-                <li key={i} className="flex gap-2"><span className="text-[var(--coral)] font-bold">•</span><span>{h}</span></li>
-              ))}
-            </ul>
-            <div className="rounded-xl bg-[var(--coral)]/10 p-4 text-sm italic">
-              <b>Idea final:</b> el feedback deja de ser un evento y se convierte en un hábito de aprendizaje.
-            </div>
-          </div>
-        </div>
+      <Section title="De esperar respuestas a generar conversaciones" kicker="CONCEPTO" intro="Cinco ideas, cinco cambios de mentalidad. Recórrelas a tu ritmo: cada pestaña despliega una parte distinta del hábito de pedir feedback. No es lectura pasiva — al abrir cada una, elige quedarte con la idea que más te representa.">
+        <ConceptoInteractivo
+          momentos={momentos}
+          preguntas={preguntas}
+          recibir={recibir}
+          habito={habito}
+        />
       </Section>
+
 
       <Section title="" kicker="¿TÚ QUÉ HARÍAS?">
         <SceneCard quote={SCENARIO_M3.setup} />
@@ -483,7 +419,7 @@ export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
       </Section>
 
       <Section title="¿Qué tan proactivo eres para buscar feedback?" kicker="AUTOCONOCIMIENTO" intro="Lee cada situación y elige la opción que más se parece a lo que normalmente harías. Al responder verás retroalimentación inmediata.">
-        <FormativeQuiz items={QUIZ_M3_AUTO} />
+        <SteppedQuiz items={QUIZ_M3_AUTO} accent="mint" />
         <div className="mt-6 rounded-xl bg-[var(--mint)]/10 p-5 text-sm">
           <b>Mensaje de cierre:</b> buscar feedback es una habilidad. Cuanto más practiques hacer preguntas oportunas y específicas, más información tendrás para aprender, mejorar y fortalecer tu desempeño.
         </div>
@@ -1182,5 +1118,304 @@ function TriggerSelfDiscovery() {
         )}
       </AnimatePresence>
     </Section>
+  );
+}
+
+/* ============== Módulo 3 · Concepto interactivo ============== */
+type Pregunta = { poor: string; good: string };
+function ConceptoInteractivo({ momentos, preguntas, recibir, habito }: {
+  momentos: string[]; preguntas: Pregunta[]; recibir: string[]; habito: string[];
+}) {
+  const tabs = [
+    { key: "esperar", label: "Por qué esperar no funciona", color: "mint", icon: HelpCircle },
+    { key: "momento", label: "El momento adecuado", color: "cobalt", icon: Clock },
+    { key: "preguntas", label: "Las preguntas poderosas", color: "amber-brand", icon: MessageSquare },
+    { key: "recibir", label: "Cómo recibir la respuesta", color: "violet-brand", icon: Ear },
+    { key: "habito", label: "Convertirlo en hábito", color: "coral", icon: Repeat },
+  ] as const;
+  const [active, setActive] = useState(0);
+  const [revealPreguntas, setRevealPreguntas] = useState<number[]>([]);
+  const t = tabs[active];
+  const c = colorOf(t.color);
+  const Ico = t.icon;
+
+  return (
+    <div>
+      <div className="flex flex-wrap gap-2 mb-5">
+        {tabs.map((tab, i) => {
+          const cc = colorOf(tab.color);
+          const TIco = tab.icon;
+          const on = i === active;
+          return (
+            <button
+              key={tab.key}
+              onClick={() => setActive(i)}
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-xs md:text-sm font-bold transition border-2 ${
+                on ? `${cc.bg} text-white border-transparent shadow-lg` : `bg-card hover:border-foreground/30 border-border`
+              }`}
+            >
+              <span className={`inline-flex h-6 w-6 items-center justify-center rounded-full ${on ? "bg-white/20" : cc.soft} ${on ? "text-white" : cc.text} text-[10px] font-black`}>{i + 1}</span>
+              <TIco className="h-4 w-4" />
+              <span>{tab.label}</span>
+            </button>
+          );
+        })}
+      </div>
+
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={t.key}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.25 }}
+          className="card-surface p-6 md:p-8 border-t-4 relative overflow-hidden"
+          style={{ borderTopColor: `var(--${t.color})` }}
+        >
+          <div className={`absolute -top-16 -right-16 h-48 w-48 rounded-full ${c.soft} opacity-60`} />
+          <div className="relative">
+            <div className="flex items-center gap-3 mb-4">
+              <div className={`inline-flex h-11 w-11 items-center justify-center rounded-xl ${c.bg} text-white shadow`}>
+                <Ico className="h-5 w-5" />
+              </div>
+              <h4 className={`font-bold text-xl ${c.text}`}>{t.label}</h4>
+            </div>
+
+            {active === 0 && (
+              <div className="space-y-4">
+                <p className="text-sm text-foreground/80">Antes de mejorar cómo pides feedback, entendamos por qué esperar a que llegue solo no basta.</p>
+                <div className="grid md:grid-cols-2 gap-3">
+                  {[
+                    "El feedback no siempre ocurre de manera espontánea.",
+                    "Los líderes equilibran múltiples prioridades y pueden asumir que 'si no hay problemas, todo va bien'.",
+                    "Esperar pasivamente limita las oportunidades de aprendizaje.",
+                    "Buscar feedback es asumir un rol activo en el propio desarrollo.",
+                  ].map((idea, i) => (
+                    <motion.div key={i} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}
+                      className="rounded-xl border-l-4 border-[var(--mint)] bg-[var(--mint)]/5 p-3 text-sm flex gap-2">
+                      <span className={`shrink-0 h-6 w-6 rounded-full ${c.bg} text-white text-xs font-black inline-flex items-center justify-center`}>{i + 1}</span>
+                      <span>{idea}</span>
+                    </motion.div>
+                  ))}
+                </div>
+                <div className="rounded-xl bg-[var(--mint)]/12 p-4 text-sm italic border-l-4 border-[var(--mint)]">
+                  <b>Reflexión:</b> el feedback no es únicamente responsabilidad del líder; también es responsabilidad de quien desea crecer.
+                </div>
+              </div>
+            )}
+
+            {active === 1 && (
+              <div className="space-y-4">
+                <p className="text-sm text-foreground/80">Cuanto más cerca esté la conversación del evento, más útil será la retroalimentación. Estos son buenos momentos para pedirla:</p>
+                <div className="grid md:grid-cols-3 gap-3">
+                  {momentos.map((m, i) => (
+                    <motion.div key={i} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: i * 0.05 }}
+                      className="rounded-xl bg-[var(--cobalt)]/8 p-4 text-sm border border-[var(--cobalt)]/20">
+                      <div className={`inline-flex h-8 w-8 items-center justify-center rounded-full ${c.bg} text-white mb-2`}>
+                        <Clock className="h-4 w-4" />
+                      </div>
+                      <p>{m}</p>
+                    </motion.div>
+                  ))}
+                </div>
+                <div className="rounded-xl bg-[var(--cobalt)]/10 p-4 text-sm border-l-4 border-[var(--cobalt)]">
+                  <b>Mensaje clave:</b> mientras más cercana esté la conversación al evento, más útil será la retroalimentación.
+                </div>
+              </div>
+            )}
+
+            {active === 2 && (
+              <div className="space-y-4">
+                <p className="text-sm text-foreground/80">Toca cada tarjeta para descubrir la pregunta que abre una mejor respuesta.</p>
+                <div className="grid gap-3">
+                  {preguntas.map((p, i) => {
+                    const revealed = revealPreguntas.includes(i);
+                    return (
+                      <motion.button
+                        key={i}
+                        onClick={() => setRevealPreguntas((r) => r.includes(i) ? r : [...r, i])}
+                        whileHover={{ scale: 1.01 }}
+                        className="text-left rounded-xl border-2 border-[var(--amber-brand)]/30 bg-card overflow-hidden transition"
+                      >
+                        <div className="grid md:grid-cols-[1fr_auto_1fr] items-stretch">
+                          <div className="p-4 bg-[var(--coral)]/8">
+                            <p className="text-[10px] font-bold uppercase tracking-wider text-[var(--coral)] mb-1">En lugar de…</p>
+                            <p className="text-sm italic text-foreground/70">{p.poor}</p>
+                          </div>
+                          <div className="hidden md:flex items-center justify-center px-3 bg-muted/40">
+                            <ChevronRight className={`h-5 w-5 transition ${revealed ? "text-[var(--mint)]" : "text-muted-foreground"}`} />
+                          </div>
+                          <div className={`p-4 transition ${revealed ? "bg-[var(--mint)]/12" : "bg-muted/30"}`}>
+                            <p className="text-[10px] font-bold uppercase tracking-wider text-[var(--mint)] mb-1">Prueba…</p>
+                            {revealed ? (
+                              <p className="text-sm font-semibold">{p.good}</p>
+                            ) : (
+                              <p className="text-sm text-muted-foreground">Toca para revelar la pregunta poderosa</p>
+                            )}
+                          </div>
+                        </div>
+                      </motion.button>
+                    );
+                  })}
+                </div>
+                <div className="rounded-xl bg-[var(--amber-brand)]/12 p-4 text-sm border-l-4 border-[var(--amber-brand)]">
+                  <b>Principio:</b> las preguntas específicas generan respuestas específicas.
+                </div>
+              </div>
+            )}
+
+            {active === 3 && (
+              <div className="space-y-4">
+                <p className="text-sm text-foreground/80">Pedir feedback también implica saber qué hacer cuando llega. Cinco prácticas que hacen la diferencia:</p>
+                <div className="grid md:grid-cols-5 gap-2">
+                  {recibir.map((r, i) => (
+                    <motion.div key={i} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }}
+                      className="rounded-xl bg-[var(--violet-brand)]/8 border border-[var(--violet-brand)]/25 p-4 text-sm text-center">
+                      <div className={`mx-auto mb-2 inline-flex h-9 w-9 items-center justify-center rounded-full ${c.bg} text-white font-black`}>
+                        {i + 1}
+                      </div>
+                      <p className="text-xs leading-snug">{r}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {active === 4 && (
+              <div className="space-y-4">
+                <p className="text-sm text-foreground/80">No pidas feedback únicamente cuando algo salió mal. Estas prácticas lo vuelven un hábito:</p>
+                <div className="space-y-2">
+                  {habito.map((h, i) => (
+                    <motion.div key={i} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.06 }}
+                      className="flex items-center gap-3 rounded-xl bg-[var(--coral)]/8 p-4 border-l-4 border-[var(--coral)]">
+                      <HandHelping className="h-5 w-5 text-[var(--coral)] shrink-0" />
+                      <span className="text-sm">{h}</span>
+                    </motion.div>
+                  ))}
+                </div>
+                <div className="rounded-xl bg-[var(--coral)]/12 p-4 text-sm italic border-l-4 border-[var(--coral)]">
+                  <b>Idea final:</b> el feedback deja de ser un evento y se convierte en un hábito de aprendizaje.
+                </div>
+              </div>
+            )}
+          </div>
+        </motion.div>
+      </AnimatePresence>
+
+      <div className="flex justify-between items-center mt-4 text-xs text-muted-foreground">
+        <button
+          onClick={() => setActive((a) => Math.max(0, a - 1))}
+          disabled={active === 0}
+          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full border border-border disabled:opacity-40 hover:bg-muted transition"
+        >
+          <ArrowLeft className="h-3.5 w-3.5" /> Anterior
+        </button>
+        <span className="font-bold">{active + 1} / {tabs.length}</span>
+        <button
+          onClick={() => setActive((a) => Math.min(tabs.length - 1, a + 1))}
+          disabled={active === tabs.length - 1}
+          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full border border-border disabled:opacity-40 hover:bg-muted transition"
+        >
+          Siguiente <ArrowRight className="h-3.5 w-3.5" />
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/* ============== Módulo 3 · Quiz por pasos ============== */
+function SteppedQuiz({ items, accent = "mint" }: { items: typeof QUIZ_M3_AUTO; accent?: string }) {
+  const [idx, setIdx] = useState(0);
+  const [picked, setPicked] = useState<Record<number, string>>({});
+  const c = colorOf(accent);
+  const q = items[idx];
+  const answer = picked[idx];
+  const isCorrect = answer === q.correct;
+  const total = items.length;
+  const finished = Object.keys(picked).length === total && idx === total - 1;
+  const correctCount = Object.entries(picked).filter(([i, v]) => items[Number(i)].correct === v).length;
+
+  return (
+    <div className="card-surface p-6 md:p-8 border-t-4" style={{ borderTopColor: `var(--${accent})` }}>
+      <div className="flex items-center justify-between mb-4">
+        <span className={`chip ${c.soft} ${c.text} border-transparent`}>Pregunta {idx + 1} de {total}</span>
+        <div className="flex gap-1.5">
+          {items.map((_, i) => (
+            <span key={i}
+              className={`h-2 w-6 rounded-full transition ${
+                i === idx ? c.bg : picked[i] ? (items[i].correct === picked[i] ? "bg-[var(--mint)]" : "bg-[var(--coral)]") : "bg-muted"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+
+      <AnimatePresence mode="wait">
+        <motion.div key={idx} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.2 }}>
+          <p className="text-base md:text-lg font-semibold leading-relaxed mb-5">{q.q}</p>
+          <div className="grid gap-2.5">
+            {q.options.map((o) => {
+              const isPicked = answer === o.id;
+              const showCorrect = !!answer && o.id === q.correct;
+              return (
+                <button
+                  key={o.id}
+                  disabled={!!answer}
+                  onClick={() => setPicked((p) => ({ ...p, [idx]: o.id }))}
+                  className={`text-left rounded-xl border-2 px-4 py-3 text-sm transition ${
+                    isPicked
+                      ? isCorrect
+                        ? "border-[var(--mint)] bg-[var(--mint)]/10"
+                        : "border-[var(--coral)] bg-[var(--coral)]/10"
+                      : showCorrect
+                      ? "border-[var(--mint)] bg-[var(--mint)]/10"
+                      : "border-border hover:border-foreground/30 bg-card"
+                  } ${answer ? "cursor-default" : "cursor-pointer"}`}
+                >
+                  <span className="mr-2 font-bold">{o.id}.</span>{o.text}
+                </button>
+              );
+            })}
+          </div>
+
+          <AnimatePresence>
+            {answer && (
+              <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
+                className={`mt-4 rounded-xl p-4 text-sm flex items-start gap-2 ${
+                  isCorrect ? "bg-[var(--mint)]/10" : "bg-[var(--coral)]/8"
+                }`}>
+                {isCorrect
+                  ? <Check className="h-4 w-4 mt-0.5 text-[var(--mint)] shrink-0" />
+                  : <X className="h-4 w-4 mt-0.5 text-[var(--coral)] shrink-0" />}
+                <p className="leading-relaxed">{isCorrect ? q.fbCorrect : q.fbIncorrect}</p>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
+      </AnimatePresence>
+
+      <div className="flex items-center justify-between mt-6">
+        <button
+          onClick={() => setIdx((i) => Math.max(0, i - 1))}
+          disabled={idx === 0}
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold border border-border disabled:opacity-40 hover:bg-muted transition"
+        >
+          <ArrowLeft className="h-4 w-4" /> Anterior
+        </button>
+        {idx < total - 1 ? (
+          <button
+            onClick={() => setIdx((i) => Math.min(total - 1, i + 1))}
+            disabled={!answer}
+            className={`inline-flex items-center gap-1.5 px-5 py-2 rounded-full text-sm font-bold text-white shadow transition disabled:opacity-40 ${c.bg}`}
+          >
+            Siguiente <ArrowRight className="h-4 w-4" />
+          </button>
+        ) : (
+          <span className={`text-xs font-bold ${finished ? c.text : "text-muted-foreground"}`}>
+            {finished ? `Completado · ${correctCount}/${total} correctas` : "Responde para terminar"}
+          </span>
+        )}
+      </div>
+    </div>
   );
 }
