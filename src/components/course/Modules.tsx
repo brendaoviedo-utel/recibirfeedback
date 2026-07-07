@@ -313,19 +313,30 @@ export function Module2({ onNext }: { onNext: () => void }) {
 
       <Section title="" kicker="¿TÚ QUÉ HARÍAS?">
         <SceneCard quote={SCENARIO_M2.setup} />
-        <div className="my-4 grid gap-2">
-          {SCENARIO_M2.voices.map((v, i) => (
-            <div key={i} className="flex items-start gap-3 rounded-xl bg-muted/40 p-3">
-              <span className={`mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white ${["bg-[var(--coral)]","bg-[var(--amber-brand)]","bg-[var(--violet-brand)]"][i]}`}>{i + 1}</span>
-              <p className="text-sm italic">{v}</p>
-            </div>
-          ))}
+        <div className="my-5 grid md:grid-cols-3 gap-4">
+          {[
+            { text: "Creo que está exagerando. No salió tan mal.", trigger: "Disparador de verdad", color: "coral" },
+            { text: "¿Por qué decidió comentarlo justo en esta reunión?", trigger: "Disparador de relación", color: "violet-brand" },
+            { text: "¿Y si esto confirma que no estoy dando el nivel?", trigger: "Disparador de identidad", color: "cobalt" },
+          ].map((item, i) => {
+            const cc = colorOf(item.color);
+            return (
+              <motion.div key={i} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}
+                className={`rounded-2xl p-5 border-2 ${cc.soft}`} style={{ borderColor: `var(--${item.color})` }}>
+                <p className={`text-xs font-bold uppercase tracking-wider ${cc.text} mb-2`}>{item.trigger}</p>
+                <p className="text-base font-medium italic leading-relaxed">"{item.text}"</p>
+              </motion.div>
+            );
+          })}
         </div>
         <ScenarioChoice question={SCENARIO_M2.question} options={SCENARIO_M2.options} accent="amber-brand" />
         <blockquote className="mt-6 border-l-4 border-[var(--amber-brand)] pl-4 italic text-foreground/80">
           "Nombrar los disparadores no los hizo desaparecer. Pero los hizo más pequeños que el feedback mismo." — Rodrigo
         </blockquote>
       </Section>
+
+      <TriggerSelfDiscovery />
+
 
       <Section title="Tu turno" kicker="Reflexión personal">
         <ReflectionCard accent="amber-brand" prompts={[
@@ -908,6 +919,158 @@ function ScarfSelfDiscovery() {
               {(["S", "C", "A", "R", "F"] as const).map((k) => (
                 <span key={k} className="text-xs rounded-full border border-border px-3 py-1 text-muted-foreground">
                   {SCARF_FEEDBACK[k].name}: <b className="text-foreground">{tally[k] || 0}</b>
+                </span>
+              ))}
+            </div>
+            <button
+              type="button"
+              onClick={() => { setAnswers({}); setStep(0); }}
+              className="mt-4 text-sm font-semibold text-muted-foreground hover:text-foreground transition"
+            >
+              ↺ Volver a responder
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </Section>
+  );
+}
+
+const TRIGGER_QUIZ: { q: string; options: { text: string; key: "verdad" | "relacion" | "identidad" }[] }[] = [
+  {
+    q: "Cuando recibes feedback inesperado, tu primera reacción interna suele ser…",
+    options: [
+      { text: "Eso no es cierto. No tenía el contexto completo.", key: "verdad" },
+      { text: "¿Por qué me lo dice ahora y de esta forma?", key: "relacion" },
+      { text: "Si eso es cierto, entonces no soy tan bueno como creía.", key: "identidad" },
+    ],
+  },
+  {
+    q: "El pensamiento que más te ronda después de una conversación difícil es…",
+    options: [
+      { text: "No es justo lo que dijo. No vio todo lo que hice.", key: "verdad" },
+      { text: "No sé si puedo confiar en esa persona de ahora en adelante.", key: "relacion" },
+      { text: "¿Y si esto significa que no estoy a la altura?", key: "identidad" },
+    ],
+  },
+  {
+    q: "Lo que más te cuesta dejar ir es…",
+    options: [
+      { text: "La idea de que la otra persona está equivocada.", key: "verdad" },
+      { text: "La sensación de que el vínculo se dañó.", key: "relacion" },
+      { text: "La duda sobre si realmente sirvo para esto.", key: "identidad" },
+    ],
+  },
+];
+
+const TRIGGER_FEEDBACK: Record<string, { name: string; color: string; insight: string; palanca: string }> = {
+  verdad: { name: "Disparador de verdad", color: "coral", insight: "Tu reacción principal es cuestionar el contenido: ¿es justo?, ¿tiene toda la información?, ¿es exacto?", palanca: "Antes de descalificarlo, prueba una pregunta genuina: '¿Qué ejemplo específico viste?' A veces hay algo válido detrás, aunque no lo presenten bien." },
+  relacion: { name: "Disparador de relación", color: "violet-brand", insight: "Te activa quién da el feedback y el contexto en que lo hace. La confianza, el tono y el momento pesan más que el contenido.", palanca: "Separa mensajero de mensaje: 'Si esto me lo dijera alguien en quien confío, ¿qué parte me serviría?' Eso abre espacio para aprender sin traicionar tu radar." },
+  identidad: { name: "Disparador de identidad", color: "cobalt", insight: "El feedback no solo te molesta: te amenaza. Lo confundes con una verdad sobre quién eres o cuánto vales.", palanca: "Recuérdate: el feedback describe un comportamiento en un momento, no tu identidad. Pregúntate: '¿Esto define quién soy, o solo algo que puedo ajustar?'" },
+};
+
+function TriggerSelfDiscovery() {
+  const [answers, setAnswers] = useState<Record<number, "verdad" | "relacion" | "identidad">>({});
+  const [step, setStep] = useState(0);
+  const total = TRIGGER_QUIZ.length;
+  const done = Object.keys(answers).length === total;
+
+  const tally = Object.values(answers).reduce<Record<string, number>>((acc, k) => {
+    acc[k] = (acc[k] || 0) + 1;
+    return acc;
+  }, {});
+  const dominant = done
+    ? (Object.entries(tally).sort((a, b) => b[1] - a[1])[0][0] as "verdad" | "relacion" | "identidad")
+    : null;
+  const result = dominant ? TRIGGER_FEEDBACK[dominant] : null;
+  const rc = result ? colorOf(result.color) : null;
+
+  const current = TRIGGER_QUIZ[step];
+  const isLast = step === total - 1;
+  const answered = answers[step] !== undefined;
+
+  return (
+    <Section title="¿Cuál es tu disparador más frecuente?" kicker="AUTODESCUBRIMIENTO">
+      <p className="text-sm text-muted-foreground mb-5">
+        Responde honestamente. Al terminar, verás cuál disparador suele activarse más en ti — y una palanca concreta para nombrarlo antes de que tome el control.
+      </p>
+
+      {!done && current && (
+        <div className="card-surface p-5">
+          <div className="mb-3 flex items-center gap-3">
+            <p className="text-sm font-bold text-muted-foreground">Pregunta {step + 1} de {total}</p>
+            <div className="flex-1 h-1.5 rounded-full bg-muted overflow-hidden">
+              <div className="h-full bg-[var(--amber-brand)] transition-all" style={{ width: `${((step + (answered ? 1 : 0)) / total) * 100}%` }} />
+            </div>
+          </div>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={step}
+              initial={{ opacity: 0, x: 12 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -12 }}
+              transition={{ duration: 0.25 }}
+            >
+              <p className="text-base font-semibold mb-3">{current.q}</p>
+              <div className="grid gap-2">
+                {current.options.map((opt, j) => {
+                  const active = answers[step] === opt.key;
+                  return (
+                    <button
+                      key={j}
+                      type="button"
+                      onClick={() => setAnswers((a) => ({ ...a, [step]: opt.key }))}
+                      className={`text-left rounded-xl border-2 px-4 py-3 text-sm transition ${active ? "border-[var(--amber-brand)] bg-[var(--amber-brand)]/8 font-semibold" : "border-border hover:border-foreground/30"}`}
+                    >
+                      {opt.text}
+                    </button>
+                  );
+                })}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          <div className="mt-5 flex items-center justify-between">
+            <button
+              type="button"
+              onClick={() => setStep((s) => Math.max(0, s - 1))}
+              disabled={step === 0}
+              className="text-sm font-semibold text-muted-foreground disabled:opacity-40 hover:text-foreground transition"
+            >
+              ← Anterior
+            </button>
+            <button
+              type="button"
+              onClick={() => setStep((s) => Math.min(total - 1, s + 1))}
+              disabled={!answered}
+              className="rounded-full bg-[var(--amber-brand)] text-white text-sm font-bold px-5 py-2 disabled:opacity-40 transition"
+            >
+              {isLast ? "Ver resultado" : "Siguiente →"}
+            </button>
+          </div>
+        </div>
+      )}
+
+      <AnimatePresence>
+        {done && result && rc && (
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-6 card-surface p-6 border-t-4"
+            style={{ borderTopColor: `var(--${result.color})` }}
+          >
+            <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">Tu disparador más frecuente</p>
+            <h4 className="text-2xl font-bold mb-2">{result.name}</h4>
+            <p className="text-sm text-foreground/85 leading-relaxed mb-4">{result.insight}</p>
+            <div className={`rounded-xl ${rc.soft} p-4`}>
+              <p className={`text-xs font-bold uppercase tracking-wider ${rc.text} mb-1`}>Tu palanca</p>
+              <p className="text-sm text-foreground/85 leading-relaxed">{result.palanca}</p>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {(["verdad", "relacion", "identidad"] as const).map((k) => (
+                <span key={k} className="text-xs rounded-full border border-border px-3 py-1 text-muted-foreground">
+                  {TRIGGER_FEEDBACK[k].name}: <b className="text-foreground">{tally[k] || 0}</b>
                 </span>
               ))}
             </div>
