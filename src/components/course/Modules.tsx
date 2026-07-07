@@ -10,7 +10,7 @@ const feedbackScene = feedbackSceneAsset.url;
 const rodrigoStory = rodrigoStoryAsset.url;
 import {
   SCARF, TRIGGERS, FEEDBACK_TYPES, PNE_STEPS,
-  SCENARIO_M1, SCENARIO_M2, SCENARIO_M3, SCENARIO_M4,
+  SCENARIO_M1, SCENARIO_M2, SCENARIO_M3, SCENARIO_M4, QUIZ_M3_AUTO,
 } from "@/lib/course-data";
 import { ScenarioChoice, ReflectionCard, FormativeQuiz, colorOf } from "./Interactives";
 
