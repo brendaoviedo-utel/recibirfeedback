@@ -276,10 +276,10 @@ export function Module2({ onNext }: { onNext: () => void }) {
             );
           })}
         </div>
-        <p className="mt-5 text-base text-foreground/80">Si alguna te resultó familiar, acabas de conocer a <b>tus tres disparadores</b>. Están en todos. Y son los que hacen que el feedback útil no llegue.</p>
+        <p className="mt-5 text-base text-foreground/80">No existe una respuesta correcta. Todos tenemos disparadores distintos. Estos pensamientos aparecen en segundos. No son el problema. El problema es creer que son la realidad. El objetivo no es eliminarlos, sino reconocerlos para responder con mayor conciencia.</p>
       </Section>
 
-      <Section title="Los tres disparadores · Toca para descubrir" kicker="Concepto">
+      <Section title="Los tres disparadores" kicker="Conceptos" intro="Stone y Heen identificaron tres disparadores que explican por qué el mismo feedback puede ser útil para una persona y bloqueante para otra. Toca cada tarjeta para descubrir cuál se activa en ti.">
         <div className="grid md:grid-cols-3 gap-4 perspective-[1200px]">
           {TRIGGERS.map((t) => {
             const cc = colorOf(t.color);
@@ -311,7 +311,7 @@ export function Module2({ onNext }: { onNext: () => void }) {
         </div>
       </Section>
 
-      <Section title="La Huella en acción" kicker="¿TÚ QUÉ HARÍAS?">
+      <Section title="" kicker="¿TÚ QUÉ HARÍAS?">
         <SceneCard quote={SCENARIO_M2.setup} />
         <div className="my-4 grid gap-2">
           {SCENARIO_M2.voices.map((v, i) => (
@@ -404,7 +404,7 @@ export function Module3({ onNext }: { onNext: () => void }) {
         </div>
       </Section>
 
-      <Section title="La Huella en acción" kicker="¿TÚ QUÉ HARÍAS?">
+      <Section title="" kicker="¿TÚ QUÉ HARÍAS?">
         <SceneCard quote={SCENARIO_M3.setup} />
         <div className="mt-5">
           <ScenarioChoice question={SCENARIO_M3.question} options={SCENARIO_M3.options} accent="mint" />
@@ -511,7 +511,7 @@ export function Module4({ onNext }: { onNext: () => void }) {
         </div>
       </Section>
 
-      <Section title="La Huella en acción · el reto más difícil" kicker="¿TÚ QUÉ HARÍAS?">
+      <Section title="" kicker="¿TÚ QUÉ HARÍAS?">
         <SceneCard quote={SCENARIO_M4.setup} />
         <div className="mt-5">
           <ScenarioChoice question={SCENARIO_M4.question} options={SCENARIO_M4.options} accent="violet-brand" />
