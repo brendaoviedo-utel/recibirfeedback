@@ -353,7 +353,7 @@ export function Module3({ onNext }: { onNext: () => void }) {
     <Sections>
       <Hero color="mint" eyebrow="Módulo 3 · Tipos de feedback" title="Tres conversaciones que se confunden" lead='"Muchas conversaciones de feedback fallan no porque sea malo, sino porque emisor y receptor hablan de cosas distintas sin saberlo."' />
 
-      <Section title="Dos escenas reconocibles" kicker="SITUACIÓN">
+      <Section title="Dos escenas reconocibles" kicker="SITUACIÓN" intro="No todo feedback busca lo mismo. Cuando el tipo de conversación no está claro entre quien lo da y quien lo recibe, la frustración es casi inevitable. Observa dos escenas que probablemente reconoces.">
         <div className="grid md:grid-cols-2 gap-4">
           <div className="card-surface p-5 border-l-4 border-[var(--coral)]">
             <p className="chip mb-3">Escena A</p>
