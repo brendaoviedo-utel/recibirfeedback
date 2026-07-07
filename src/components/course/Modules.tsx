@@ -808,7 +808,9 @@ const SCARF_FEEDBACK: Record<string, { name: string; color: string; insight: str
 
 function ScarfSelfDiscovery() {
   const [answers, setAnswers] = useState<Record<number, "S" | "C" | "A" | "R" | "F">>({});
-  const done = Object.keys(answers).length === SCARF_QUIZ.length;
+  const [step, setStep] = useState(0);
+  const total = SCARF_QUIZ.length;
+  const done = Object.keys(answers).length === total;
 
   const tally = Object.values(answers).reduce<Record<string, number>>((acc, k) => {
     acc[k] = (acc[k] || 0) + 1;
@@ -820,34 +822,72 @@ function ScarfSelfDiscovery() {
   const result = dominant ? SCARF_FEEDBACK[dominant] : null;
   const rc = result ? colorOf(result.color) : null;
 
+  const current = SCARF_QUIZ[step];
+  const isLast = step === total - 1;
+  const answered = answers[step] !== undefined;
+
   return (
     <Section title="¿Cuál es tu dominio SCARF dominante?" kicker="AUTODESCUBRIMIENTO">
       <p className="text-sm text-muted-foreground mb-5">
         Responde honestamente. Al terminar, verás cuál dominio se activa más en ti al recibir feedback — y una palanca concreta para trabajarlo.
       </p>
-      <div className="space-y-4">
-        {SCARF_QUIZ.map((item, i) => (
-          <div key={i} className="card-surface p-5">
-            <p className="text-sm font-bold text-muted-foreground mb-1">Pregunta {i + 1} de {SCARF_QUIZ.length}</p>
-            <p className="text-base font-semibold mb-3">{item.q}</p>
-            <div className="grid gap-2">
-              {item.options.map((opt, j) => {
-                const active = answers[i] === opt.key;
-                return (
-                  <button
-                    key={j}
-                    type="button"
-                    onClick={() => setAnswers((a) => ({ ...a, [i]: opt.key }))}
-                    className={`text-left rounded-xl border-2 px-4 py-3 text-sm transition ${active ? "border-[var(--cobalt)] bg-[var(--cobalt)]/8 font-semibold" : "border-border hover:border-foreground/30"}`}
-                  >
-                    {opt.text}
-                  </button>
-                );
-              })}
+
+      {!done && current && (
+        <div className="card-surface p-5">
+          <div className="mb-3 flex items-center gap-3">
+            <p className="text-sm font-bold text-muted-foreground">Pregunta {step + 1} de {total}</p>
+            <div className="flex-1 h-1.5 rounded-full bg-muted overflow-hidden">
+              <div className="h-full bg-[var(--cobalt)] transition-all" style={{ width: `${((step + (answered ? 1 : 0)) / total) * 100}%` }} />
             </div>
           </div>
-        ))}
-      </div>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={step}
+              initial={{ opacity: 0, x: 12 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -12 }}
+              transition={{ duration: 0.25 }}
+            >
+              <p className="text-base font-semibold mb-3">{current.q}</p>
+              <div className="grid gap-2">
+                {current.options.map((opt, j) => {
+                  const active = answers[step] === opt.key;
+                  return (
+                    <button
+                      key={j}
+                      type="button"
+                      onClick={() => setAnswers((a) => ({ ...a, [step]: opt.key }))}
+                      className={`text-left rounded-xl border-2 px-4 py-3 text-sm transition ${active ? "border-[var(--cobalt)] bg-[var(--cobalt)]/8 font-semibold" : "border-border hover:border-foreground/30"}`}
+                    >
+                      {opt.text}
+                    </button>
+                  );
+                })}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          <div className="mt-5 flex items-center justify-between">
+            <button
+              type="button"
+              onClick={() => setStep((s) => Math.max(0, s - 1))}
+              disabled={step === 0}
+              className="text-sm font-semibold text-muted-foreground disabled:opacity-40 hover:text-foreground transition"
+            >
+              ← Anterior
+            </button>
+            <button
+              type="button"
+              onClick={() => setStep((s) => Math.min(total - 1, s + 1))}
+              disabled={!answered || isLast}
+              className="rounded-full bg-[var(--cobalt)] text-white text-sm font-bold px-5 py-2 disabled:opacity-40 transition"
+            >
+              {isLast ? "Ver resultado" : "Siguiente →"}
+            </button>
+          </div>
+        </div>
+      )}
 
       <AnimatePresence>
         {done && result && rc && (
@@ -871,6 +911,13 @@ function ScarfSelfDiscovery() {
                 </span>
               ))}
             </div>
+            <button
+              type="button"
+              onClick={() => { setAnswers({}); setStep(0); }}
+              className="mt-4 text-sm font-semibold text-muted-foreground hover:text-foreground transition"
+            >
+              ↺ Volver a responder
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
