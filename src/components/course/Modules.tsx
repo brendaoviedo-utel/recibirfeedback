@@ -32,7 +32,7 @@ export function Module0({ onNext }: { onNext: () => void }) {
     <Sections>
       <Hero color="coral" eyebrow="Módulo 0 · Apertura" title="¿Por qué el feedback duele aunque quieras mejorar?" lead="Una pista: no es por tu actitud. Es por tu cerebro." />
 
-      <Section title="La escena que todos hemos vivido" kicker="SITUACIÓN">
+      <Section title="La escena que todos hemos vivido" kicker="SITUACIÓN" intro="Todos hemos vivido este momento: un comentario inesperado, una crítica en medio de una reunión, y algo dentro se activa antes de que podamos pensar. Antes de entender por qué, mira la escena.">
         <div className="card-surface overflow-hidden">
           <img
             src={feedbackScene}
@@ -116,7 +116,7 @@ export function Module1({ onNext }: { onNext: () => void }) {
     <Sections>
       <Hero color="cobalt" eyebrow="Módulo 1 · Neurociencia" title="Lo que le pasa a tu cerebro cuando alguien te da feedback" lead='"La defensividad no es falta de madurez. Es tu cerebro haciendo lo que evolucionó para hacer."' />
 
-      <Section title="Lunes 9:00 a.m. — la reunión" kicker="SITUACIÓN">
+      <Section title="Lunes 9:00 a.m. — la reunión" kicker="SITUACIÓN" intro="Para entender qué le pasa a tu cerebro cuando recibes feedback, empecemos por una escena concreta. Observa lo que ocurre en Rodrigo en los segundos previos a que la razón tome el control.">
         <ZoomableImage src={m1SituacionAsset.url} alt="Rodrigo recibe feedback: reacción de amenaza en el cerebro" />
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {[
@@ -220,7 +220,7 @@ export function Module1({ onNext }: { onNext: () => void }) {
       </Section>
 
 
-      <Section title="¿Tú qué harías?" kicker="¿TÚ QUÉ HARÍAS?">
+      <Section title="" kicker="¿TÚ QUÉ HARÍAS?">
         <SceneCard quote="Rodrigo identifica: 'Todo el mundo va a pensar que no sé hacer mi trabajo.' Eso es SCARF — dominio Estatus — activándose. Tiene 3 segundos antes de que la reacción tome el control." />
         <div className="mt-5">
           <ScenarioChoice {...SCENARIO_M1} accent="cobalt" />
@@ -259,7 +259,7 @@ export function Module2({ onNext }: { onNext: () => void }) {
     <Sections>
       <Hero color="amber-brand" eyebrow="Módulo 2 · Disparadores" title="Tus tres disparadores: lo que bloquea el feedback antes de que llegue" lead='"No rechazamos el feedback porque sea malo. Lo rechazamos porque activa algo en nosotros."' />
 
-      <Section title="¿Has tenido alguno de estos pensamientos?" kicker="SITUACIÓN">
+      <Section title="¿Has tenido alguno de estos pensamientos?" kicker="SITUACIÓN" intro="Antes de hablar de los disparadores, reconócelos en ti. Son voces internas que se activan antes de que el contenido del feedback llegue realmente a procesarse. Estas tres frases probablemente ya las has pensado.">
         <div className="grid md:grid-cols-3 gap-3">
           {[
             { t: "'Eso no es cierto. No tenía el contexto completo para decirme eso.'", c: "coral" },
@@ -311,7 +311,7 @@ export function Module2({ onNext }: { onNext: () => void }) {
         </div>
       </Section>
 
-      <Section title="La Huella en acción" kicker="Reto">
+      <Section title="La Huella en acción" kicker="¿TÚ QUÉ HARÍAS?">
         <SceneCard quote={SCENARIO_M2.setup} />
         <div className="my-4 grid gap-2">
           {SCENARIO_M2.voices.map((v, i) => (
@@ -353,7 +353,7 @@ export function Module3({ onNext }: { onNext: () => void }) {
     <Sections>
       <Hero color="mint" eyebrow="Módulo 3 · Tipos de feedback" title="Tres conversaciones que se confunden" lead='"Muchas conversaciones de feedback fallan no porque sea malo, sino porque emisor y receptor hablan de cosas distintas sin saberlo."' />
 
-      <Section title="Dos escenas reconocibles" kicker="SITUACIÓN">
+      <Section title="Dos escenas reconocibles" kicker="SITUACIÓN" intro="No todo feedback busca lo mismo. Cuando el tipo de conversación no está claro entre quien lo da y quien lo recibe, la frustración es casi inevitable. Observa dos escenas que probablemente reconoces.">
         <div className="grid md:grid-cols-2 gap-4">
           <div className="card-surface p-5 border-l-4 border-[var(--coral)]">
             <p className="chip mb-3">Escena A</p>
@@ -404,7 +404,7 @@ export function Module3({ onNext }: { onNext: () => void }) {
         </div>
       </Section>
 
-      <Section title="La Huella en acción" kicker="Reto">
+      <Section title="La Huella en acción" kicker="¿TÚ QUÉ HARÍAS?">
         <SceneCard quote={SCENARIO_M3.setup} />
         <div className="mt-5">
           <ScenarioChoice question={SCENARIO_M3.question} options={SCENARIO_M3.options} accent="mint" />
@@ -438,7 +438,7 @@ export function Module4({ onNext }: { onNext: () => void }) {
     <Sections>
       <Hero color="violet-brand" eyebrow="Módulo 4 · La técnica" title="Pausa, Nombre y Elige" lead='"Entre el feedback que recibes y la respuesta que das, hay un espacio. Pequeño, pero existe. Ese espacio es donde ocurre el aprendizaje — o donde se pierde."' />
 
-      <Section title="El mismo feedback, dos desenlaces" kicker="SITUACIÓN">
+      <Section title="El mismo feedback, dos desenlaces" kicker="SITUACIÓN" intro="Un mismo comentario puede terminar en cierre o en aprendizaje. Lo que marca la diferencia sucede en el pequeño espacio entre escuchar y responder. Compara las dos versiones.">
         <div className="flex gap-2 mb-4">
           <button onClick={() => setVersion("sin")} className={`flex-1 rounded-full py-2.5 text-sm font-bold ${version === "sin" ? "bg-[var(--coral)] text-white" : "bg-muted"}`}>SIN pausa</button>
           <button onClick={() => setVersion("con")} className={`flex-1 rounded-full py-2.5 text-sm font-bold ${version === "con" ? "bg-[var(--mint)] text-white" : "bg-muted"}`}>CON pausa</button>
@@ -511,7 +511,7 @@ export function Module4({ onNext }: { onNext: () => void }) {
         </div>
       </Section>
 
-      <Section title="La Huella en acción · el reto más difícil" kicker="Reto">
+      <Section title="La Huella en acción · el reto más difícil" kicker="¿TÚ QUÉ HARÍAS?">
         <SceneCard quote={SCENARIO_M4.setup} />
         <div className="mt-5">
           <ScenarioChoice question={SCENARIO_M4.question} options={SCENARIO_M4.options} accent="violet-brand" />
@@ -636,11 +636,12 @@ function Hero({ color, eyebrow, title, lead }: { color: string; eyebrow: string;
   );
 }
 
-function Section({ kicker, title, children }: { kicker: string; title: string; children: React.ReactNode }) {
+function Section({ kicker, title, intro, children }: { kicker: string; title: string; intro?: string; children: React.ReactNode }) {
   return (
     <section>
       <p className="text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground mb-1">{kicker}</p>
-      <h2 className="text-2xl md:text-3xl font-bold mb-5 tracking-tight">{title}</h2>
+      {title && <h2 className="text-2xl md:text-3xl font-bold mb-5 tracking-tight">{title}</h2>}
+      {intro && <p className="text-base leading-relaxed text-foreground/80 mb-5 max-w-3xl">{intro}</p>}
       {children}
     </section>
   );
@@ -807,7 +808,9 @@ const SCARF_FEEDBACK: Record<string, { name: string; color: string; insight: str
 
 function ScarfSelfDiscovery() {
   const [answers, setAnswers] = useState<Record<number, "S" | "C" | "A" | "R" | "F">>({});
-  const done = Object.keys(answers).length === SCARF_QUIZ.length;
+  const [step, setStep] = useState(0);
+  const total = SCARF_QUIZ.length;
+  const done = Object.keys(answers).length === total;
 
   const tally = Object.values(answers).reduce<Record<string, number>>((acc, k) => {
     acc[k] = (acc[k] || 0) + 1;
@@ -819,34 +822,72 @@ function ScarfSelfDiscovery() {
   const result = dominant ? SCARF_FEEDBACK[dominant] : null;
   const rc = result ? colorOf(result.color) : null;
 
+  const current = SCARF_QUIZ[step];
+  const isLast = step === total - 1;
+  const answered = answers[step] !== undefined;
+
   return (
     <Section title="¿Cuál es tu dominio SCARF dominante?" kicker="AUTODESCUBRIMIENTO">
       <p className="text-sm text-muted-foreground mb-5">
         Responde honestamente. Al terminar, verás cuál dominio se activa más en ti al recibir feedback — y una palanca concreta para trabajarlo.
       </p>
-      <div className="space-y-4">
-        {SCARF_QUIZ.map((item, i) => (
-          <div key={i} className="card-surface p-5">
-            <p className="text-sm font-bold text-muted-foreground mb-1">Pregunta {i + 1} de {SCARF_QUIZ.length}</p>
-            <p className="text-base font-semibold mb-3">{item.q}</p>
-            <div className="grid gap-2">
-              {item.options.map((opt, j) => {
-                const active = answers[i] === opt.key;
-                return (
-                  <button
-                    key={j}
-                    type="button"
-                    onClick={() => setAnswers((a) => ({ ...a, [i]: opt.key }))}
-                    className={`text-left rounded-xl border-2 px-4 py-3 text-sm transition ${active ? "border-[var(--cobalt)] bg-[var(--cobalt)]/8 font-semibold" : "border-border hover:border-foreground/30"}`}
-                  >
-                    {opt.text}
-                  </button>
-                );
-              })}
+
+      {!done && current && (
+        <div className="card-surface p-5">
+          <div className="mb-3 flex items-center gap-3">
+            <p className="text-sm font-bold text-muted-foreground">Pregunta {step + 1} de {total}</p>
+            <div className="flex-1 h-1.5 rounded-full bg-muted overflow-hidden">
+              <div className="h-full bg-[var(--cobalt)] transition-all" style={{ width: `${((step + (answered ? 1 : 0)) / total) * 100}%` }} />
             </div>
           </div>
-        ))}
-      </div>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={step}
+              initial={{ opacity: 0, x: 12 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -12 }}
+              transition={{ duration: 0.25 }}
+            >
+              <p className="text-base font-semibold mb-3">{current.q}</p>
+              <div className="grid gap-2">
+                {current.options.map((opt, j) => {
+                  const active = answers[step] === opt.key;
+                  return (
+                    <button
+                      key={j}
+                      type="button"
+                      onClick={() => setAnswers((a) => ({ ...a, [step]: opt.key }))}
+                      className={`text-left rounded-xl border-2 px-4 py-3 text-sm transition ${active ? "border-[var(--cobalt)] bg-[var(--cobalt)]/8 font-semibold" : "border-border hover:border-foreground/30"}`}
+                    >
+                      {opt.text}
+                    </button>
+                  );
+                })}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          <div className="mt-5 flex items-center justify-between">
+            <button
+              type="button"
+              onClick={() => setStep((s) => Math.max(0, s - 1))}
+              disabled={step === 0}
+              className="text-sm font-semibold text-muted-foreground disabled:opacity-40 hover:text-foreground transition"
+            >
+              ← Anterior
+            </button>
+            <button
+              type="button"
+              onClick={() => setStep((s) => Math.min(total - 1, s + 1))}
+              disabled={!answered}
+              className="rounded-full bg-[var(--cobalt)] text-white text-sm font-bold px-5 py-2 disabled:opacity-40 transition"
+            >
+              {isLast ? "Ver resultado" : "Siguiente →"}
+            </button>
+          </div>
+        </div>
+      )}
 
       <AnimatePresence>
         {done && result && rc && (
@@ -870,6 +911,13 @@ function ScarfSelfDiscovery() {
                 </span>
               ))}
             </div>
+            <button
+              type="button"
+              onClick={() => { setAnswers({}); setStep(0); }}
+              className="mt-4 text-sm font-semibold text-muted-foreground hover:text-foreground transition"
+            >
+              ↺ Volver a responder
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
