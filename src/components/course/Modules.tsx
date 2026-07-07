@@ -107,7 +107,7 @@ export function Module0({ onNext }: { onNext: () => void }) {
 }
 
 /* ============== MODULE 1 — SCARF ============== */
-export function Module1({ onNext }: { onNext: () => void }) {
+export function Module1({ onNext, onPrev }: { onNext: () => void; onPrev: () => void }) {
   const [activeScarf, setActiveScarf] = useState<string>("S");
   const sel = SCARF.find((s) => s.key === activeScarf)!;
   const c = colorOf(sel.color);
@@ -252,7 +252,7 @@ export function Module1({ onNext }: { onNext: () => void }) {
 }
 
 /* ============== MODULE 2 — Triggers ============== */
-export function Module2({ onNext }: { onNext: () => void }) {
+export function Module2({ onNext, onPrev }: { onNext: () => void; onPrev: () => void }) {
   const [flipped, setFlipped] = useState<Record<string, boolean>>({});
 
   return (
@@ -356,7 +356,7 @@ export function Module2({ onNext }: { onNext: () => void }) {
 }
 
 /* ============== MODULE 3 — Three types ============== */
-export function Module3({ onNext }: { onNext: () => void }) {
+export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => void }) {
   const [tab, setTab] = useState(0);
   const t = FEEDBACK_TYPES[tab];
   const c = colorOf(t.color);
@@ -443,7 +443,7 @@ export function Module3({ onNext }: { onNext: () => void }) {
 }
 
 /* ============== MODULE 4 — PNE ============== */
-export function Module4({ onNext }: { onNext: () => void }) {
+export function Module4({ onNext, onPrev }: { onNext: () => void; onPrev: () => void }) {
   const [version, setVersion] = useState<"sin" | "con">("sin");
   return (
     <Sections>
