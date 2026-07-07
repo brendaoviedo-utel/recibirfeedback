@@ -255,6 +255,16 @@ export function Module2({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
     <Sections>
       <Hero color="amber-brand" eyebrow="Módulo 3 · Disparadores" title="Los tres disparadores: lo que bloquea el feedback antes de que llegue" lead='"No rechazamos el feedback porque sea malo. Lo rechazamos porque activa algo en nosotros."' />
 
+      <Section title="De pedirlo a recibirlo" kicker="INTRODUCCIÓN" intro="En el módulo anterior aprendiste que no tienes que esperar a que otros te den feedback: puedes pedirlo, elegir el momento adecuado y hacer preguntas que generen respuestas útiles. Pero pedir feedback no garantiza que sea fácil de recibir.">
+        <div className="card-surface p-6 space-y-4 text-base leading-relaxed text-foreground/85 border-l-4 border-[var(--amber-brand)]">
+          <p>Incluso cuando lo solicitamos activamente, el cerebro puede reaccionar como si fuera una amenaza social. Por eso, antes de profundizar en la técnica de respuesta, necesitas conocer los <b>tres disparadores</b> que explican por qué el mismo comentario puede ser útil para una persona y bloqueante para otra.</p>
+          <p>Reconocerlos no los elimina, pero te da una palanca: en lugar de creer todo lo que tu mente te dice en esos primeros segundos, podrás nombrar lo que ocurre y elegir qué hacer con la información.</p>
+          <div className="rounded-xl bg-[var(--amber-brand)]/10 p-4 text-sm">
+            <b>Mensaje clave:</b> nombrar el disparador es el primer paso para dejar de reaccionar y empezar a elegir.
+          </div>
+        </div>
+      </Section>
+
       <Section title="¿Has tenido alguno de estos pensamientos?" kicker="SITUACIÓN" intro="Antes de hablar de los disparadores, reconócelos en ti. Son voces internas que se activan antes de que el contenido del feedback llegue realmente a procesarse. Estas tres frases probablemente ya las has pensado.">
         <div className="grid md:grid-cols-3 gap-3">
           {[
