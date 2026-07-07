@@ -109,23 +109,17 @@ function Landing({ onStart }: { onStart: () => void }) {
               Comenzar el curso
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
             </button>
-            <div className="inline-flex items-center gap-2 chip bg-white">⏱ 50 minutos · 5 módulos</div>
+            <div className="inline-flex items-center gap-2 chip bg-white">⏱ 50 minutos · 5 módulos + introducción</div>
           </div>
         </motion.div>
 
         <div className="mt-16 grid md:grid-cols-3 gap-4">
-          {[
-            { c: "cobalt", n: "01", t: "Tu cerebro bajo feedback", d: "El modelo SCARF y por qué la defensividad es biología, no carácter." },
-            { c: "amber-brand", n: "02", t: "Tus tres disparadores", d: "Verdad, relación e identidad. Lo que bloquea el feedback antes de que llegue." },
-            { c: "mint", n: "03", t: "Tres tipos de conversación", d: "Apreciación, coaching y evaluación. La pregunta que evita malentendidos." },
-            { c: "violet-brand", n: "04", t: "Pausa, nombre y elige", d: "La secuencia de 3 pasos para convertir reacción en respuesta deliberada." },
-            { c: "coral", n: "05", t: "Plan real", d: "Convertir la emoción en acción concreta en las próximas 48 horas." },
-          ].map((m, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 * i }}
+          {MODULES.map((m, i) => (
+            <motion.div key={m.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 * i }}
               className="card-surface p-5 hover:shadow-lg transition">
-              <p className={`text-3xl font-black mb-2`} style={{ color: `var(--${m.c})` }}>{m.n}</p>
-              <h3 className="font-bold mb-1.5">{m.t}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{m.d}</p>
+              <p className="text-3xl font-black mb-2" style={{ color: `var(--${m.color})` }}>{m.code.replace("M", "").padStart(2, "0")}</p>
+              <h3 className="font-bold mb-1.5">{m.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{m.subtitle}</p>
             </motion.div>
           ))}
         </div>
