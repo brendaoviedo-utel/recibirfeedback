@@ -311,7 +311,7 @@ export function Module2({ onNext }: { onNext: () => void }) {
         </div>
       </Section>
 
-      <Section title="La Huella en acción" kicker="Reto">
+      <Section title="La Huella en acción" kicker="¿TÚ QUÉ HARÍAS?">
         <SceneCard quote={SCENARIO_M2.setup} />
         <div className="my-4 grid gap-2">
           {SCENARIO_M2.voices.map((v, i) => (
@@ -404,7 +404,7 @@ export function Module3({ onNext }: { onNext: () => void }) {
         </div>
       </Section>
 
-      <Section title="La Huella en acción" kicker="Reto">
+      <Section title="La Huella en acción" kicker="¿TÚ QUÉ HARÍAS?">
         <SceneCard quote={SCENARIO_M3.setup} />
         <div className="mt-5">
           <ScenarioChoice question={SCENARIO_M3.question} options={SCENARIO_M3.options} accent="mint" />
@@ -511,7 +511,7 @@ export function Module4({ onNext }: { onNext: () => void }) {
         </div>
       </Section>
 
-      <Section title="La Huella en acción · el reto más difícil" kicker="Reto">
+      <Section title="La Huella en acción · el reto más difícil" kicker="¿TÚ QUÉ HARÍAS?">
         <SceneCard quote={SCENARIO_M4.setup} />
         <div className="mt-5">
           <ScenarioChoice question={SCENARIO_M4.question} options={SCENARIO_M4.options} accent="violet-brand" />
