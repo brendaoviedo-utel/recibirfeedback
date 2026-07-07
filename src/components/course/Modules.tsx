@@ -7,6 +7,7 @@ import m1SituacionAsset from "@/assets/m1-situacion.png.asset.json";
 import m1ResolucionAsset from "@/assets/m1-resolucion.png.asset.json";
 import m2PedirFeedbackSituacionAsset from "@/assets/m2-pedir-feedback-situacion.png.asset.json";
 import m2PedirFeedbackQueHariasAsset from "@/assets/M2_Pedir_feedback_Que_harias.png.asset.json";
+import m2ResolucionFinalAsset from "@/assets/M2_Resolucion_final.png.asset.json";
 
 const feedbackScene = feedbackSceneAsset.url;
 const rodrigoStory = rodrigoStoryAsset.url;
@@ -434,9 +435,7 @@ export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
       </Section>
 
       <Section title="Cómo termina la escena" kicker="RESOLUCIÓN">
-        <div className="card-surface p-8 border-2 border-dashed border-border/60 text-center text-sm text-muted-foreground">
-          Imagen pendiente — aquí se mostrará la resolución de la escena tras pedir feedback de forma proactiva.
-        </div>
+        <ZoomableImage src={m2ResolucionFinalAsset.url} alt="Rodrigo pide feedback de forma proactiva y obtiene comentarios útiles de su líder" />
       </Section>
 
       <Section title="Mi reflexión y compromiso" kicker="Reflexión personal" intro="El feedback tiene mayor impacto cuando se convierte en una práctica personal, no en una conversación ocasional. Antes de continuar, dedica unos minutos a reflexionar sobre cómo puedes asumir un papel más activo en tu desarrollo.">
