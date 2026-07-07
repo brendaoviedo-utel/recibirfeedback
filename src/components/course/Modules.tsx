@@ -4,6 +4,7 @@ import { Brain, Zap, Target, Sparkles, BookOpen, Activity, MessageSquare, Heart,
 import feedbackSceneAsset from "@/assets/feedback-scene.png.asset.json";
 import rodrigoStoryAsset from "@/assets/rodrigo-story.png.asset.json";
 import m1SituacionAsset from "@/assets/m1-situacion.png.asset.json";
+import m1ResolucionAsset from "@/assets/m1-resolucion.png.asset.json";
 
 const feedbackScene = feedbackSceneAsset.url;
 const rodrigoStory = rodrigoStoryAsset.url;
