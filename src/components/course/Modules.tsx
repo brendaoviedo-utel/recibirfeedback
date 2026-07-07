@@ -438,7 +438,7 @@ export function Module4({ onNext }: { onNext: () => void }) {
     <Sections>
       <Hero color="violet-brand" eyebrow="Módulo 4 · La técnica" title="Pausa, Nombre y Elige" lead='"Entre el feedback que recibes y la respuesta que das, hay un espacio. Pequeño, pero existe. Ese espacio es donde ocurre el aprendizaje — o donde se pierde."' />
 
-      <Section title="El mismo feedback, dos desenlaces" kicker="SITUACIÓN">
+      <Section title="El mismo feedback, dos desenlaces" kicker="SITUACIÓN" intro="Un mismo comentario puede terminar en cierre o en aprendizaje. Lo que marca la diferencia sucede en el pequeño espacio entre escuchar y responder. Compara las dos versiones.">
         <div className="flex gap-2 mb-4">
           <button onClick={() => setVersion("sin")} className={`flex-1 rounded-full py-2.5 text-sm font-bold ${version === "sin" ? "bg-[var(--coral)] text-white" : "bg-muted"}`}>SIN pausa</button>
           <button onClick={() => setVersion("con")} className={`flex-1 rounded-full py-2.5 text-sm font-bold ${version === "con" ? "bg-[var(--mint)] text-white" : "bg-muted"}`}>CON pausa</button>
