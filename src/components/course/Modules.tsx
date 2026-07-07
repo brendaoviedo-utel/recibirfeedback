@@ -381,10 +381,10 @@ export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
     <Sections>
       <Hero color="mint" eyebrow="Módulo 2 · Buscar feedback" title="Si no te lo dan, pídelo" lead='"Tu crecimiento no depende solo del feedback que recibes, sino también del que decides buscar."' />
 
-      <Section title="Del reconocimiento a la acción" kicker="INTRODUCCIÓN" intro="En el módulo anterior aprendiste a identificar los tres disparadores que bloquean el feedback antes de que puedas usarlo: el disparador de verdad, que cuestiona el contenido; el de relación, que reacciona ante la persona que habla; y el de identidad, que amenaza tu narrativa sobre quién eres. Reconocerlos es el primer paso, pero no el único.">
+      <Section title="Del cerebro a la iniciativa" kicker="INTRODUCCIÓN" intro="En el módulo anterior viste que el feedback crítico activa una respuesta de amenaza en tu cerebro: el modelo SCARF explica cómo se disparan dominios como el Estatus, la Certeza o la Equidad, reduciendo la actividad del córtex prefrontal y poniéndote en modo defensivo. Reconocer ese mecanismo es el primer paso para recuperar el control.">
         <div className="card-surface p-6 space-y-4 text-base leading-relaxed text-foreground/85 border-l-4 border-[var(--mint)]">
-          <p>Ahora que sabes qué puede activarte, es momento de dar el siguiente paso: <b>no esperar a que el feedback llegue, sino ir a buscarlo</b>. Porque incluso cuando los demás no inician la conversación, tú puedes abrirla.</p>
-          <p>Este módulo te invita a convertir la búsqueda de feedback en una práctica deliberada. Verás por qué pedirlo no es una señal de debilidad, cómo elegir el momento adecuado, qué preguntas generan respuestas útiles y cómo recibir la respuesta sin que los disparadores tomen el control.</p>
+          <p>Ahora que sabes qué le pasa a tu cerebro cuando llega el feedback, puedes dar el siguiente paso: <b>no esperar a que otros inicien la conversación, sino salir a buscarla tú</b>. Pedir feedback de forma proactiva te permite elegir el momento, la pregunta y la persona, y llegar con la mente más preparada para escuchar.</p>
+          <p>Este módulo te invita a convertir la búsqueda de feedback en una práctica deliberada. Verás por qué pedirlo no es una señal de debilidad, cómo elegir el momento adecuado, qué preguntas generan respuestas útiles y cómo recibir la respuesta sin que tu sistema nervioso tome el control.</p>
           <div className="rounded-xl bg-[var(--mint)]/10 p-4 text-sm">
             <b>Mensaje clave:</b> tu crecimiento no depende solo del feedback que recibes, sino también del que decides buscar.
           </div>
