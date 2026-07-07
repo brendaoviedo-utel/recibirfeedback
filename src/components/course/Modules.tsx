@@ -550,7 +550,7 @@ export function Module4({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
 }
 
 /* ============== MODULE 5 — Plan ============== */
-export function Module5({ onNext }: { onNext: () => void }) {
+export function Module5({ onPrev }: { onPrev: () => void }) {
   const [plan, setPlan] = useState({ learned: "", change: "", when: "", obstacle: "" });
   const [saved, setSaved] = useState(false);
   const filled = Object.values(plan).every((v) => v.trim().length > 5);
@@ -574,17 +574,17 @@ export function Module5({ onNext }: { onNext: () => void }) {
         </motion.div>
       </Section>
 
-      <Section title="El plan si-entonces" kicker="Herramienta">
+      <Section title="Tu plan real" kicker="Herramienta">
         <div className="card-surface p-5 mb-4">
-          <p className="text-sm leading-relaxed">Las intenciones generales predicen solo el <b>28%</b> del cambio real. Los planes <b>si-entonces</b> — que especifican cuándo, dónde y cómo — multiplican el resultado.</p>
+          <p className="text-sm leading-relaxed">Las intenciones generales predicen solo el <b>28%</b> del cambio real. Un <b>plan real</b> — que especifica qué, cuándo, dónde y cómo — multiplica el resultado.</p>
           <div className="mt-4 grid sm:grid-cols-2 gap-3 text-sm">
             <div className="rounded-xl bg-[var(--coral)]/8 p-4">
               <p className="font-bold mb-1">❌ Plan débil</p>
               <p className="italic">"Voy a mejorar mis presentaciones."</p>
             </div>
             <div className="rounded-xl bg-[var(--mint)]/10 p-4">
-              <p className="font-bold mb-1">✅ Plan si-entonces</p>
-              <p className="italic">"Si preparo una presentación para más de 3 personas, entonces la última diapositiva incluye siempre próximos pasos con nombre y fecha."</p>
+              <p className="font-bold mb-1">✅ Plan real</p>
+              <p className="italic">"Cuando prepare una presentación para más de 3 personas, la última diapositiva incluirá siempre próximos pasos con nombre y fecha."</p>
             </div>
           </div>
         </div>
@@ -594,7 +594,7 @@ export function Module5({ onNext }: { onNext: () => void }) {
           {[
             { key: "learned", label: "1. ¿Qué aprendí del feedback? (lo más importante, una sola cosa)", placeholder: "Lo más válido, separado de mis disparadores, es…" },
             { key: "change", label: "2. ¿Qué voy a hacer diferente? (comportamiento específico)", placeholder: "Voy a…" },
-            { key: "when", label: "3. ¿En qué situación lo aplicaré? (el 'si' del plan)", placeholder: "Si [situación específica]…" },
+            { key: "when", label: "3. ¿En qué situación lo aplicaré?", placeholder: "Cuando [situación específica]…" },
             { key: "obstacle", label: "4. ¿Qué obstáculo puede aparecer y cómo lo manejaré?", placeholder: "Si aparece [obstáculo], entonces voy a…" },
           ].map((f) => (
             <div key={f.key}>
@@ -614,13 +614,15 @@ export function Module5({ onNext }: { onNext: () => void }) {
         </div>
       </Section>
 
-      <Section title="Listo para la evaluación final" kicker="Transición">
+      <Section title="¡Has completado el curso!" kicker="Cierre">
         <div className="card-surface gradient-cobalt text-white p-8 text-center">
           <BookOpen className="h-10 w-10 mx-auto mb-3 opacity-90" />
-          <h3 className="text-2xl font-bold mb-2">10 preguntas integradoras</h3>
-          <p className="text-white/90 mb-5 max-w-md mx-auto text-sm">No hay respuestas perfectas — hay respuestas que demuestran apertura, autoconciencia y orientación al crecimiento. Necesitas 8/10 para aprobar. Tienes 2 intentos.</p>
-          <button onClick={onNext} className="rounded-full bg-white text-[var(--cobalt)] px-6 py-3 font-bold hover:bg-white/90">
-            Comenzar evaluación final →
+          <h3 className="text-2xl font-bold mb-2">Gracias por recorrer esta experiencia</h3>
+          <p className="text-white/90 max-w-md mx-auto text-sm">Lleva contigo tu plan real y aplícalo en las próximas 48 horas. Ahí es donde el aprendizaje se vuelve cambio.</p>
+        </div>
+        <div className="mt-6 flex justify-start">
+          <button onClick={onPrev} className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-5 py-2.5 text-sm font-semibold hover:bg-muted transition">
+            ← Regresar
           </button>
         </div>
       </Section>

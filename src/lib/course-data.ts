@@ -295,6 +295,5 @@ export const MODULES = [
   { id: 2, code: "M2", title: "Tus tres disparadores", subtitle: "Verdad, relación, identidad", color: "amber-brand", duration: "12 min" },
   { id: 3, code: "M3", title: "Tres conversaciones que se confunden", subtitle: "Apreciación, coaching, evaluación", color: "mint", duration: "10 min" },
   { id: 4, code: "M4", title: "Pausa, nombre y elige", subtitle: "La secuencia clave", color: "violet-brand", duration: "12 min" },
-  { id: 5, code: "M5", title: "De la emoción a la acción", subtitle: "Tu plan si-entonces", color: "coral", duration: "8 min" },
-  { id: 6, code: "EV", title: "Evaluación final", subtitle: "10 preguntas integradoras", color: "cobalt", duration: "10 min" },
+  { id: 5, code: "M5", title: "De la emoción a la acción", subtitle: "Tu plan real", color: "coral", duration: "8 min" },
 ] as const;

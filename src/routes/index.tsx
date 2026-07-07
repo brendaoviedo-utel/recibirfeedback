@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Sparkles, ArrowRight, Home } from "lucide-react";
-import { MODULES, FINAL_QUIZ } from "@/lib/course-data";
+import { MODULES } from "@/lib/course-data";
 import { Module0, Module1, Module2, Module3, Module4, Module5 } from "@/components/course/Modules";
-import { FinalQuiz } from "@/components/course/Interactives";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -78,18 +78,7 @@ function CoursePage() {
           {active === 2 && <Module2 onNext={() => goToModule(3)} onPrev={() => goToModule(1)} />}
           {active === 3 && <Module3 onNext={() => goToModule(4)} onPrev={() => goToModule(2)} />}
           {active === 4 && <Module4 onNext={() => goToModule(5)} onPrev={() => goToModule(3)} />}
-          {active === 5 && <Module5 onNext={() => goToModule(6)} />}
-          {active === 6 && (
-            <div className="space-y-8 pb-10">
-              <div className="card-surface p-8 md:p-10 relative overflow-hidden">
-                <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-[var(--cobalt)]/10 blur-2xl" />
-                <p className="chip bg-[var(--cobalt)]/10 text-[var(--cobalt)] border-transparent mb-3">Evaluación final integradora</p>
-                <h1 className="text-3xl md:text-4xl font-extrabold">Demuestra lo aprendido</h1>
-                <p className="mt-3 text-muted-foreground max-w-2xl">10 situaciones reales de feedback. En varias preguntas más de una opción parece razonable: identifica cuál combina autoconciencia, apertura y orientación al aprendizaje. Mínimo aprobatorio: 80%. Tienes 2 intentos.</p>
-              </div>
-              <FinalQuiz items={FINAL_QUIZ} onPass={() => setCompleted((s) => new Set(s).add(6))} />
-            </div>
-          )}
+          {active === 5 && <Module5 onPrev={() => goToModule(4)} />}
         </main>
       </div>
     </div>
@@ -120,7 +109,7 @@ function Landing({ onStart }: { onStart: () => void }) {
               Comenzar el curso
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
             </button>
-            <div className="inline-flex items-center gap-2 chip bg-white">⏱ 60 minutos · 6 módulos</div>
+            <div className="inline-flex items-center gap-2 chip bg-white">⏱ 50 minutos · 5 módulos</div>
           </div>
         </motion.div>
 
@@ -130,8 +119,7 @@ function Landing({ onStart }: { onStart: () => void }) {
             { c: "amber-brand", n: "02", t: "Tus tres disparadores", d: "Verdad, relación e identidad. Lo que bloquea el feedback antes de que llegue." },
             { c: "mint", n: "03", t: "Tres tipos de conversación", d: "Apreciación, coaching y evaluación. La pregunta que evita malentendidos." },
             { c: "violet-brand", n: "04", t: "Pausa, nombre y elige", d: "La secuencia de 3 pasos para convertir reacción en respuesta deliberada." },
-            { c: "coral", n: "05", t: "Plan si-entonces", d: "Convertir la emoción en acción concreta en las próximas 48 horas." },
-            { c: "cobalt", n: "EV", t: "Evaluación integradora", d: "10 preguntas basadas en situaciones reales. 2 intentos." },
+            { c: "coral", n: "05", t: "Plan real", d: "Convertir la emoción en acción concreta en las próximas 48 horas." },
           ].map((m, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 * i }}
               className="card-surface p-5 hover:shadow-lg transition">
