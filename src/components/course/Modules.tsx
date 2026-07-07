@@ -253,7 +253,7 @@ export function Module2({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
 
   return (
     <Sections>
-      <Hero color="amber-brand" eyebrow="Módulo 2 · Disparadores" title="Tus tres disparadores: lo que bloquea el feedback antes de que llegue" lead='"No rechazamos el feedback porque sea malo. Lo rechazamos porque activa algo en nosotros."' />
+      <Hero color="amber-brand" eyebrow="Módulo 3 · Disparadores" title="Los tres disparadores: lo que bloquea el feedback antes de que llegue" lead='"No rechazamos el feedback porque sea malo. Lo rechazamos porque activa algo en nosotros."' />
 
       <Section title="¿Has tenido alguno de estos pensamientos?" kicker="SITUACIÓN" intro="Antes de hablar de los disparadores, reconócelos en ti. Son voces internas que se activan antes de que el contenido del feedback llegue realmente a procesarse. Estas tres frases probablemente ya las has pensado.">
         <div className="grid md:grid-cols-3 gap-3">
