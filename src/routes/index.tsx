@@ -78,18 +78,7 @@ function CoursePage() {
           {active === 2 && <Module2 onNext={() => goToModule(3)} onPrev={() => goToModule(1)} />}
           {active === 3 && <Module3 onNext={() => goToModule(4)} onPrev={() => goToModule(2)} />}
           {active === 4 && <Module4 onNext={() => goToModule(5)} onPrev={() => goToModule(3)} />}
-          {active === 5 && <Module5 onNext={() => goToModule(6)} />}
-          {active === 6 && (
-            <div className="space-y-8 pb-10">
-              <div className="card-surface p-8 md:p-10 relative overflow-hidden">
-                <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-[var(--cobalt)]/10 blur-2xl" />
-                <p className="chip bg-[var(--cobalt)]/10 text-[var(--cobalt)] border-transparent mb-3">Evaluación final integradora</p>
-                <h1 className="text-3xl md:text-4xl font-extrabold">Demuestra lo aprendido</h1>
-                <p className="mt-3 text-muted-foreground max-w-2xl">10 situaciones reales de feedback. En varias preguntas más de una opción parece razonable: identifica cuál combina autoconciencia, apertura y orientación al aprendizaje. Mínimo aprobatorio: 80%. Tienes 2 intentos.</p>
-              </div>
-              <FinalQuiz items={FINAL_QUIZ} onPass={() => setCompleted((s) => new Set(s).add(6))} />
-            </div>
-          )}
+          {active === 5 && <Module5 onPrev={() => goToModule(4)} />}
         </main>
       </div>
     </div>
