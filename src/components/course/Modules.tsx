@@ -700,14 +700,42 @@ function TimelineLine({ label, text, accent }: { label: string; text: string; ac
   );
 }
 
-function NextButton({ onClick, label }: { onClick: () => void; label: string }) {
+function NavigationButtons({ onNext, onPrev }: { onNext: () => void; onPrev?: () => void }) {
   return (
-    <div className="flex justify-center pt-4">
-      <button onClick={onClick}
-        className="group inline-flex items-center gap-2 rounded-full gradient-coral text-white px-7 py-3.5 font-bold shadow-[var(--shadow-glow)] hover:opacity-95 transition">
-        {label}
+    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
+      {onPrev && (
+        <button onClick={onPrev}
+          className="group inline-flex items-center gap-2 rounded-full border-2 border-border bg-card text-foreground px-7 py-3.5 font-bold hover:bg-muted transition order-2 sm:order-1">
+          <ArrowLeft className="h-4 w-4 transition group-hover:-translate-x-1" />
+          Regresar
+        </button>
+      )}
+      <button onClick={onNext}
+        className="group inline-flex items-center gap-2 rounded-full gradient-coral text-white px-7 py-3.5 font-bold shadow-[var(--shadow-glow)] hover:opacity-95 transition order-1 sm:order-2">
+        Avanzar
         <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
       </button>
+    </div>
+  );
+}
+
+function ReflectionWithSave({ prompts, accent }: { prompts: string[]; accent?: string }) {
+  const [saved, setSaved] = useState(false);
+  return (
+    <div className="space-y-4">
+      <ReflectionCard prompts={prompts} accent={accent} />
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 card-surface p-5 bg-soft/50">
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          Guardar tu reflexión te ayuda a convertir la intención en compromiso. Revisa estas notas en los próximos días para recordar lo que decidiste practicar.
+        </p>
+        <button
+          onClick={() => setSaved(true)}
+          className={`shrink-0 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold transition ${saved ? "bg-[var(--mint)] text-white" : "bg-[var(--cobalt)] text-white hover:opacity-90"}`}
+        >
+          <Save className="h-4 w-4" />
+          {saved ? "Guardado ✓" : "Guardar reflexión"}
+        </button>
+      </div>
     </div>
   );
 }
