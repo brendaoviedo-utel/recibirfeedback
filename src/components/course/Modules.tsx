@@ -32,7 +32,7 @@ export function Module0({ onNext }: { onNext: () => void }) {
     <Sections>
       <Hero color="coral" eyebrow="Módulo 0 · Apertura" title="¿Por qué el feedback duele aunque quieras mejorar?" lead="Una pista: no es por tu actitud. Es por tu cerebro." />
 
-      <Section title="La escena que todos hemos vivido" kicker="SITUACIÓN">
+      <Section title="La escena que todos hemos vivido" kicker="SITUACIÓN" intro="Todos hemos vivido este momento: un comentario inesperado, una crítica en medio de una reunión, y algo dentro se activa antes de que podamos pensar. Antes de entender por qué, mira la escena.">
         <div className="card-surface overflow-hidden">
           <img
             src={feedbackScene}
