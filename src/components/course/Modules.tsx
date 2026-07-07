@@ -391,25 +391,12 @@ export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
     <Sections>
       <Hero color="mint" eyebrow="Módulo 2 · Buscar feedback" title="Si no te lo dan, pídelo" lead='"Tu crecimiento no depende solo del feedback que recibes, sino también del que decides buscar."' />
 
-      <Section title="Del cerebro a la iniciativa" kicker="INTRODUCCIÓN" intro="En el módulo anterior viste que el feedback crítico activa una respuesta de amenaza en tu cerebro: el modelo SCARF explica cómo se disparan dominios como el Estatus, la Certeza o la Equidad, reduciendo la actividad del córtex prefrontal y poniéndote en modo defensivo. Reconocer ese mecanismo es el primer paso para recuperar el control.">
-        <div className="card-surface p-6 space-y-4 text-base leading-relaxed text-foreground/85 border-l-4 border-[var(--mint)]">
-          <p>Ahora que sabes qué le pasa a tu cerebro cuando llega el feedback, puedes dar el siguiente paso: <b>no esperar a que otros inicien la conversación, sino salir a buscarla tú</b>. Pedir feedback de forma proactiva te permite elegir el momento, la pregunta y la persona, y llegar con la mente más preparada para escuchar.</p>
-          <p>Este módulo te invita a convertir la búsqueda de feedback en una práctica deliberada. Verás por qué pedirlo no es una señal de debilidad, cómo elegir el momento adecuado, qué preguntas generan respuestas útiles y cómo recibir la respuesta sin que tu sistema nervioso tome el control.</p>
-          <div className="rounded-xl bg-[var(--mint)]/10 p-4 text-sm">
-            <b>Mensaje clave:</b> tu crecimiento no depende solo del feedback que recibes, sino también del que decides buscar.
-          </div>
-        </div>
+      <Section title="Del cerebro a la iniciativa" kicker="INTRODUCCIÓN">
+        <IntroToggle />
       </Section>
 
-      <Section title="Buscar feedback también es aprender" kicker="¿POR QUÉ PEDIRLO?" intro="Diversas investigaciones en psicología organizacional muestran que las personas que buscan feedback de forma proactiva desarrollan mayor autoconocimiento, aceleran su aprendizaje, fortalecen sus relaciones laborales y se adaptan con mayor rapidez a nuevos desafíos. Solicitar retroalimentación deja de ser una señal de inseguridad para convertirse en una práctica de mejora continua y responsabilidad sobre el propio crecimiento.">
-        <div className="card-surface p-6 space-y-3 text-base leading-relaxed text-foreground/85">
-          <p>El feedback no siempre ocurre de forma espontánea; también puede impulsarse mediante la iniciativa de quien desea aprender.</p>
-          <ul className="space-y-2 pt-2">
-            <li className="flex gap-2"><span className="text-[var(--mint)] font-bold">•</span><span>Buscar feedback de manera proactiva favorece el aprendizaje continuo, el autoconocimiento y el desarrollo profesional.</span></li>
-            <li className="flex gap-2"><span className="text-[var(--mint)] font-bold">•</span><span>Solicitar retroalimentación efectiva implica elegir el momento adecuado y hacer preguntas específicas que generen comentarios útiles y accionables.</span></li>
-            <li className="flex gap-2"><span className="text-[var(--mint)] font-bold">•</span><span>Pedir feedback no es una señal de debilidad, sino una muestra de compromiso con la mejora continua y el crecimiento.</span></li>
-          </ul>
-        </div>
+      <Section title="Buscar feedback también es aprender" kicker="¿POR QUÉ PEDIRLO?">
+        <PorQuePedirlo />
       </Section>
 
       <Section title="La escena" kicker="SITUACIÓN">
