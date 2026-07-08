@@ -150,8 +150,7 @@ export const QUIZ_M3_AUTO: QuizQ[] = [
   },
 ];
 
-export const SCENARIO_M4: { setup: string; question: string; options: ScenarioOption[] } = {
-  setup: "Jueves. Reunión de dirección. Un director que respetas dice: 'Rodrigo, tomaste decisiones unilaterales que debieron consultarse. Eso generó fricciones evitables.' Silencio. Todos miran. Los tres disparadores se activan a la vez.",
+export const SCENARIO_M4: { question: string; options: ScenarioOption[] } = {
   question: "Tienes 3–5 segundos antes de la reacción automática. ¿Qué haces?",
   options: [
     { id: "A", label: "Defender las decisiones explicando contexto y razones.", feedback: "Defender antes de procesar cierra la conversación y señala que no estás en modo de aprendizaje. La credibilidad se gana respondiendo, no reaccionando." },
