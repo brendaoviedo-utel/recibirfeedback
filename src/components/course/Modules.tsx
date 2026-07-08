@@ -170,8 +170,8 @@ export function Module1({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
 
       <TriggerSelfDiscovery />
 
-      <Section title="¿Tú qué harías?" kicker="APLICA" intro="Volvamos con Rodrigo. Ahora que ya conoces los tres disparadores, ponte en su lugar: al escuchar el comentario, tres pensamientos aparecen casi al mismo tiempo. ¿Cuál elegirías tomar en serio?">
-        <SceneCard quote={SCENARIO_M2.setup} />
+      <Section title="¿Tú qué harías?" kicker="APLICA" intro="Volvamos con Rodrigo. Ahora que ya conoces los tres disparadores, ponte en su lugar: al escuchar el comentario, tres pensamientos aparecen casi al mismo tiempo.">
+
         <div className="my-5 grid md:grid-cols-3 gap-4">
           {[
             { text: "Creo que está exagerando. No salió tan mal.", color: "coral" },
