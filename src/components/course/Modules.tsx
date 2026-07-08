@@ -227,118 +227,8 @@ export function Module1({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
   );
 }
 
-/* ============== MODULE 2 — Triggers ============== */
-export function Module2({ onNext, onPrev }: { onNext: () => void; onPrev: () => void }) {
-  const [flipped, setFlipped] = useState<Record<string, boolean>>({});
-
-  return (
-    <Sections>
-      <Hero color="amber-brand" eyebrow="Módulo 3 · Disparadores" title="Los tres disparadores: lo que bloquea el feedback antes de que llegue" lead='"No rechazamos el feedback porque sea malo. Lo rechazamos porque activa algo en nosotros."' />
-
-      <Section title="De pedirlo a recibirlo" kicker="INTRODUCCIÓN" intro="En el módulo anterior aprendiste que no tienes que esperar a que otros te den feedback: puedes pedirlo, elegir el momento adecuado y hacer preguntas que generen respuestas útiles. Pero pedir feedback no garantiza que sea fácil de recibir.">
-        <div className="card-surface p-6 space-y-4 text-base leading-relaxed text-foreground/85 border-l-4 border-[var(--amber-brand)]">
-          <p>Incluso cuando lo solicitamos activamente, el cerebro puede reaccionar como si fuera una amenaza social. Por eso, antes de profundizar en la técnica de respuesta, necesitas conocer los <b>tres disparadores</b> que explican por qué el mismo comentario puede ser útil para una persona y bloqueante para otra.</p>
-          <p>Reconocerlos no los elimina, pero te da una palanca: en lugar de creer todo lo que tu mente te dice en esos primeros segundos, podrás nombrar lo que ocurre y elegir qué hacer con la información.</p>
-          <div className="rounded-xl bg-[var(--amber-brand)]/10 p-4 text-sm">
-            <b>Mensaje clave:</b> nombrar el disparador es el primer paso para dejar de reaccionar y empezar a elegir.
-          </div>
-        </div>
-      </Section>
-
-      <Section title="¿Has tenido alguno de estos pensamientos?" kicker="SITUACIÓN" intro="Antes de hablar de los disparadores, reconócelos en ti. Son voces internas que se activan antes de que el contenido del feedback llegue realmente a procesarse. Estas tres frases probablemente ya las has pensado.">
-        <div className="grid md:grid-cols-3 gap-3">
-          {[
-            { t: "'Eso no es cierto. No tenía el contexto completo para decirme eso.'", c: "coral" },
-            { t: "'¿Y él me va a dar feedback a mí? Que primero se fije en lo suyo.'", c: "amber-brand" },
-            { t: "'Si eso es lo que piensan de mí, nunca fui tan bueno como creía.'", c: "violet-brand" },
-          ].map((b, i) => {
-            const cc = colorOf(b.c);
-            return (
-              <motion.div key={i} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: i * 0.15 }}
-                className={`relative rounded-2xl p-5 ${cc.soft} border-2 border-transparent`} style={{ borderColor: `var(--${b.c})` }}>
-                <div className={`absolute -top-2 -left-2 h-6 w-6 rounded-full ${cc.bg} text-white flex items-center justify-center text-xs font-bold`}>{i + 1}</div>
-                <p className="text-sm font-medium italic leading-relaxed">{b.t}</p>
-              </motion.div>
-            );
-          })}
-        </div>
-        <p className="mt-5 text-base text-foreground/80">No existe una respuesta correcta. Todos tenemos disparadores distintos. Estos pensamientos aparecen en segundos. No son el problema. El problema es creer que son la realidad. El objetivo no es eliminarlos, sino reconocerlos para responder con mayor conciencia.</p>
-      </Section>
-
-      <Section title="Los tres disparadores" kicker="Conceptos" intro="Stone y Heen identificaron tres disparadores que explican por qué el mismo feedback puede ser útil para una persona y bloqueante para otra. Toca cada tarjeta para descubrirlos.">
-        <div className="grid md:grid-cols-3 gap-4 perspective-[1200px]">
-          {TRIGGERS.map((t) => {
-            const cc = colorOf(t.color);
-            const Icon = TRIG_ICONS[t.key];
-            const isFlipped = flipped[t.key];
-            return (
-              <div key={t.key} className="relative h-72 cursor-pointer" onClick={() => setFlipped((f) => ({ ...f, [t.key]: !f[t.key] }))}>
-                <motion.div animate={{ rotateY: isFlipped ? 180 : 0 }} transition={{ duration: 0.5 }}
-                  className="absolute inset-0 rounded-2xl" style={{ transformStyle: "preserve-3d" }}>
-                  {/* Front */}
-                  <div className={`absolute inset-0 card-surface p-6 flex flex-col items-center justify-center text-center backface-hidden`} style={{ backfaceVisibility: "hidden", borderTop: `4px solid var(--${t.color})` }}>
-                    <div className={`flex h-16 w-16 items-center justify-center rounded-2xl ${cc.soft} mb-3`}>
-                      <Icon className={`h-8 w-8 ${cc.text}`} />
-                    </div>
-                    <h4 className="font-bold text-lg mb-2">{t.name}</h4>
-                    <p className="text-sm text-muted-foreground">{t.summary}</p>
-                    <p className="mt-4 text-xs uppercase tracking-wider font-bold text-muted-foreground">Toca para más ↻</p>
-                  </div>
-                  {/* Back */}
-                  <div className={`absolute inset-0 card-surface p-5 overflow-y-auto`} style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)", borderTop: `4px solid var(--${t.color})` }}>
-                    <p className={`text-xs uppercase tracking-wider font-bold ${cc.text} mb-2`}>{t.name}</p>
-                    <p className="text-sm leading-relaxed mb-3">{t.detail}</p>
-                    <p className="text-xs italic text-muted-foreground">{t.phrase}</p>
-                  </div>
-                </motion.div>
-              </div>
-            );
-          })}
-        </div>
-      </Section>
-
-      <Section title="" kicker="¿TÚ QUÉ HARÍAS?">
-        <SceneCard quote={SCENARIO_M2.setup} />
-        <div className="my-5 grid md:grid-cols-3 gap-4">
-          {[
-            { text: "Creo que está exagerando. No salió tan mal.", trigger: "Disparador de verdad", color: "coral" },
-            { text: "¿Por qué decidió comentarlo justo en esta reunión?", trigger: "Disparador de relación", color: "violet-brand" },
-            { text: "¿Y si esto confirma que no estoy dando el nivel?", trigger: "Disparador de identidad", color: "cobalt" },
-          ].map((item, i) => {
-            const cc = colorOf(item.color);
-            return (
-              <motion.div key={i} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}
-                className={`rounded-2xl p-5 border-2 ${cc.soft}`} style={{ borderColor: `var(--${item.color})` }}>
-                <p className={`text-xs font-bold uppercase tracking-wider ${cc.text} mb-2`}>{item.trigger}</p>
-                <p className="text-base font-medium italic leading-relaxed">"{item.text}"</p>
-              </motion.div>
-            );
-          })}
-        </div>
-        <ScenarioChoice question={SCENARIO_M2.question} options={SCENARIO_M2.options} accent="amber-brand" />
-        <blockquote className="mt-6 border-l-4 border-[var(--amber-brand)] pl-4 italic text-foreground/80">
-          "Nombrar los disparadores no los hizo desaparecer. Pero los hizo más pequeños que el feedback mismo." — Rodrigo
-        </blockquote>
-      </Section>
-
-      <TriggerSelfDiscovery />
 
 
-      <Section title="Tu turno" kicker="Reflexión personal">
-        <ReflectionWithSave accent="amber-brand" prompts={[
-          "¿Cuál de los 3 disparadores reconoces como más frecuente en ti? ¿En qué situaciones se activa con más fuerza?",
-          "Piensa en un feedback reciente que te costó recibir. ¿Qué disparador estaba activo? ¿Había algo válido que no pudiste procesar?",
-          "Mi protocolo cuando se activa mi disparador dominante: 'Cuando sienta que se activa, voy a… antes de responder.'",
-        ]} />
-      </Section>
-
-
-      <NavigationButtons onNext={onNext} onPrev={onPrev} />
-    </Sections>
-  );
-}
-
-/* ============== MODULE 3 — Three types ============== */
 export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => void }) {
   const momentos = [
     "Después de una presentación.",
@@ -440,7 +330,15 @@ export function Module4({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
   const [version, setVersion] = useState<"sin" | "con">("sin");
   return (
     <Sections>
-      <Hero color="violet-brand" eyebrow="Módulo 4 · La técnica" title="Pausa, Nombre y Elige" lead='"Entre el feedback que recibes y la respuesta que das, hay un espacio. Pequeño, pero existe. Ese espacio es donde ocurre el aprendizaje — o donde se pierde."' />
+      <Hero color="violet-brand" eyebrow="Módulo 3 · La técnica" title="Pausa, Nombre y Elige" lead='"Entre el feedback que recibes y la respuesta que das, hay un espacio. Pequeño, pero existe. Ese espacio es donde ocurre el aprendizaje — o donde se pierde."' />
+
+      <Section title="De reconocer a responder" kicker="INTRODUCCIÓN" intro="Ya sabes lo que pasa dentro de ti cuando recibes feedback (Módulo 1) y cómo pedirlo de forma útil (Módulo 2). Ahora falta la pieza que conecta todo: qué hacer en los segundos justo después de escucharlo.">
+        <div className="card-surface p-6 space-y-4 text-base leading-relaxed text-foreground/85 border-l-4 border-[var(--violet-brand)]">
+          <p>Reconocer un disparador no basta si en el impulso siguiente respondes desde la defensa. Pedir feedback no sirve si al recibirlo lo rechazas sin darte cuenta.</p>
+          <p>La técnica <b>Pausa – Nombre – Elige</b> es la bisagra entre lo que sientes y lo que decides hacer. Tres pasos breves que caben en tres segundos y cambian por completo el desenlace de la conversación.</p>
+        </div>
+      </Section>
+
 
       <Section title="El mismo feedback, dos desenlaces" kicker="SITUACIÓN" intro="Un mismo comentario puede terminar en cierre o en aprendizaje. Lo que marca la diferencia sucede en el pequeño espacio entre escuchar y responder. Compara las dos versiones.">
         <div className="flex gap-2 mb-4">
@@ -547,7 +445,7 @@ export function Module5({ onPrev }: { onPrev: () => void }) {
 
   return (
     <Sections>
-      <Hero color="coral" eyebrow="Módulo 5 · Acción" title="De la emoción a la acción" lead='"Recibir bien el feedback es la mitad del trabajo. La otra mitad es lo que haces con él en las 48 horas siguientes."' />
+      <Hero color="coral" eyebrow="Módulo 4 · Acción" title="De la emoción a la acción" lead='"Recibir bien el feedback es la mitad del trabajo. La otra mitad es lo que haces con él en las 48 horas siguientes."' />
 
       <Section title="¿Qué pasó con Rodrigo?" kicker="Cierre de la historia">
         <div className="card-surface p-6 space-y-3 text-base leading-relaxed">
