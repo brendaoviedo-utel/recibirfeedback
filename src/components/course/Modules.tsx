@@ -4,7 +4,6 @@ import { Brain, Zap, Target, Sparkles, BookOpen, Activity, MessageSquare, Heart,
 import feedbackSceneAsset from "@/assets/feedback-scene.png.asset.json";
 import rodrigoStoryAsset from "@/assets/rodrigo-story.png.asset.json";
 import m1SituacionAsset from "@/assets/M1_Situacion_Lo_que_le_pasa_a_tu_cerebro.png.asset.json";
-import m1AplicaFeedbackAsset from "@/assets/m1-aplica-feedback.png.asset.json";
 import m1TuQueHariasAsset from "@/assets/M1_Tu_que_harias.png.asset.json";
 import m1ResolucionAsset from "@/assets/m1-resolucion.png.asset.json";
 import m2PedirFeedbackSituacionAsset from "@/assets/m2-pedir-feedback-situacion.png.asset.json";
