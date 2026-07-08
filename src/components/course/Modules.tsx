@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Brain, Zap, Target, Sparkles, BookOpen, Activity, MessageSquare, Heart, Scale, Compass, ShieldAlert, Users, User, ArrowRight, ArrowLeft, ZoomIn, X, Save, Clock, HelpCircle, Ear, Repeat, ChevronRight, Check, HandHelping } from "lucide-react";
 import feedbackSceneAsset from "@/assets/feedback-scene.png.asset.json";
 import rodrigoStoryAsset from "@/assets/rodrigo-story.png.asset.json";
-import m1SituacionAsset from "@/assets/M1_Situacion_Lo_que_le_pasa_a_tu_cerebro.png.asset.json";
+import m1SituacionAsset from "@/assets/M2_Lo_que_le_pasa_al_cerebro.png.asset.json";
 import m1TuQueHariasAsset from "@/assets/M1_Tu_que_harias.png.asset.json";
 import m1ResolucionAsset from "@/assets/m1-resolucion.png.asset.json";
 import m2PedirFeedbackSituacionAsset from "@/assets/m2-pedir-feedback-situacion.png.asset.json";
