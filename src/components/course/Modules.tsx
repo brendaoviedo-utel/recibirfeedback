@@ -11,6 +11,8 @@ import m2PedirFeedbackQueHariasAsset from "@/assets/M2_Pedir_feedback_Que_harias
 import m2ResolucionFinalAsset from "@/assets/M2_Resolucion_final.png.asset.json";
 import m3TuQueHariasAsset from "@/assets/M3_Tu_que_harias.png.asset.json";
 import m4CierreAsset from "@/assets/M4_Que_paso_con_Rodrigo.png.asset.json";
+import m5SintesisAsset from "@/assets/M5_Sintesis_seis_ideas.png.asset.json";
+
 
 const feedbackScene = feedbackSceneAsset.url;
 const rodrigoStory = rodrigoStoryAsset.url;
