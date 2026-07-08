@@ -436,6 +436,9 @@ export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
 
       <Section title="Cómo termina la escena" kicker="RESOLUCIÓN">
         <ZoomableImage src={m2ResolucionFinalAsset.url} alt="Rodrigo pide feedback de forma proactiva y obtiene comentarios útiles de su líder" />
+        <div className="mt-5">
+          <M2ResolucionStory />
+        </div>
       </Section>
 
       <Section title="Mi reflexión y compromiso" kicker="Reflexión personal" intro="El feedback tiene mayor impacto cuando se convierte en una práctica personal, no en una conversación ocasional. Antes de continuar, dedica unos minutos a reflexionar sobre cómo puedes asumir un papel más activo en tu desarrollo.">
