@@ -1496,6 +1496,7 @@ function PorQuePedirlo() {
   const [mito, setMito] = useState(false);
   return (
     <div className="space-y-5">
+      <p className="text-sm font-semibold text-[var(--mint)]">Haz clic en cada recuadro para descubrir las ventajas de solicitar feedback.</p>
       <div className="grid sm:grid-cols-2 gap-3">
         {beneficios.map((b, i) => {
           const Icon = b.icon;
