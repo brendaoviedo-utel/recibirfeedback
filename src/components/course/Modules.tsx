@@ -516,12 +516,13 @@ export function ModuleConclusion({ onPrev }: { onPrev: () => void }) {
     { n: "03", title: "Pedir feedback es una habilidad", body: "No esperes: elige el momento, la persona y la pregunta. El feedback más útil suele ser el que buscas.", color: "mint" },
     { n: "04", title: "Pausa · Nombre · Elige", body: "Tres segundos son suficientes para pasar del modo defensa al modo aprendizaje.", color: "violet-brand" },
     { n: "05", title: "La acción cierra el ciclo", body: "Sin plan real y aplicación en 48 horas, el feedback se queda en conversación. Con acción, se convierte en cambio.", color: "coral" },
+    { n: "06", title: "Evaluar consolida el aprendizaje", body: "Comprobar lo aprendido te permite ver qué se quedó contigo y qué aún necesita práctica deliberada.", color: "cobalt" },
   ];
   return (
     <Sections>
       <Hero color="cobalt" eyebrow="Módulo 5 · Conclusión" title="Lo que te llevas" lead='"Las personas que más aprenden no son las que reciben más feedback, sino las que saben pedirlo, recibirlo y aprovecharlo."' />
 
-      <Section title="Cinco ideas para no olvidar" kicker="SÍNTESIS" intro="Un repaso rápido del recorrido. Cada idea corresponde a un paso del hábito completo: entender, pedir, responder, actuar.">
+      <Section title="Seis ideas para no olvidar" kicker="SÍNTESIS" intro="Un repaso rápido del recorrido. Cada idea corresponde a un paso del hábito completo: entender, pedir, responder, actuar.">
         <div className="grid md:grid-cols-2 gap-4">
           {highlights.map((h, i) => {
             const cc = colorOf(h.color);
@@ -549,6 +550,7 @@ export function ModuleConclusion({ onPrev }: { onPrev: () => void }) {
           <BookOpen className="h-10 w-10 mx-auto mb-3 opacity-90" />
           <h3 className="text-2xl font-bold mb-2">Gracias por recorrer esta experiencia</h3>
           <p className="text-white/90 max-w-md mx-auto text-sm">Lleva contigo tu plan real y aplícalo en las próximas 48 horas. Ahí es donde el aprendizaje se vuelve cambio.</p>
+          <p className="mt-4 text-white max-w-md mx-auto text-base font-semibold">Ve a tu evaluación para comprobar tus aprendizajes.</p>
         </div>
         <div className="mt-6 flex justify-start">
           <button onClick={onPrev} className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-5 py-2.5 text-sm font-semibold hover:bg-muted transition">
