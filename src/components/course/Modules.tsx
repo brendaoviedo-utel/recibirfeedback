@@ -133,87 +133,38 @@ export function Module1({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
       </Section>
 
 
-      <Section title="El modelo SCARF · Explora cada dominio" kicker="MODELO EXPLICATIVO">
-        <div className="card-surface p-5 mb-5 border-l-4 border-[var(--cobalt)]">
-          <p className="text-sm leading-relaxed text-foreground/85">
-            El neurocientífico <b>David Rock</b> identificó cinco dominios sociales que el cerebro monitorea constantemente en busca de amenazas o recompensas. A este modelo lo llamó <b>SCARF</b> (por sus siglas en inglés). Cuando uno o más de estos dominios se perciben amenazados, el cerebro activa la misma respuesta que ante una amenaza física: aumenta el <b>cortisol</b>, reduce la actividad del <b>córtex prefrontal</b> — la parte que necesitamos para razonar y aprender — y nos pone en modo defensivo.
-          </p>
-          <p className="text-sm leading-relaxed text-foreground/85 mt-3">
-            El feedback crítico casi siempre amenaza <b>varios dominios al mismo tiempo</b>. Por eso es tan difícil recibirlo bien.
-          </p>
-        </div>
-        <p className="text-sm text-muted-foreground mb-4">Toca cada letra para explorar el dominio:</p>
-        <div className="grid md:grid-cols-[auto_1fr] gap-6">
-          <div className="flex md:flex-col gap-2 justify-center">
-            {SCARF.map((s) => {
-              const sc = colorOf(s.color);
-              const Icon = SCARF_ICONS[s.key];
-              const active = s.key === activeScarf;
-              return (
-                <button key={s.key} onClick={() => setActiveScarf(s.key)}
-                  className={`flex items-center gap-3 rounded-2xl border-2 px-3 py-2.5 transition ${active ? `${sc.bg} text-white border-transparent shadow-lg` : "border-border hover:border-foreground/30 bg-card"}`}>
-                  <Icon className="h-5 w-5" />
-                  <span className="text-sm font-bold">{s.key}</span>
-                  <span className="hidden md:inline text-sm font-medium">{s.name}</span>
-                </button>
-              );
-            })}
-          </div>
-          <AnimatePresence mode="wait">
-            <motion.div key={activeScarf} initial={{ opacity: 0, x: 12 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -12 }}
-              className={`card-surface p-5 md:p-6 border-l-4`} style={{ borderLeftColor: `var(--${sel.color})` }}>
-              <div className="flex items-center gap-3 mb-4">
-                <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${c.soft}`}>
-                  <span className={`text-xl font-black ${c.text}`}>{sel.key}</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold">{sel.name}</h3>
-                  <p className="text-xs text-muted-foreground">Dominio SCARF</p>
-                </div>
-              </div>
-
-              <div className="grid sm:grid-cols-3 gap-3 mb-4">
-                <div className="rounded-xl p-4 bg-soft/60 border border-border/50">
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground mb-1">¿Qué protege?</p>
-                  <p className="text-sm leading-snug">{sel.desc}</p>
-                </div>
-                <div className="rounded-xl p-4 bg-soft/60 border border-border/50">
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground mb-1">Ejemplo</p>
-                  <p className="text-sm leading-snug">{sel.example}</p>
-                </div>
-                <div className="rounded-xl p-4 bg-soft/60 border border-border/50">
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground mb-1">Manifestación</p>
-                  <p className="text-sm leading-snug">{sel.how}</p>
-                </div>
-              </div>
-
-              <div className={`rounded-2xl p-4 md:p-5 ${c.soft} border border-border/50`}>
-                <p className={`text-[10px] font-bold uppercase tracking-wider ${c.text} mb-3`}>Esquema · {sel.name}</p>
-                <div className="flex flex-col md:flex-row gap-3 items-stretch">
-                  {[
-                    { label: "Disparo", text: sel.example },
-                    { label: "Cerebro", text: `Se activa la amenaza en ${sel.name.toLowerCase()}: cortisol ↑, córtex prefrontal ↓.` },
-                    { label: "Reacción", text: sel.how },
-                    { label: "Palanca", text: `Nombrar internamente "${sel.name}" reduce la intensidad y devuelve el control.` },
-                  ].map((row, i, arr) => (
-                    <div key={i} className="flex-1 flex items-stretch gap-2">
-                      <div className="flex-1 rounded-xl p-3 bg-white/60 border border-border/50">
-                        <div className="flex items-center gap-1.5 mb-1.5">
-                          <span className={`flex h-5 w-5 items-center justify-center rounded-full ${c.bg} text-white text-[10px] font-bold`}>{i + 1}</span>
-                          <p className={`text-[10px] font-bold uppercase tracking-wider ${c.text}`}>{row.label}</p>
-                        </div>
-                        <p className="text-xs text-foreground/80 leading-relaxed">{row.text}</p>
-                      </div>
-                      {i < arr.length - 1 && <ArrowRight className="hidden md:block h-4 w-4 text-muted-foreground/40 self-center shrink-0" />}
+      <Section title="Los tres disparadores" kicker="Conceptos" intro="Stone y Heen identificaron tres disparadores que explican por qué el mismo feedback puede ser útil para una persona y bloqueante para otra. Toca cada tarjeta para descubrirlos.">
+        <div className="grid md:grid-cols-3 gap-4 perspective-[1200px]">
+          {TRIGGERS.map((t) => {
+            const cc = colorOf(t.color);
+            const Icon = TRIG_ICONS[t.key];
+            const isFlipped = flipped[t.key];
+            return (
+              <div key={t.key} className="relative h-72 cursor-pointer" onClick={() => setFlipped((f) => ({ ...f, [t.key]: !f[t.key] }))}>
+                <motion.div animate={{ rotateY: isFlipped ? 180 : 0 }} transition={{ duration: 0.5 }}
+                  className="absolute inset-0 rounded-2xl" style={{ transformStyle: "preserve-3d" }}>
+                  {/* Front */}
+                  <div className={`absolute inset-0 card-surface p-6 flex flex-col items-center justify-center text-center backface-hidden`} style={{ backfaceVisibility: "hidden", borderTop: `4px solid var(--${t.color})` }}>
+                    <div className={`flex h-16 w-16 items-center justify-center rounded-2xl ${cc.soft} mb-3`}>
+                      <Icon className={`h-8 w-8 ${cc.text}`} />
                     </div>
-                  ))}
-                </div>
+                    <h4 className="font-bold text-lg mb-2">{t.name}</h4>
+                    <p className="text-sm text-muted-foreground">{t.summary}</p>
+                    <p className="mt-4 text-xs uppercase tracking-wider font-bold text-muted-foreground">Toca para más ↻</p>
+                  </div>
+                  {/* Back */}
+                  <div className={`absolute inset-0 card-surface p-5 overflow-y-auto`} style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)", borderTop: `4px solid var(--${t.color})` }}>
+                    <p className={`text-xs uppercase tracking-wider font-bold ${cc.text} mb-2`}>{t.name}</p>
+                    <p className="text-sm leading-relaxed mb-3">{t.detail}</p>
+                    <p className="text-xs italic text-muted-foreground">{t.phrase}</p>
+                  </div>
+                </motion.div>
               </div>
-            </motion.div>
-          </AnimatePresence>
+            );
+          })}
         </div>
-        <p className="mt-5 text-sm italic text-muted-foreground">La clave no es eliminar la respuesta — eso no es posible. Es <b>reconocerla, nombrarla y elegir</b> cómo responder desde ahí.</p>
       </Section>
+
 
 
       <Section title="" kicker="¿TÚ QUÉ HARÍAS?">
