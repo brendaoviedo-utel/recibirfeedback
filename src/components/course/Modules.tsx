@@ -112,8 +112,8 @@ export function Module1({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
     <Sections>
       <Hero color="cobalt" eyebrow="Módulo 1 · Neurociencia" title="Lo que le pasa a tu cerebro cuando alguien te da feedback" lead='"La defensividad no es falta de madurez. Es tu cerebro haciendo lo que evolucionó para hacer."' />
 
-      <Section title="Lunes 9:00 a.m. — la reunión" kicker="SITUACIÓN" intro="Para entender qué le pasa a tu cerebro cuando recibes feedback, empecemos por una escena concreta. Observa lo que ocurre en Rodrigo en los segundos previos a que la razón tome el control.">
-        <ZoomableImage src={m1SituacionAsset.url} alt="Rodrigo recibe feedback: reacción de amenaza en el cerebro" />
+      <Section title="Lunes 9:00 a.m. — la reunión" kicker="SITUACIÓN" intro="Observa lo que ocurre en el cerebro de Rodrigo en los segundos previos a que la razón tome el control.">
+        <ZoomableImage src={m1SituacionAsset.url} alt="Visualización detallada de la respuesta cerebral de Rodrigo al feedback crítico" />
       </Section>
 
       <Section title="¿Te ha pasado algo parecido?" kicker="RECONOCE" intro="Lo que le ocurre a Rodrigo no es exclusivo suyo. Cuando el feedback nos incomoda, casi siempre aparece una voz interna que se activa antes de que el mensaje llegue a procesarse. Probablemente ya has pensado alguna de estas frases.">
