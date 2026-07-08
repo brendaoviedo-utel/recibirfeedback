@@ -133,6 +133,26 @@ export function Module1({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
       </Section>
 
 
+      <Section title="¿Has tenido alguno de estos pensamientos?" kicker="SITUACIÓN" intro="Antes de hablar de los disparadores, reconócelos en ti. Son voces internas que se activan antes de que el contenido del feedback llegue realmente a procesarse. Estas tres frases probablemente ya las has pensado.">
+        <div className="grid md:grid-cols-3 gap-3">
+          {[
+            { t: "'Eso no es cierto. No tenía el contexto completo para decirme eso.'", c: "coral" },
+            { t: "'¿Y él me va a dar feedback a mí? Que primero se fije en lo suyo.'", c: "amber-brand" },
+            { t: "'Si eso es lo que piensan de mí, nunca fui tan bueno como creía.'", c: "violet-brand" },
+          ].map((b, i) => {
+            const cc = colorOf(b.c);
+            return (
+              <motion.div key={i} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: i * 0.15 }}
+                className={`relative rounded-2xl p-5 ${cc.soft} border-2 border-transparent`} style={{ borderColor: `var(--${b.c})` }}>
+                <div className={`absolute -top-2 -left-2 h-6 w-6 rounded-full ${cc.bg} text-white flex items-center justify-center text-xs font-bold`}>{i + 1}</div>
+                <p className="text-sm font-medium italic leading-relaxed">{b.t}</p>
+              </motion.div>
+            );
+          })}
+        </div>
+        <p className="mt-5 text-base text-foreground/80">No existe una respuesta correcta. Todos tenemos disparadores distintos. Estos pensamientos aparecen en segundos. No son el problema. El problema es creer que son la realidad. El objetivo no es eliminarlos, sino reconocerlos para responder con mayor conciencia.</p>
+      </Section>
+
       <Section title="Los tres disparadores" kicker="Conceptos" intro="Stone y Heen identificaron tres disparadores que explican por qué el mismo feedback puede ser útil para una persona y bloqueante para otra. Toca cada tarjeta para descubrirlos.">
         <div className="grid md:grid-cols-3 gap-4 perspective-[1200px]">
           {TRIGGERS.map((t) => {
@@ -165,27 +185,42 @@ export function Module1({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
         </div>
       </Section>
 
-
-
       <Section title="" kicker="¿TÚ QUÉ HARÍAS?">
-        <ZoomableImage src={m1TuQueHariasAsset.url} alt="Rodrigo identifica su reacción SCARF de Estatus en la reunión y decide cómo responder" />
-        <div className="mt-5">
-          <ScenarioChoice {...SCENARIO_M1} accent="cobalt" />
+        <SceneCard quote={SCENARIO_M2.setup} />
+        <div className="my-5 grid md:grid-cols-3 gap-4">
+          {[
+            { text: "Creo que está exagerando. No salió tan mal.", trigger: "Disparador de verdad", color: "coral" },
+            { text: "¿Por qué decidió comentarlo justo en esta reunión?", trigger: "Disparador de relación", color: "violet-brand" },
+            { text: "¿Y si esto confirma que no estoy dando el nivel?", trigger: "Disparador de identidad", color: "cobalt" },
+          ].map((item, i) => {
+            const cc = colorOf(item.color);
+            return (
+              <motion.div key={i} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}
+                className={`rounded-2xl p-5 border-2 ${cc.soft}`} style={{ borderColor: `var(--${item.color})` }}>
+                <p className={`text-xs font-bold uppercase tracking-wider ${cc.text} mb-2`}>{item.trigger}</p>
+                <p className="text-base font-medium italic leading-relaxed">"{item.text}"</p>
+              </motion.div>
+            );
+          })}
         </div>
+        <ScenarioChoice question={SCENARIO_M2.question} options={SCENARIO_M2.options} accent="amber-brand" />
+        <blockquote className="mt-6 border-l-4 border-[var(--amber-brand)] pl-4 italic text-foreground/80">
+          "Nombrar los disparadores no los hizo desaparecer. Pero los hizo más pequeños que el feedback mismo." — Rodrigo
+        </blockquote>
       </Section>
 
       <Section title="Dos segundos que lo cambian todo" kicker="RESOLUCIÓN">
         <ZoomableImage src={m1ResolucionAsset.url} alt="Rodrigo pasa de modo defensa a modo aprendizaje en dos segundos" />
       </Section>
 
-      <ScarfSelfDiscovery />
+      <TriggerSelfDiscovery />
 
 
       <Section title="Tu turno" kicker="Reflexión personal">
         <ReflectionWithSave accent="cobalt" prompts={[
-          "¿Cuál de los 5 dominios SCARF sientes que se activa más cuando recibes feedback? ¿Qué situaciones lo disparan?",
-          "¿Cómo se manifiesta en ti? ¿Qué haces o dejas de hacer en ese momento?",
-          "Compromiso: La próxima vez que reciba feedback que active mi dominio dominante, voy a…",
+          "¿Cuál de los 3 disparadores reconoces como más frecuente en ti? ¿En qué situaciones se activa con más fuerza?",
+          "Piensa en un feedback reciente que te costó recibir. ¿Qué disparador estaba activo? ¿Había algo válido que no pudiste procesar?",
+          "Mi protocolo cuando se activa mi disparador dominante: 'Cuando sienta que se activa, voy a… antes de responder.'",
         ]} />
       </Section>
 
