@@ -342,4 +342,5 @@ export const MODULES = [
   { id: 2, code: "M2", title: "Si no te lo dan, pídelo", subtitle: "Buscar feedback proactivamente", color: "mint", duration: "12 min" },
   { id: 3, code: "M3", title: "Pausa, nombre y elige", subtitle: "La técnica para recibirlo bien", color: "violet-brand", duration: "12 min" },
   { id: 4, code: "M4", title: "De la emoción a la acción", subtitle: "Tu plan real", color: "coral", duration: "8 min" },
+  { id: 5, code: "M5", title: "Conclusión", subtitle: "Síntesis y compromiso final", color: "cobalt", duration: "3 min" },
 ] as const;
