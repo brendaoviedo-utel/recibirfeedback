@@ -373,7 +373,7 @@ export function Module4({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
         <p className="mt-4 text-sm italic text-muted-foreground">Los mismos tres segundos. El mismo feedback. Resultados completamente diferentes.</p>
       </Section>
 
-      <Section title="La secuencia paso a paso" kicker="Concepto">
+      <Section title="La secuencia paso a paso" kicker="Concepto" intro="Pausa – Nombre – Elige no es un mantra: es una secuencia práctica de tres pasos que ocurren en pocos segundos. Cada paso tiene un propósito específico, actúa sobre una parte distinta de tu reacción y te acerca a una respuesta consciente. Recórrelos primero y después practícalos con un caso real.">
         <div className="grid md:grid-cols-3 gap-4">
           {PNE_STEPS.map((s, i) => {
             const cc = colorOf(s.color);
@@ -385,7 +385,7 @@ export function Module4({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
                   <p className={`text-7xl font-black ${cc.text} leading-none`}>{s.num}</p>
                   <h4 className="text-lg font-bold mt-2">{s.name}</h4>
                   <p className={`chip mt-2 ${cc.soft} ${cc.text} border-transparent`}>⏱ {s.time}</p>
-                  <Field label="Qué hace en el cerebro" value={s.brain} />
+                  <Field label="Qué ocurre por dentro" value={s.brain} />
                   <Field label="Qué haces concretamente" value={s.do} />
                 </div>
               </motion.div>
@@ -397,20 +397,23 @@ export function Module4({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
           <div className="grid md:grid-cols-3 gap-3 text-sm">
             <div className="rounded-xl bg-[var(--cobalt)]/8 p-4">
               <p className="font-bold text-[var(--cobalt)] mb-1">Abrir con pregunta</p>
-              <p className="text-xs text-muted-foreground mb-2">Cuando es vago o falta información.</p>
+              <p className="text-xs text-muted-foreground mb-2">Úsala cuando el feedback es vago o te falta información concreta.</p>
               <p className="italic">"¿Puedes decirme qué parte específicamente?"</p>
             </div>
             <div className="rounded-xl bg-[var(--amber-brand)]/10 p-4">
               <p className="font-bold text-[var(--amber-brand)] mb-1">Agradecer y posponer</p>
-              <p className="text-xs text-muted-foreground mb-2">Cuando la emoción es muy intensa.</p>
+              <p className="text-xs text-muted-foreground mb-2">Úsala cuando la emoción es tan intensa que no puedes responder con claridad.</p>
               <p className="italic">"Gracias. Quiero procesarlo bien, ¿seguimos mañana?"</p>
             </div>
             <div className="rounded-xl bg-[var(--mint)]/10 p-4">
               <p className="font-bold text-[var(--mint)] mb-1">Agradecer y comprometerse</p>
-              <p className="text-xs text-muted-foreground mb-2">Cuando es claro y tienes claridad.</p>
+              <p className="text-xs text-muted-foreground mb-2">Úsala cuando el feedback es claro y ya sabes qué acción vas a tomar.</p>
               <p className="italic">"Gracias. Voy a trabajar en X específicamente."</p>
             </div>
           </div>
+        </div>
+        <div className="mt-6">
+          <PNEInteractiveExample />
         </div>
       </Section>
 
