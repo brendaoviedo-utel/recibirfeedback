@@ -558,9 +558,8 @@ export function ModuleConclusion({ onPrev }: { onPrev: () => void }) {
     </Sections>
   );
 }
-    </Sections>
-  );
-}
+
+
 
 /* ============== Shared building blocks ============== */
 function Sections({ children }: { children: React.ReactNode }) {
