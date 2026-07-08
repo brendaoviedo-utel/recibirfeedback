@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Sparkles, ArrowRight, Home } from "lucide-react";
 import { MODULES } from "@/lib/course-data";
-import { Module0, Module1, Module3, Module4, Module5 } from "@/components/course/Modules";
+import { Module0, Module1, Module3, Module4, Module5, ModuleConclusion } from "@/components/course/Modules";
 
 
 export const Route = createFileRoute("/")({
@@ -77,7 +77,8 @@ function CoursePage() {
           {active === 1 && <Module1 onNext={() => goToModule(2)} onPrev={() => goToModule(0)} />}
           {active === 2 && <Module3 onNext={() => goToModule(3)} onPrev={() => goToModule(1)} />}
           {active === 3 && <Module4 onNext={() => goToModule(4)} onPrev={() => goToModule(2)} />}
-          {active === 4 && <Module5 onPrev={() => goToModule(3)} />}
+          {active === 4 && <Module5 onNext={() => goToModule(5)} onPrev={() => goToModule(3)} />}
+          {active === 5 && <ModuleConclusion onPrev={() => goToModule(4)} />}
         </main>
       </div>
     </div>
@@ -108,7 +109,7 @@ function Landing({ onStart }: { onStart: () => void }) {
               Comenzar el curso
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
             </button>
-            <div className="inline-flex items-center gap-2 chip bg-white">⏱ 45 minutos · 4 módulos + introducción</div>
+            <div className="inline-flex items-center gap-2 chip bg-white">⏱ 55 minutos · 5 módulos + introducción</div>
           </div>
         </motion.div>
 
