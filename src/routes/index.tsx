@@ -108,7 +108,7 @@ function Landing({ onStart }: { onStart: () => void }) {
               Comenzar el curso
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
             </button>
-            <div className="inline-flex items-center gap-2 chip bg-white">⏱ 50 minutos · 5 módulos + introducción</div>
+            <div className="inline-flex items-center gap-2 chip bg-white">⏱ 45 minutos · 4 módulos + introducción</div>
           </div>
         </motion.div>
 
