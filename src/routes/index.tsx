@@ -23,7 +23,7 @@ function CoursePage() {
   const [completed, setCompleted] = useState<Set<number>>(new Set());
   const [started, setStarted] = useState(false);
 
-  useEffect(() => { window.scrollTo({ top: 0, behavior: "smooth" }); }, [active]);
+  useEffect(() => { window.scrollTo({ top: 0, behavior: "auto" }); }, [active]);
 
   const goToModule = (id: number) => {
     setCompleted((s) => new Set(s).add(active));
