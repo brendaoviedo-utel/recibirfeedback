@@ -104,11 +104,8 @@ export function Module0({ onNext }: { onNext: () => void }) {
 
 /* ============== MODULE 1 — SCARF ============== */
 export function Module1({ onNext, onPrev }: { onNext: () => void; onPrev: () => void }) {
-  const [activeScarf, setActiveScarf] = useState<string>("S");
   const [flipped, setFlipped] = useState<Record<string, boolean>>({});
-  const sel = SCARF.find((s) => s.key === activeScarf)!;
-  const c = colorOf(sel.color);
-  void sel; void c; void activeScarf; void setActiveScarf;
+
 
 
   return (
