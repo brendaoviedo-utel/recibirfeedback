@@ -9,6 +9,7 @@ import m1ResolucionAsset from "@/assets/m1-resolucion.png.asset.json";
 import m2PedirFeedbackSituacionAsset from "@/assets/m2-pedir-feedback-situacion.png.asset.json";
 import m2PedirFeedbackQueHariasAsset from "@/assets/M2_Pedir_feedback_Que_harias.png.asset.json";
 import m2ResolucionFinalAsset from "@/assets/M2_Resolucion_final.png.asset.json";
+import m3TuQueHariasAsset from "@/assets/M3_Tu_que_harias.png.asset.json";
 
 const feedbackScene = feedbackSceneAsset.url;
 const rodrigoStory = rodrigoStoryAsset.url;
@@ -414,7 +415,7 @@ export function Module4({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
       </Section>
 
       <Section title="" kicker="¿TÚ QUÉ HARÍAS?">
-        <SceneCard quote={SCENARIO_M4.setup} />
+        <ZoomableImage src={m3TuQueHariasAsset.url} alt="Rodrigo recibe feedback en la reunión de dirección del jueves" />
         <div className="mt-5">
           <ScenarioChoice question={SCENARIO_M4.question} options={SCENARIO_M4.options} accent="violet-brand" />
         </div>
