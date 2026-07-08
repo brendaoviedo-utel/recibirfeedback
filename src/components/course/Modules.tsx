@@ -1358,7 +1358,7 @@ function IntroToggle() {
           >
             <p className="text-sm font-bold uppercase tracking-wider text-[var(--coral)]">Cerebro reactivo</p>
             <p className="text-base leading-relaxed text-foreground/85">
-              Has logrado identificar que el feedback crítico activa una respuesta natural de amenaza en tu cerebro. Además, el modelo SCARF te ayudó a comprender qué necesidades pueden verse afectadas durante una conversación de retroalimentación y cómo gestionarlas para responder con mayor apertura.
+              Has logrado identificar que el feedback crítico activa una respuesta natural de amenaza en tu cerebro. Además, los tres disparadores te ayudaron a reconocer qué se activa en ti durante una conversación de retroalimentación y cómo gestionarlo para responder con mayor apertura.
             </p>
           </motion.div>
         ) : (
