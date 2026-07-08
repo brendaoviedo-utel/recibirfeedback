@@ -171,9 +171,23 @@ export function Module1({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
 
       <TriggerSelfDiscovery />
 
-      <Section title="¿Tú qué harías?" kicker="APLICA" intro="Volvamos con Rodrigo. Ahora que ya conoces los tres disparadores, ponte en su lugar y observa lo que ocurre en esta escena.">
+      <Section title="¿Tú qué harías?" kicker="APLICA" intro="Volvamos con Rodrigo. Ahora que ya conoces los tres disparadores, ponte en su lugar: al escuchar el comentario, tres pensamientos aparecen casi al mismo tiempo. ¿Cuál elegirías tomar en serio?">
         <SceneCard quote={SCENARIO_M2.setup} />
-        <ZoomableImage src={m1AplicaFeedbackAsset.url} alt="Rodrigo recibe feedback de su líder y asiente mientras toma nota" className="my-5" />
+        <div className="my-5 grid md:grid-cols-3 gap-4">
+          {[
+            { text: "Creo que está exagerando. No salió tan mal.", color: "coral" },
+            { text: "¿Por qué decidió comentarlo justo en esta reunión?", color: "violet-brand" },
+            { text: "¿Y si esto confirma que no estoy dando el nivel?", color: "cobalt" },
+          ].map((item, i) => {
+            const cc = colorOf(item.color);
+            return (
+              <motion.div key={i} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}
+                className={`rounded-2xl p-5 border-2 ${cc.soft}`} style={{ borderColor: `var(--${item.color})` }}>
+                <p className="text-base font-medium italic leading-relaxed">"{item.text}"</p>
+              </motion.div>
+            );
+          })}
+        </div>
         <ScenarioChoice question={SCENARIO_M2.question} options={SCENARIO_M2.options} accent="amber-brand" />
         <blockquote className="mt-6 border-l-4 border-[var(--amber-brand)] pl-4 italic text-foreground/80">
           "Nombrar los disparadores no los hizo desaparecer. Pero los hizo más pequeños que el feedback mismo." — Rodrigo
