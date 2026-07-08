@@ -445,7 +445,7 @@ export function Module5({ onPrev }: { onPrev: () => void }) {
 
   return (
     <Sections>
-      <Hero color="coral" eyebrow="Módulo 5 · Acción" title="De la emoción a la acción" lead='"Recibir bien el feedback es la mitad del trabajo. La otra mitad es lo que haces con él en las 48 horas siguientes."' />
+      <Hero color="coral" eyebrow="Módulo 4 · Acción" title="De la emoción a la acción" lead='"Recibir bien el feedback es la mitad del trabajo. La otra mitad es lo que haces con él en las 48 horas siguientes."' />
 
       <Section title="¿Qué pasó con Rodrigo?" kicker="Cierre de la historia">
         <div className="card-surface p-6 space-y-3 text-base leading-relaxed">
