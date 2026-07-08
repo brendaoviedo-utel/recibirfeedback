@@ -77,7 +77,8 @@ function CoursePage() {
           {active === 1 && <Module1 onNext={() => goToModule(2)} onPrev={() => goToModule(0)} />}
           {active === 2 && <Module3 onNext={() => goToModule(3)} onPrev={() => goToModule(1)} />}
           {active === 3 && <Module4 onNext={() => goToModule(4)} onPrev={() => goToModule(2)} />}
-          {active === 4 && <Module5 onPrev={() => goToModule(3)} />}
+          {active === 4 && <Module5 onNext={() => goToModule(5)} onPrev={() => goToModule(3)} />}
+          {active === 5 && <ModuleConclusion onPrev={() => goToModule(4)} />}
         </main>
       </div>
     </div>
