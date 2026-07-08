@@ -438,7 +438,7 @@ export function Module4({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
 }
 
 /* ============== MODULE 5 — Plan ============== */
-export function Module5({ onPrev }: { onPrev: () => void }) {
+export function Module5({ onNext, onPrev }: { onNext: () => void; onPrev: () => void }) {
   const [plan, setPlan] = useState({ learned: "", change: "", when: "", obstacle: "" });
   const [saved, setSaved] = useState(false);
   const filled = Object.values(plan).every((v) => v.trim().length > 5);
