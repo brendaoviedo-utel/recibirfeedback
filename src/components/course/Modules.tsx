@@ -333,10 +333,10 @@ export function Module4({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
     <Sections>
       <Hero color="violet-brand" eyebrow="Módulo 3 · La técnica" title="Pausa, Nombre y Elige" lead='"Entre el feedback que recibes y la respuesta que das, hay un espacio. Pequeño, pero existe. Ese espacio es donde ocurre el aprendizaje — o donde se pierde."' />
 
-      <Section title="De reconocer a responder" kicker="INTRODUCCIÓN" intro="Ya sabes lo que pasa dentro de ti cuando recibes feedback (Módulo 1) y cómo pedirlo de forma útil (Módulo 2). Ahora falta la pieza que conecta todo: qué hacer en los segundos justo después de escucharlo.">
+      <Section title="De reconocer a responder" kicker="INTRODUCCIÓN" intro="En el Módulo 1 descubriste que tu cerebro reacciona antes que tu razón y aprendiste a reconocer los tres disparadores (verdad, relación e identidad). En el Módulo 2 viste cómo pedir feedback específico y oportuno para que sea realmente útil. Ahora falta la pieza que conecta ambos aprendizajes: qué hacer en los segundos justo después de escuchar el comentario.">
         <div className="card-surface p-6 space-y-4 text-base leading-relaxed text-foreground/85 border-l-4 border-[var(--violet-brand)]">
-          <p>Reconocer un disparador no basta si en el impulso siguiente respondes desde la defensa. Pedir feedback no sirve si al recibirlo lo rechazas sin darte cuenta.</p>
-          <p>La técnica <b>Pausa – Nombre – Elige</b> es la bisagra entre lo que sientes y lo que decides hacer. Tres pasos breves que caben en tres segundos y cambian por completo el desenlace de la conversación.</p>
+          <p>Reconocer un disparador no basta si en el impulso siguiente respondes desde la defensa. Y pedir feedback pierde su valor si, al recibirlo, lo rechazas sin darte cuenta.</p>
+          <p>La técnica <b>Pausa – Nombre – Elige</b> es la bisagra entre lo que sientes y lo que decides hacer. Tres pasos breves que caben en pocos segundos y cambian por completo el desenlace de la conversación.</p>
         </div>
       </Section>
 
