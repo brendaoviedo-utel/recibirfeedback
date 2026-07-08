@@ -506,7 +506,7 @@ export function ModuleConclusion({ onPrev }: { onPrev: () => void }) {
     <Sections>
       <Hero color="cobalt" eyebrow="Módulo 5 · Conclusión" title="Lo que te llevas" lead='"Las personas que más aprenden no son las que reciben más feedback, sino las que saben pedirlo, recibirlo y aprovecharlo."' />
 
-      <Section title="Seis ideas para no olvidar" kicker="SÍNTESIS" intro="Un repaso rápido del recorrido. Cada idea corresponde a un paso del hábito completo: entender, pedir, responder, actuar.">
+      <Section title="" kicker="SÍNTESIS">
         <ZoomableImage src={m5SintesisAsset.url} alt="Infografía: seis ideas para no olvidar sobre recibir feedback" />
       </Section>
 
