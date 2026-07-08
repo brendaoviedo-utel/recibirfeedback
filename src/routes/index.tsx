@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Sparkles, ArrowRight, Home } from "lucide-react";
 import { MODULES } from "@/lib/course-data";
-import { Module0, Module1, Module3, Module4, Module5 } from "@/components/course/Modules";
+import { Module0, Module1, Module3, Module4, Module5, ModuleConclusion } from "@/components/course/Modules";
 
 
 export const Route = createFileRoute("/")({
