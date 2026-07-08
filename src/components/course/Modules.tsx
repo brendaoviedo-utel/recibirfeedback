@@ -298,11 +298,8 @@ export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
         </div>
       </Section>
 
-      <Section title="¿Qué tan proactivo eres para buscar feedback?" kicker="AUTOCONOCIMIENTO" intro="Lee cada situación y elige la opción que más se parece a lo que normalmente harías. Al responder verás retroalimentación inmediata.">
+      <Section title="¿Qué tan proactivo eres para buscar feedback?" kicker="AUTOCONOCIMIENTO" intro="Lee cada situación y elige la opción que más se parece a lo que normalmente harías. Al responder verás retroalimentación inmediata y, al finalizar, un mensaje integrador con base en tus respuestas.">
         <SteppedQuiz items={QUIZ_M3_AUTO} accent="mint" />
-        <div className="mt-6 rounded-xl bg-[var(--mint)]/10 p-5 text-sm">
-          <b>Mensaje de cierre:</b> buscar feedback es una habilidad. Cuanto más practiques hacer preguntas oportunas y específicas, más información tendrás para aprender, mejorar y fortalecer tu desempeño.
-        </div>
       </Section>
 
       <Section title="Cómo termina la escena" kicker="RESOLUCIÓN">
@@ -336,10 +333,10 @@ export function Module4({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
     <Sections>
       <Hero color="violet-brand" eyebrow="Módulo 3 · La técnica" title="Pausa, Nombre y Elige" lead='"Entre el feedback que recibes y la respuesta que das, hay un espacio. Pequeño, pero existe. Ese espacio es donde ocurre el aprendizaje — o donde se pierde."' />
 
-      <Section title="De reconocer a responder" kicker="INTRODUCCIÓN" intro="Ya sabes lo que pasa dentro de ti cuando recibes feedback (Módulo 1) y cómo pedirlo de forma útil (Módulo 2). Ahora falta la pieza que conecta todo: qué hacer en los segundos justo después de escucharlo.">
+      <Section title="De reconocer a responder" kicker="INTRODUCCIÓN" intro="En el Módulo 1 descubriste que tu cerebro reacciona antes que tu razón y aprendiste a reconocer los tres disparadores (verdad, relación e identidad). En el Módulo 2 viste cómo pedir feedback específico y oportuno para que sea realmente útil. Ahora falta la pieza que conecta ambos aprendizajes: qué hacer en los segundos justo después de escuchar el comentario.">
         <div className="card-surface p-6 space-y-4 text-base leading-relaxed text-foreground/85 border-l-4 border-[var(--violet-brand)]">
-          <p>Reconocer un disparador no basta si en el impulso siguiente respondes desde la defensa. Pedir feedback no sirve si al recibirlo lo rechazas sin darte cuenta.</p>
-          <p>La técnica <b>Pausa – Nombre – Elige</b> es la bisagra entre lo que sientes y lo que decides hacer. Tres pasos breves que caben en tres segundos y cambian por completo el desenlace de la conversación.</p>
+          <p>Reconocer un disparador no basta si en el impulso siguiente respondes desde la defensa. Y pedir feedback pierde su valor si, al recibirlo, lo rechazas sin darte cuenta.</p>
+          <p>La técnica <b>Pausa – Nombre – Elige</b> es la bisagra entre lo que sientes y lo que decides hacer. Tres pasos breves que caben en pocos segundos y cambian por completo el desenlace de la conversación.</p>
         </div>
       </Section>
 
@@ -376,7 +373,7 @@ export function Module4({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
         <p className="mt-4 text-sm italic text-muted-foreground">Los mismos tres segundos. El mismo feedback. Resultados completamente diferentes.</p>
       </Section>
 
-      <Section title="La secuencia paso a paso" kicker="Concepto">
+      <Section title="La secuencia paso a paso" kicker="Concepto" intro="Pausa – Nombre – Elige no es un mantra: es una secuencia práctica de tres pasos que ocurren en pocos segundos. Cada paso tiene un propósito específico, actúa sobre una parte distinta de tu reacción y te acerca a una respuesta consciente. Recórrelos primero y después practícalos con un caso real.">
         <div className="grid md:grid-cols-3 gap-4">
           {PNE_STEPS.map((s, i) => {
             const cc = colorOf(s.color);
@@ -388,7 +385,7 @@ export function Module4({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
                   <p className={`text-7xl font-black ${cc.text} leading-none`}>{s.num}</p>
                   <h4 className="text-lg font-bold mt-2">{s.name}</h4>
                   <p className={`chip mt-2 ${cc.soft} ${cc.text} border-transparent`}>⏱ {s.time}</p>
-                  <Field label="Qué hace en el cerebro" value={s.brain} />
+                  <Field label="Qué ocurre por dentro" value={s.brain} />
                   <Field label="Qué haces concretamente" value={s.do} />
                 </div>
               </motion.div>
@@ -400,20 +397,23 @@ export function Module4({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
           <div className="grid md:grid-cols-3 gap-3 text-sm">
             <div className="rounded-xl bg-[var(--cobalt)]/8 p-4">
               <p className="font-bold text-[var(--cobalt)] mb-1">Abrir con pregunta</p>
-              <p className="text-xs text-muted-foreground mb-2">Cuando es vago o falta información.</p>
+              <p className="text-xs text-muted-foreground mb-2">Úsala cuando el feedback es vago o te falta información concreta.</p>
               <p className="italic">"¿Puedes decirme qué parte específicamente?"</p>
             </div>
             <div className="rounded-xl bg-[var(--amber-brand)]/10 p-4">
               <p className="font-bold text-[var(--amber-brand)] mb-1">Agradecer y posponer</p>
-              <p className="text-xs text-muted-foreground mb-2">Cuando la emoción es muy intensa.</p>
+              <p className="text-xs text-muted-foreground mb-2">Úsala cuando la emoción es tan intensa que no puedes responder con claridad.</p>
               <p className="italic">"Gracias. Quiero procesarlo bien, ¿seguimos mañana?"</p>
             </div>
             <div className="rounded-xl bg-[var(--mint)]/10 p-4">
               <p className="font-bold text-[var(--mint)] mb-1">Agradecer y comprometerse</p>
-              <p className="text-xs text-muted-foreground mb-2">Cuando es claro y tienes claridad.</p>
+              <p className="text-xs text-muted-foreground mb-2">Úsala cuando el feedback es claro y ya sabes qué acción vas a tomar.</p>
               <p className="italic">"Gracias. Voy a trabajar en X específicamente."</p>
             </div>
           </div>
+        </div>
+        <div className="mt-6">
+          <PNEInteractiveExample />
         </div>
       </Section>
 
@@ -572,6 +572,132 @@ function Field({ label, value }: { label: string; value: string }) {
     <div className="mt-3">
       <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-0.5">{label}</p>
       <p className="text-sm leading-relaxed">{value}</p>
+    </div>
+  );
+}
+
+/* ---------- Ejemplo interactivo Pausa – Nombre – Elige ---------- */
+function PNEInteractiveExample() {
+  const [step, setStep] = useState(0);
+  const [choice, setChoice] = useState<string | null>(null);
+
+  const steps = [
+    {
+      label: "1 · PAUSA",
+      color: "cobalt",
+      title: "Detén la reacción automática",
+      body: "Escuchas: 'Rodrigo, tomaste decisiones unilaterales que debieron consultarse.' Por dentro algo se activa. Antes de responder, respira una vez y no digas nada durante 2–3 segundos.",
+      hint: "En este instante ganas espacio: le das al córtex prefrontal tiempo de retomar el control.",
+    },
+    {
+      label: "2 · NOMBRE",
+      color: "amber-brand",
+      title: "Identifica qué se activó",
+      body: "Observa qué voz aparece primero. ¿Es de verdad ('eso no es cierto'), de relación ('además me lo dice frente a todos') o de identidad ('¿ahora resulta que no sé decidir?')? Nómbralo internamente.",
+      hint: "Poner palabras a la emoción reduce su intensidad y te devuelve claridad para pensar.",
+    },
+    {
+      label: "3 · ELIGE",
+      color: "mint",
+      title: "Elige tu respuesta",
+      body: "Con la información que ya tienes, elige una de las tres respuestas posibles según la situación:",
+      hint: "Recuperar la decisión sobre cómo responder baja la amenaza y abre la conversación.",
+    },
+  ];
+
+  const s = steps[step];
+  const cc = colorOf(s.color);
+
+  const respuestas = [
+    { id: "abrir", label: "Abrir con pregunta", text: "'¿Puedes darme un ejemplo concreto de una decisión que debí consultar?'", feedback: "Buena elección: el feedback era general y una pregunta específica lo vuelve accionable sin ponerte a la defensiva." },
+    { id: "posponer", label: "Agradecer y posponer", text: "'Gracias por decírmelo. Quiero pensarlo bien, ¿podemos retomarlo mañana?'", feedback: "Útil si la emoción es intensa: te da tiempo para procesar sin cerrar la puerta a la conversación." },
+    { id: "comprometer", label: "Agradecer y comprometerse", text: "'Gracias. Voy a mapear las próximas decisiones y consultar contigo antes de avanzar.'", feedback: "Adecuada solo si el feedback es claro y ya sabes qué acción tomar. En este caso podría ser prematuro si aún no tienes ejemplos concretos." },
+  ];
+
+  return (
+    <div className="card-surface p-6 border-2 border-[var(--violet-brand)]/20">
+      <div className="flex items-center gap-2 mb-4">
+        <span className="chip bg-[var(--violet-brand)]/10 text-[var(--violet-brand)] border-transparent">Ejemplo interactivo</span>
+        <span className="text-xs text-muted-foreground">Practica los tres pasos con un caso real</span>
+      </div>
+
+      <div className="flex gap-2 mb-5">
+        {steps.map((st, i) => (
+          <button
+            key={i}
+            onClick={() => { setStep(i); if (i !== 2) setChoice(null); }}
+            className={`flex-1 rounded-full py-2 text-xs font-bold transition ${
+              i === step ? `${colorOf(st.color).bg} text-white` : i < step ? "bg-muted text-foreground" : "bg-muted/40 text-muted-foreground"
+            }`}
+          >
+            {st.label}
+          </button>
+        ))}
+      </div>
+
+      <AnimatePresence mode="wait">
+        <motion.div key={step} initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -10 }} transition={{ duration: 0.2 }}>
+          <h4 className={`text-lg font-bold mb-2 ${cc.text}`}>{s.title}</h4>
+          <p className="text-sm leading-relaxed text-foreground/90 mb-3">{s.body}</p>
+
+          {step === 2 && (
+            <div className="grid gap-2 mt-4">
+              {respuestas.map((r) => {
+                const picked = choice === r.id;
+                return (
+                  <button
+                    key={r.id}
+                    onClick={() => setChoice(r.id)}
+                    className={`text-left rounded-xl border-2 p-3 text-sm transition ${
+                      picked ? "border-[var(--mint)] bg-[var(--mint)]/10" : "border-border hover:border-foreground/30 bg-card"
+                    }`}
+                  >
+                    <p className="font-bold text-[var(--mint)]">{r.label}</p>
+                    <p className="italic text-foreground/80 mt-1">{r.text}</p>
+                    <AnimatePresence>
+                      {picked && (
+                        <motion.p
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          className="mt-2 text-xs text-muted-foreground leading-relaxed"
+                        >
+                          {r.feedback}
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
+                  </button>
+                );
+              })}
+            </div>
+          )}
+
+          <div className={`mt-4 rounded-xl p-3 text-xs ${cc.soft} ${cc.text}`}>
+            <b>Clave:</b> {s.hint}
+          </div>
+        </motion.div>
+      </AnimatePresence>
+
+      <div className="flex items-center justify-between mt-5">
+        <button
+          onClick={() => setStep((i) => Math.max(0, i - 1))}
+          disabled={step === 0}
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold border border-border disabled:opacity-40 hover:bg-muted transition"
+        >
+          <ArrowLeft className="h-4 w-4" /> Anterior
+        </button>
+        {step < 2 ? (
+          <button
+            onClick={() => setStep((i) => Math.min(2, i + 1))}
+            className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full text-sm font-bold text-white shadow bg-[var(--violet-brand)]"
+          >
+            Siguiente <ArrowRight className="h-4 w-4" />
+          </button>
+        ) : (
+          <span className="text-xs font-bold text-[var(--violet-brand)]">
+            {choice ? "Has completado la secuencia" : "Elige una respuesta para cerrar el ejemplo"}
+          </span>
+        )}
+      </div>
     </div>
   );
 }
@@ -1320,6 +1446,39 @@ function SteppedQuiz({ items, accent = "mint" }: { items: typeof QUIZ_M3_AUTO; a
           </span>
         )}
       </div>
+
+      {finished && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className={`mt-6 rounded-2xl p-6 border-2 ${
+            correctCount >= 4
+              ? "border-[var(--mint)] bg-[var(--mint)]/8"
+              : correctCount >= 2
+              ? "border-[var(--amber-brand)] bg-[var(--amber-brand)]/8"
+              : "border-[var(--coral)] bg-[var(--coral)]/8"
+          }`}
+        >
+          <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Retroalimentación integradora</p>
+          <h4 className="text-lg font-bold mb-3">
+            {correctCount >= 4
+              ? "Ya tienes una postura proactiva frente al feedback"
+              : correctCount >= 2
+              ? "Vas por buen camino, aún hay margen para ser más proactivo"
+              : "Es momento de asumir un rol más activo en tu desarrollo"}
+          </h4>
+          <p className="text-sm leading-relaxed text-foreground/90">
+            {correctCount >= 4
+              ? "Tus respuestas muestran que no esperas a que el feedback aparezca: lo buscas en momentos oportunos, formulas preguntas específicas y agradeces sin justificarte. Sigue cultivando este hábito para convertirlo en tu forma natural de aprender."
+              : correctCount >= 2
+              ? "Reconoces la importancia del feedback, pero en algunas situaciones aún esperas a que otros inicien la conversación o usas preguntas demasiado generales. Practica pedir feedback específico después de tus próximos entregables para volverlo un hábito consistente."
+              : "En la mayoría de las situaciones dependes de que otros tomen la iniciativa. Empieza pequeño: elige un proyecto reciente, identifica a una persona clave y hazle una pregunta concreta. Un solo intento puede abrir la puerta a información valiosa que hoy no está llegando a ti."}
+          </p>
+          <p className="mt-4 text-sm italic text-foreground/70">
+            Recuerda: buscar feedback es una habilidad que se entrena. Cada pregunta oportuna y específica multiplica la información útil que recibes para crecer.
+          </p>
+        </motion.div>
+      )}
     </div>
   );
 }

@@ -59,9 +59,9 @@ export const FEEDBACK_TYPES = [
 ] as const;
 
 export const PNE_STEPS = [
-  { num: "1", name: "PAUSA", color: "cobalt", time: "2–5 segundos", brain: "Activa la inhibición prefrontal sobre la amígdala.", do: "Respira. No hables. Si puedes: 'Dame un momento para procesar esto.'" },
-  { num: "2", name: "NOMBRE", color: "amber-brand", time: "5–10 segundos internos", brain: "Affect labeling: etiquetar la emoción reduce su activación.", do: "Internamente: '¿Qué SCARF se activó? ¿Qué disparador reconozco?'" },
-  { num: "3", name: "ELIGE", color: "mint", time: "Respuesta deliberada", brain: "Activa Autonomía: recuperas control y reduces la amenaza.", do: "Elige: abrir con pregunta · agradecer y posponer · agradecer y comprometerse." },
+  { num: "1", name: "PAUSA", color: "cobalt", time: "2–5 segundos", brain: "Detiene la reacción automática y le da espacio al córtex prefrontal para retomar el control antes de responder.", do: "Respira profundo una vez. No hables aún. Si necesitas más tiempo, di: 'Dame un momento para procesar esto.'" },
+  { num: "2", name: "NOMBRE", color: "amber-brand", time: "5–10 segundos internos", brain: "Poner palabras a lo que sientes (affect labeling) baja la intensidad emocional y te devuelve claridad.", do: "En silencio, identifica qué disparador se activó: ¿verdad, relación o identidad? Nómbralo para ti: 'Esto es identidad'." },
+  { num: "3", name: "ELIGE", color: "mint", time: "Respuesta deliberada", brain: "Al decidir cómo responder recuperas sensación de control y bajas la amenaza percibida.", do: "Elige una de tres respuestas: abrir con una pregunta, agradecer y posponer, o agradecer y comprometerte con una acción." },
 ] as const;
 
 // Scenarios
