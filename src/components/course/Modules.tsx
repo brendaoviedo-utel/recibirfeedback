@@ -11,6 +11,8 @@ import m2PedirFeedbackQueHariasAsset from "@/assets/M2_Pedir_feedback_Que_harias
 import m2ResolucionFinalAsset from "@/assets/M2_Resolucion_final.png.asset.json";
 import m3TuQueHariasAsset from "@/assets/M3_Tu_que_harias.png.asset.json";
 import m4CierreAsset from "@/assets/M4_Que_paso_con_Rodrigo.png.asset.json";
+import m5SintesisAsset from "@/assets/M5_Sintesis_seis_ideas.png.asset.json";
+
 
 const feedbackScene = feedbackSceneAsset.url;
 const rodrigoStory = rodrigoStoryAsset.url;
@@ -500,33 +502,14 @@ export function Module5({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
 
 /* ============== MODULE 6 — Conclusión ============== */
 export function ModuleConclusion({ onPrev }: { onPrev: () => void }) {
-  const highlights = [
-    { n: "01", title: "Es biología, no debilidad", body: "Tu cerebro trata el feedback crítico como una amenaza social. Reconocerlo te devuelve el control.", color: "cobalt" },
-    { n: "02", title: "Los disparadores tienen nombre", body: "Verdad, relación e identidad. Nombrarlos los hace más pequeños que el feedback mismo.", color: "amber-brand" },
-    { n: "03", title: "Pedir feedback es una habilidad", body: "No esperes: elige el momento, la persona y la pregunta. El feedback más útil suele ser el que buscas.", color: "mint" },
-    { n: "04", title: "Pausa · Nombre · Elige", body: "Tres segundos son suficientes para pasar del modo defensa al modo aprendizaje.", color: "violet-brand" },
-    { n: "05", title: "La acción cierra el ciclo", body: "Sin plan real y aplicación en 48 horas, el feedback se queda en conversación. Con acción, se convierte en cambio.", color: "coral" },
-    { n: "06", title: "Evaluar consolida el aprendizaje", body: "Comprobar lo aprendido te permite ver qué se quedó contigo y qué aún necesita práctica deliberada.", color: "cobalt" },
-  ];
   return (
     <Sections>
       <Hero color="cobalt" eyebrow="Módulo 5 · Conclusión" title="Lo que te llevas" lead='"Las personas que más aprenden no son las que reciben más feedback, sino las que saben pedirlo, recibirlo y aprovecharlo."' />
 
       <Section title="Seis ideas para no olvidar" kicker="SÍNTESIS" intro="Un repaso rápido del recorrido. Cada idea corresponde a un paso del hábito completo: entender, pedir, responder, actuar.">
-        <div className="grid md:grid-cols-2 gap-4">
-          {highlights.map((h, i) => {
-            const cc = colorOf(h.color);
-            return (
-              <motion.div key={h.n} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 * i }}
-                className="card-surface p-5 border-t-4" style={{ borderTopColor: `var(--${h.color})` }}>
-                <p className={`text-3xl font-black mb-2 ${cc.text}`}>{h.n}</p>
-                <h4 className="font-bold mb-1.5">{h.title}</h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">{h.body}</p>
-              </motion.div>
-            );
-          })}
-        </div>
+        <ZoomableImage src={m5SintesisAsset.url} alt="Infografía: seis ideas para no olvidar sobre recibir feedback" />
       </Section>
+
 
       <Section title="Del curso a la vida real" kicker="COMPROMISO" intro="El feedback no cambia a nadie mientras se queda en una idea. Empieza a cambiar en el momento en que decides qué vas a hacer distinto — y cuándo.">
         <div className="card-surface p-6 space-y-4 text-base leading-relaxed text-foreground/85 border-l-4 border-[var(--coral)]">
