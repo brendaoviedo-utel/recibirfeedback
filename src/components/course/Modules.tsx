@@ -1320,6 +1320,39 @@ function SteppedQuiz({ items, accent = "mint" }: { items: typeof QUIZ_M3_AUTO; a
           </span>
         )}
       </div>
+
+      {finished && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className={`mt-6 rounded-2xl p-6 border-2 ${
+            correctCount >= 4
+              ? "border-[var(--mint)] bg-[var(--mint)]/8"
+              : correctCount >= 2
+              ? "border-[var(--amber-brand)] bg-[var(--amber-brand)]/8"
+              : "border-[var(--coral)] bg-[var(--coral)]/8"
+          }`}
+        >
+          <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Retroalimentación integradora</p>
+          <h4 className="text-lg font-bold mb-3">
+            {correctCount >= 4
+              ? "Ya tienes una postura proactiva frente al feedback"
+              : correctCount >= 2
+              ? "Vas por buen camino, aún hay margen para ser más proactivo"
+              : "Es momento de asumir un rol más activo en tu desarrollo"}
+          </h4>
+          <p className="text-sm leading-relaxed text-foreground/90">
+            {correctCount >= 4
+              ? "Tus respuestas muestran que no esperas a que el feedback aparezca: lo buscas en momentos oportunos, formulas preguntas específicas y agradeces sin justificarte. Sigue cultivando este hábito para convertirlo en tu forma natural de aprender."
+              : correctCount >= 2
+              ? "Reconoces la importancia del feedback, pero en algunas situaciones aún esperas a que otros inicien la conversación o usas preguntas demasiado generales. Practica pedir feedback específico después de tus próximos entregables para volverlo un hábito consistente."
+              : "En la mayoría de las situaciones dependes de que otros tomen la iniciativa. Empieza pequeño: elige un proyecto reciente, identifica a una persona clave y hazle una pregunta concreta. Un solo intento puede abrir la puerta a información valiosa que hoy no está llegando a ti."}
+          </p>
+          <p className="mt-4 text-sm italic text-foreground/70">
+            Recuerda: buscar feedback es una habilidad que se entrena. Cada pregunta oportuna y específica multiplica la información útil que recibes para crecer.
+          </p>
+        </motion.div>
+      )}
     </div>
   );
 }
