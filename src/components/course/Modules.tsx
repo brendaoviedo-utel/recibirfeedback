@@ -4,6 +4,7 @@ import { Brain, Zap, Target, Sparkles, BookOpen, Activity, MessageSquare, Heart,
 import feedbackSceneAsset from "@/assets/feedback-scene.png.asset.json";
 import rodrigoStoryAsset from "@/assets/rodrigo-story.png.asset.json";
 import m1SituacionAsset from "@/assets/m1-situacion.png.asset.json";
+import m1TuQueHariasAsset from "@/assets/M1_Tu_que_harias.png.asset.json";
 import m1ResolucionAsset from "@/assets/m1-resolucion.png.asset.json";
 import m2PedirFeedbackSituacionAsset from "@/assets/m2-pedir-feedback-situacion.png.asset.json";
 import m2PedirFeedbackQueHariasAsset from "@/assets/M2_Pedir_feedback_Que_harias.png.asset.json";
@@ -223,7 +224,7 @@ export function Module1({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
 
 
       <Section title="" kicker="¿TÚ QUÉ HARÍAS?">
-        <SceneCard quote="Rodrigo identifica: 'Todo el mundo va a pensar que no sé hacer mi trabajo.' Eso es SCARF — dominio Estatus — activándose. Tiene 3 segundos antes de que la reacción tome el control." />
+        <ZoomableImage src={m1TuQueHariasAsset.url} alt="Rodrigo identifica su reacción SCARF de Estatus en la reunión" />
         <div className="mt-5">
           <ScenarioChoice {...SCENARIO_M1} accent="cobalt" />
         </div>
