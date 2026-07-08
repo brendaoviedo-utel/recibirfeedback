@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate, notFound } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Sparkles, Home, ArrowRight, ArrowLeft } from "lucide-react";
+import { Sparkles, Home } from "lucide-react";
 import { MODULES } from "@/lib/course-data";
 import {
   Module0,
@@ -27,15 +27,6 @@ export const Route = createFileRoute("/modulo/$id")({
   component: ModulePage,
 });
 
-const MODULE_COMPONENTS = [
-  Module0,
-  Module1,
-  Module3,
-  Module4,
-  Module5,
-  ModuleConclusion,
-];
-
 function ModulePage() {
   const { id } = Route.useParams();
   const navigate = useNavigate({ from: "/modulo/$id" });
@@ -45,8 +36,6 @@ function ModulePage() {
     throw notFound();
   }
 
-  const module = MODULES[moduleId];
-  const ModuleComponent = MODULE_COMPONENTS[moduleId];
   const progress = Math.round(((moduleId + 1) / MODULES.length) * 100);
 
   const goNext = () => {
@@ -60,13 +49,6 @@ function ModulePage() {
       navigate({ to: "/modulo/$id", params: { id: String(moduleId - 1) } });
     }
   };
-
-  const navigationProps =
-    moduleId === 0
-      ? { onNext: goNext }
-      : moduleId === MODULES.length - 1
-      ? { onPrev: goPrev }
-      : { onNext: goNext, onPrev: goPrev };
 
   return (
     <div className="min-h-screen bg-soft">
@@ -99,7 +81,12 @@ function ModulePage() {
 
       <div className="mx-auto max-w-4xl px-4 md:px-6 py-6">
         <main className="min-w-0">
-          <ModuleComponent {...navigationProps} />
+          {moduleId === 0 && <Module0 onNext={goNext} />}
+          {moduleId === 1 && <Module1 onNext={goNext} onPrev={goPrev} />}
+          {moduleId === 2 && <Module3 onNext={goNext} onPrev={goPrev} />}
+          {moduleId === 3 && <Module4 onNext={goNext} onPrev={goPrev} />}
+          {moduleId === 4 && <Module5 onNext={goNext} onPrev={goPrev} />}
+          {moduleId === 5 && <ModuleConclusion onPrev={goPrev} />}
         </main>
       </div>
     </div>
