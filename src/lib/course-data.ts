@@ -77,8 +77,7 @@ export const SCENARIO_M1: { setup: string; quote: string; question: string; opti
   ],
 };
 
-export const SCENARIO_M2: { setup: string; voices: string[]; question: string; options: ScenarioOption[] } = {
-  setup: "Después de la reunión, Rodrigo procesa lo que pasó. Nota tres voces simultáneas en su cabeza:",
+export const SCENARIO_M2: { voices: string[]; question: string; options: ScenarioOption[] } = {
   voices: [
     "'Eso no es del todo cierto. Sí puse los próximos pasos, estaban en la diapositiva 8.'",
     "'Encima lo dijo frente a todos. Si tenía algo que decir, me lo pudo haber dicho antes.'",
