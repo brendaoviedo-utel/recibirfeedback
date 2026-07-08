@@ -224,7 +224,7 @@ export function Module1({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
 
 
       <Section title="" kicker="¿TÚ QUÉ HARÍAS?">
-        <SceneCard quote="Rodrigo identifica: 'Todo el mundo va a pensar que no sé hacer mi trabajo.' Eso es SCARF — dominio Estatus — activándose. Tiene 3 segundos antes de que la reacción tome el control." />
+        <ZoomableImage src={m1TuQueHariasAsset.url} alt="Rodrigo identifica su reacción SCARF de Estatus en la reunión" />
         <div className="mt-5">
           <ScenarioChoice {...SCENARIO_M1} accent="cobalt" />
         </div>
