@@ -10,6 +10,7 @@ import m2PedirFeedbackSituacionAsset from "@/assets/m2-pedir-feedback-situacion.
 import m2PedirFeedbackQueHariasAsset from "@/assets/M2_Pedir_feedback_Que_harias.png.asset.json";
 import m2ResolucionFinalAsset from "@/assets/M2_Resolucion_final.png.asset.json";
 import m3TuQueHariasAsset from "@/assets/M3_Tu_que_harias.png.asset.json";
+import m4CierreAsset from "@/assets/M4_Que_paso_con_Rodrigo.png.asset.json";
 
 const feedbackScene = feedbackSceneAsset.url;
 const rodrigoStory = rodrigoStoryAsset.url;
@@ -449,18 +450,7 @@ export function Module5({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
       <Hero color="coral" eyebrow="Módulo 4 · Acción" title="De la emoción a la acción" lead='"Recibir bien el feedback es la mitad del trabajo. La otra mitad es lo que haces con él en las 48 horas siguientes."' />
 
       <Section title="¿Qué pasó con Rodrigo?" kicker="Cierre de la historia">
-        <div className="card-surface p-6 space-y-3 text-base leading-relaxed">
-          <p>El viernes, Rodrigo buscó a su compañero — el que le dio el feedback el lunes. Le pidió 15 minutos.</p>
-          <p>Le dijo algo que no había dicho en mucho tiempo: <b>'Quería agradecerte el feedback de la semana pasada. Me costó recibirlo. Pero tenías razón en la parte de la última diapositiva.'</b></p>
-          <p>Su compañero respondió: 'Te lo digo porque me importa cómo te va. Eres de las personas del equipo de quien más aprendo.'</p>
-          <p>Rodrigo pensó en todos los feedbacks que había descartado. No los recuperaría. Pero tenía algo mejor: <b>sabía exactamente qué hacer con el siguiente.</b></p>
-        </div>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}
-          className="mt-6 text-center space-y-1 text-lg font-semibold">
-          {["El feedback no te define.", "Tampoco te destruye.", "Solo te da información.", "Lo que hagas con esa información", "sí define quién eliges ser."].map((l, i) => (
-            <motion.p key={i} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 + i * 0.3 }}>{l}</motion.p>
-          ))}
-        </motion.div>
+        <ZoomableImage src={m4CierreAsset.url} alt="Cierre de la historia de Rodrigo" />
       </Section>
 
       <Section title="Tu plan real" kicker="Herramienta">
