@@ -224,7 +224,7 @@ export function Module1({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
 
 
       <Section title="" kicker="¿TÚ QUÉ HARÍAS?">
-        <ZoomableImage src={m1TuQueHariasAsset.url} alt="Rodrigo identifica su reacción SCARF de Estatus en la reunión" />
+        <ZoomableImage src={m1TuQueHariasAsset.url} alt="Rodrigo identifica su reacción SCARF de Estatus en la reunión y decide cómo responder" />
         <div className="mt-5">
           <ScenarioChoice {...SCENARIO_M1} accent="cobalt" />
         </div>
