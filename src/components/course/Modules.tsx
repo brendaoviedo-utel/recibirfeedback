@@ -37,14 +37,7 @@ export function Module0({ onNext }: { onNext: () => void }) {
 
       <Section title="La escena que todos hemos vivido" kicker="SITUACIÓN" intro="Todos hemos vivido este momento: un comentario inesperado, una crítica en medio de una reunión, y algo dentro se activa antes de que podamos pensar. Antes de entender por qué, mira la escena.">
         <div className="card-surface overflow-hidden">
-          <img
-            src={feedbackScene}
-            alt="Persona recibiendo feedback en una reunión"
-            width={1024}
-            height={1024}
-            loading="lazy"
-            className="w-full h-auto object-cover"
-          />
+          <ZoomableImage src={feedbackScene} alt="Persona recibiendo feedback en una reunión" className="rounded-none border-0 shadow-none" />
           <div className="p-6 md:p-8 space-y-4 text-base leading-relaxed text-foreground/85">
             <p><b>No es debilidad, es tu cerebro protegiéndote.</b></p>
             <p>Está tratando de mantenerte a salvo del rechazo, la crítica o el error.</p>
