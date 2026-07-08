@@ -1575,3 +1575,92 @@ function PorQuePedirlo() {
     </div>
   );
 }
+
+/* ---------- Resolución M2: historia interactiva ---------- */
+function M2ResolucionStory() {
+  const [stage, setStage] = useState(0);
+  const stages = [
+    {
+      label: "Escucha activa",
+      color: "cobalt",
+      text: "Rodrigo escuchó sin justificar sus acciones, hizo algunas preguntas para comprender mejor la recomendación y agradeció la retroalimentación.",
+    },
+    {
+      label: "Acción",
+      color: "mint",
+      text: "Dos semanas después, en un nuevo proyecto, puso en práctica esa sugerencia. Al finalizar, volvió a pedir feedback para saber si había logrado mejorar. Fue entonces cuando comprendió algo importante:",
+    },
+    {
+      label: "Aprendizaje clave",
+      color: "amber-brand",
+      text: "El feedback no es una conversación que ocurre por casualidad; es una oportunidad que puedes crear cuando preguntas con intención, escuchas con apertura y conviertes los comentarios en acciones.",
+      highlight: true,
+    },
+    {
+      label: "Nuevo hábito",
+      color: "coral",
+      text: "Desde ese momento, dejó de esperar a que alguien evaluara su trabajo y comenzó a buscar conversaciones que impulsaran su crecimiento. Porque entendió que las personas que más aprenden no son necesariamente las que reciben más feedback, sino las que saben pedirlo y aprovecharlo.",
+      closing: true,
+    },
+  ];
+  const current = stages[stage];
+  const cc = colorOf(current.color);
+  return (
+    <div className="space-y-4">
+      <div className="flex items-center gap-2 mb-2">
+        {stages.map((s, i) => {
+          const done = i <= stage;
+          const sc = colorOf(s.color);
+          return (
+            <div
+              key={i}
+              className={`h-2 flex-1 rounded-full transition ${done ? sc.bg : "bg-muted"}`}
+            />
+          );
+        })}
+      </div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={stage}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.3 }}
+          className={`card-surface p-6 md:p-8 border-l-4 ${current.highlight ? "bg-[var(--amber-brand)]/5" : current.closing ? "bg-[var(--coral)]/5" : ""}`}
+          style={{ borderLeftColor: `var(--${current.color})` }}
+        >
+          <p className={`text-xs font-bold uppercase tracking-wider mb-3 ${cc.text}`}>{current.label}</p>
+          <p className={`text-base leading-relaxed ${current.highlight ? "font-semibold text-foreground" : "text-foreground/85"}`}>
+            {current.text}
+          </p>
+        </motion.div>
+      </AnimatePresence>
+      <div className="flex items-center justify-between">
+        <button
+          onClick={() => setStage((s) => Math.max(0, s - 1))}
+          disabled={stage === 0}
+          className="px-4 py-2 rounded-full text-sm font-semibold text-muted-foreground hover:bg-muted disabled:opacity-30 disabled:cursor-not-allowed transition"
+        >
+          Atrás
+        </button>
+        {stage < stages.length - 1 ? (
+          <button
+            onClick={() => setStage((s) => s + 1)}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[var(--mint)] text-white text-sm font-bold hover:bg-[var(--mint)]/90 transition shadow"
+          >
+            Continuar
+            <ArrowRight className="h-4 w-4" />
+          </button>
+        ) : (
+          <button
+            onClick={() => setStage(0)}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[var(--cobalt)] text-white text-sm font-bold hover:bg-[var(--cobalt)]/90 transition shadow"
+          >
+            <Repeat className="h-4 w-4" />
+            Volver a leer
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
