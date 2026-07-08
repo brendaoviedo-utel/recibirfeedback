@@ -576,6 +576,132 @@ function Field({ label, value }: { label: string; value: string }) {
   );
 }
 
+/* ---------- Ejemplo interactivo Pausa – Nombre – Elige ---------- */
+function PNEInteractiveExample() {
+  const [step, setStep] = useState(0);
+  const [choice, setChoice] = useState<string | null>(null);
+
+  const steps = [
+    {
+      label: "1 · PAUSA",
+      color: "cobalt",
+      title: "Detén la reacción automática",
+      body: "Escuchas: 'Rodrigo, tomaste decisiones unilaterales que debieron consultarse.' Por dentro algo se activa. Antes de responder, respira una vez y no digas nada durante 2–3 segundos.",
+      hint: "En este instante ganas espacio: le das al córtex prefrontal tiempo de retomar el control.",
+    },
+    {
+      label: "2 · NOMBRE",
+      color: "amber-brand",
+      title: "Identifica qué se activó",
+      body: "Observa qué voz aparece primero. ¿Es de verdad ('eso no es cierto'), de relación ('además me lo dice frente a todos') o de identidad ('¿ahora resulta que no sé decidir?')? Nómbralo internamente.",
+      hint: "Poner palabras a la emoción reduce su intensidad y te devuelve claridad para pensar.",
+    },
+    {
+      label: "3 · ELIGE",
+      color: "mint",
+      title: "Elige tu respuesta",
+      body: "Con la información que ya tienes, elige una de las tres respuestas posibles según la situación:",
+      hint: "Recuperar la decisión sobre cómo responder baja la amenaza y abre la conversación.",
+    },
+  ];
+
+  const s = steps[step];
+  const cc = colorOf(s.color);
+
+  const respuestas = [
+    { id: "abrir", label: "Abrir con pregunta", text: "'¿Puedes darme un ejemplo concreto de una decisión que debí consultar?'", feedback: "Buena elección: el feedback era general y una pregunta específica lo vuelve accionable sin ponerte a la defensiva." },
+    { id: "posponer", label: "Agradecer y posponer", text: "'Gracias por decírmelo. Quiero pensarlo bien, ¿podemos retomarlo mañana?'", feedback: "Útil si la emoción es intensa: te da tiempo para procesar sin cerrar la puerta a la conversación." },
+    { id: "comprometer", label: "Agradecer y comprometerse", text: "'Gracias. Voy a mapear las próximas decisiones y consultar contigo antes de avanzar.'", feedback: "Adecuada solo si el feedback es claro y ya sabes qué acción tomar. En este caso podría ser prematuro si aún no tienes ejemplos concretos." },
+  ];
+
+  return (
+    <div className="card-surface p-6 border-2 border-[var(--violet-brand)]/20">
+      <div className="flex items-center gap-2 mb-4">
+        <span className="chip bg-[var(--violet-brand)]/10 text-[var(--violet-brand)] border-transparent">Ejemplo interactivo</span>
+        <span className="text-xs text-muted-foreground">Practica los tres pasos con un caso real</span>
+      </div>
+
+      <div className="flex gap-2 mb-5">
+        {steps.map((st, i) => (
+          <button
+            key={i}
+            onClick={() => { setStep(i); if (i !== 2) setChoice(null); }}
+            className={`flex-1 rounded-full py-2 text-xs font-bold transition ${
+              i === step ? `${colorOf(st.color).bg} text-white` : i < step ? "bg-muted text-foreground" : "bg-muted/40 text-muted-foreground"
+            }`}
+          >
+            {st.label}
+          </button>
+        ))}
+      </div>
+
+      <AnimatePresence mode="wait">
+        <motion.div key={step} initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -10 }} transition={{ duration: 0.2 }}>
+          <h4 className={`text-lg font-bold mb-2 ${cc.text}`}>{s.title}</h4>
+          <p className="text-sm leading-relaxed text-foreground/90 mb-3">{s.body}</p>
+
+          {step === 2 && (
+            <div className="grid gap-2 mt-4">
+              {respuestas.map((r) => {
+                const picked = choice === r.id;
+                return (
+                  <button
+                    key={r.id}
+                    onClick={() => setChoice(r.id)}
+                    className={`text-left rounded-xl border-2 p-3 text-sm transition ${
+                      picked ? "border-[var(--mint)] bg-[var(--mint)]/10" : "border-border hover:border-foreground/30 bg-card"
+                    }`}
+                  >
+                    <p className="font-bold text-[var(--mint)]">{r.label}</p>
+                    <p className="italic text-foreground/80 mt-1">{r.text}</p>
+                    <AnimatePresence>
+                      {picked && (
+                        <motion.p
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          className="mt-2 text-xs text-muted-foreground leading-relaxed"
+                        >
+                          {r.feedback}
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
+                  </button>
+                );
+              })}
+            </div>
+          )}
+
+          <div className={`mt-4 rounded-xl p-3 text-xs ${cc.soft} ${cc.text}`}>
+            <b>Clave:</b> {s.hint}
+          </div>
+        </motion.div>
+      </AnimatePresence>
+
+      <div className="flex items-center justify-between mt-5">
+        <button
+          onClick={() => setStep((i) => Math.max(0, i - 1))}
+          disabled={step === 0}
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold border border-border disabled:opacity-40 hover:bg-muted transition"
+        >
+          <ArrowLeft className="h-4 w-4" /> Anterior
+        </button>
+        {step < 2 ? (
+          <button
+            onClick={() => setStep((i) => Math.min(2, i + 1))}
+            className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full text-sm font-bold text-white shadow bg-[var(--violet-brand)]"
+          >
+            Siguiente <ArrowRight className="h-4 w-4" />
+          </button>
+        ) : (
+          <span className="text-xs font-bold text-[var(--violet-brand)]">
+            {choice ? "Has completado la secuencia" : "Elige una respuesta para cerrar el ejemplo"}
+          </span>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function SceneCard({ quote }: { quote: string }) {
   return (
     <div className="card-surface p-6 bg-gradient-to-br from-[var(--soft)] to-white">
