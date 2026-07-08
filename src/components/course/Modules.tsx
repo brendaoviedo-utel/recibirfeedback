@@ -298,11 +298,8 @@ export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
         </div>
       </Section>
 
-      <Section title="¿Qué tan proactivo eres para buscar feedback?" kicker="AUTOCONOCIMIENTO" intro="Lee cada situación y elige la opción que más se parece a lo que normalmente harías. Al responder verás retroalimentación inmediata.">
+      <Section title="¿Qué tan proactivo eres para buscar feedback?" kicker="AUTOCONOCIMIENTO" intro="Lee cada situación y elige la opción que más se parece a lo que normalmente harías. Al responder verás retroalimentación inmediata y, al finalizar, un mensaje integrador con base en tus respuestas.">
         <SteppedQuiz items={QUIZ_M3_AUTO} accent="mint" />
-        <div className="mt-6 rounded-xl bg-[var(--mint)]/10 p-5 text-sm">
-          <b>Mensaje de cierre:</b> buscar feedback es una habilidad. Cuanto más practiques hacer preguntas oportunas y específicas, más información tendrás para aprender, mejorar y fortalecer tu desempeño.
-        </div>
       </Section>
 
       <Section title="Cómo termina la escena" kicker="RESOLUCIÓN">
