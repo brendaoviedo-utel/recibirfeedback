@@ -1,21 +1,21 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Brain, Zap, Target, Sparkles, BookOpen, Activity, MessageSquare, Heart, Scale, Compass, ShieldAlert, Users, User, ArrowRight, ArrowLeft, ZoomIn, X, Save, Clock, HelpCircle, Ear, Repeat, ChevronRight, Check, HandHelping } from "lucide-react";
-import feedbackSceneAsset from "@/assets/feedback-scene.png.asset.json";
-import rodrigoStoryAsset from "@/assets/rodrigo-story.png.asset.json";
-import m1SituacionAsset from "@/assets/M2_Lo_que_le_pasa_al_cerebro.png.asset.json";
-import m1TuQueHariasAsset from "@/assets/M1_Tu_que_harias.png.asset.json";
-import m1ResolucionAsset from "@/assets/m1-resolucion.png.asset.json";
-import m2PedirFeedbackSituacionAsset from "@/assets/m2-pedir-feedback-situacion.png.asset.json";
-import m2PedirFeedbackQueHariasAsset from "@/assets/M2_Pedir_feedback_Que_harias.png.asset.json";
-import m2ResolucionFinalAsset from "@/assets/M2_Resolucion_final.png.asset.json";
-import m3TuQueHariasAsset from "@/assets/M3_Tu_que_harias.png.asset.json";
-import m4CierreAsset from "@/assets/M4_Que_paso_con_Rodrigo.png.asset.json";
-import m5SintesisAsset from "@/assets/M5_Sintesis_seis_ideas.png.asset.json";
+import feedbackSceneAsset from "@/assets/feedback-scene.png";
+import rodrigoStoryAsset from "@/assets/rodrigo-story.png";
+import m1SituacionAsset from "@/assets/M2_Lo_que_le_pasa_al_cerebro.png";
+import m1TuQueHariasAsset from "@/assets/M1_Tu_que_harias.png";
+import m1ResolucionAsset from "@/assets/m1-resolucion.png";
+import m2PedirFeedbackSituacionAsset from "@/assets/m2-pedir-feedback-situacion.png";
+import m2PedirFeedbackQueHariasAsset from "@/assets/M2_Pedir_feedback_Que_harias.png";
+import m2ResolucionFinalAsset from "@/assets/M2_Resolucion_final.png";
+import m3TuQueHariasAsset from "@/assets/M3_Tu_que_harias.png";
+import m4CierreAsset from "@/assets/M4_Que_paso_con_Rodrigo.png";
+import m5SintesisAsset from "@/assets/M5_Sintesis_seis_ideas.png";
 
 
-const feedbackScene = feedbackSceneAsset.url;
-const rodrigoStory = rodrigoStoryAsset.url;
+const feedbackScene = feedbackSceneAsset;
+const rodrigoStory = rodrigoStoryAsset;
 import {
   SCARF, TRIGGERS, FEEDBACK_TYPES, PNE_STEPS,
   SCENARIO_M1, SCENARIO_M2, SCENARIO_M3, SCENARIO_M4, QUIZ_M3_AUTO,
@@ -117,7 +117,7 @@ export function Module1({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
       <Hero color="cobalt" eyebrow="Módulo 1 · Neurociencia" title="Lo que le pasa a tu cerebro cuando alguien te da feedback" lead='"La defensividad no es falta de madurez. Es tu cerebro haciendo lo que evolucionó para hacer."' />
 
       <Section title="Lunes 9:00 a.m. — la reunión" kicker="SITUACIÓN" intro="Observa lo que ocurre en el cerebro de Rodrigo en los segundos previos a que la razón tome el control.">
-        <ZoomableImage src={m1SituacionAsset.url} alt="Visualización detallada de la respuesta cerebral de Rodrigo al feedback crítico" />
+        <ZoomableImage src={m1SituacionAsset} alt="Visualización detallada de la respuesta cerebral de Rodrigo al feedback crítico" />
       </Section>
 
       <Section title="¿Te ha pasado algo parecido?" kicker="RECONOCE" intro="Lo que le ocurre a Rodrigo no es exclusivo suyo. Cuando el feedback nos incomoda, casi siempre aparece una voz interna que se activa antes de que el mensaje llegue a procesarse. Probablemente ya has pensado alguna de estas frases.">
@@ -198,7 +198,7 @@ export function Module1({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
       </Section>
 
       <Section title="Dos segundos que lo cambian todo" kicker="RESOLUCIÓN" intro="Rodrigo no evitó la reacción — la reconoció y eligió qué hacer con ella. Así se ve el cambio.">
-        <ZoomableImage src={m1ResolucionAsset.url} alt="Rodrigo pasa de modo defensa a modo aprendizaje en dos segundos" />
+        <ZoomableImage src={m1ResolucionAsset} alt="Rodrigo pasa de modo defensa a modo aprendizaje en dos segundos" />
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {[
             { n: "1", title: "La amenaza es universal", body: "La respuesta de amenaza ante el feedback aparece en todos — sin importar el nivel, la experiencia o la confianza. Reconocerlo es el primer paso para gestionarlo.", color: "cobalt" },
@@ -274,7 +274,7 @@ export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
       </Section>
 
       <Section title="La escena" kicker="SITUACIÓN">
-        <ZoomableImage src={m2PedirFeedbackSituacionAsset.url} alt="Rodrigo se cuestiona si pedir feedback sobre su desempeño en el nuevo proyecto" />
+        <ZoomableImage src={m2PedirFeedbackSituacionAsset} alt="Rodrigo se cuestiona si pedir feedback sobre su desempeño en el nuevo proyecto" />
       </Section>
 
       <Section title="De esperar respuestas a generar conversaciones" kicker="CONCEPTO" intro="Cinco ideas, cinco cambios de mentalidad. Recórrelas a tu ritmo: cada pestaña despliega una parte distinta del hábito de pedir feedback. No es lectura pasiva — al abrir cada una, elige quedarte con la idea que más te representa.">
@@ -289,7 +289,7 @@ export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
 
       <Section title="" kicker="¿TÚ QUÉ HARÍAS?">
         <SceneCard quote={SCENARIO_M3.setup} />
-        <ZoomableImage src={m2PedirFeedbackQueHariasAsset.url} alt="Rodrigo reflexiona sobre qué preguntas hacer para pedir feedback" className="mt-5" />
+        <ZoomableImage src={m2PedirFeedbackQueHariasAsset} alt="Rodrigo reflexiona sobre qué preguntas hacer para pedir feedback" className="mt-5" />
         <div className="mt-5">
           <ScenarioChoice question={SCENARIO_M3.question} options={SCENARIO_M3.options} accent="mint" />
         </div>
@@ -303,7 +303,7 @@ export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
       </Section>
 
       <Section title="Cómo termina la escena" kicker="RESOLUCIÓN">
-        <ZoomableImage src={m2ResolucionFinalAsset.url} alt="Rodrigo pide feedback de forma proactiva y obtiene comentarios útiles de su líder" />
+        <ZoomableImage src={m2ResolucionFinalAsset} alt="Rodrigo pide feedback de forma proactiva y obtiene comentarios útiles de su líder" />
         <div className="mt-5">
           <M2ResolucionStory />
         </div>
@@ -418,7 +418,7 @@ export function Module4({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
       </Section>
 
       <Section title="" kicker="¿TÚ QUÉ HARÍAS?">
-        <ZoomableImage src={m3TuQueHariasAsset.url} alt="Rodrigo recibe feedback en la reunión de dirección del jueves" />
+        <ZoomableImage src={m3TuQueHariasAsset} alt="Rodrigo recibe feedback en la reunión de dirección del jueves" />
         <div className="mt-5">
           <ScenarioChoice question={SCENARIO_M4.question} options={SCENARIO_M4.options} accent="violet-brand" />
         </div>
@@ -452,7 +452,7 @@ export function Module5({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
       <Hero color="coral" eyebrow="Módulo 4 · Acción" title="De la emoción a la acción" lead='"Recibir bien el feedback es la mitad del trabajo. La otra mitad es lo que haces con él en las 48 horas siguientes."' />
 
       <Section title="¿Qué pasó con Rodrigo?" kicker="Cierre de la historia">
-        <ZoomableImage src={m4CierreAsset.url} alt="Cierre de la historia de Rodrigo" />
+        <ZoomableImage src={m4CierreAsset} alt="Cierre de la historia de Rodrigo" />
       </Section>
 
       <Section title="Tu plan real" kicker="Herramienta">
@@ -507,7 +507,7 @@ export function ModuleConclusion({ onPrev }: { onPrev: () => void }) {
       <Hero color="cobalt" eyebrow="Módulo 5 · Conclusión" title="Lo que te llevas" lead='"Las personas que más aprenden no son las que reciben más feedback, sino las que saben pedirlo, recibirlo y aprovecharlo."' />
 
       <Section title="" kicker="SÍNTESIS">
-        <ZoomableImage src={m5SintesisAsset.url} alt="Infografía: seis ideas para no olvidar sobre recibir feedback" />
+        <ZoomableImage src={m5SintesisAsset} alt="Infografía: seis ideas para no olvidar sobre recibir feedback" />
       </Section>
 
 
