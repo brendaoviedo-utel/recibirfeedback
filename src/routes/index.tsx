@@ -113,11 +113,11 @@ function Landing({ onStart }: { onStart: () => void }) {
           </div>
         </motion.div>
 
-        <div className="mt-16 grid md:grid-cols-3 gap-4">
+        <div className="mt-16 grid md:grid-cols-3 gap-4 items-stretch">
           {MODULES.map((m, i) => (
-            <Link key={m.id} to="/modulo/$id" params={{ id: String(m.id) }} className="block group">
+            <Link key={m.id} to="/modulo/$id" params={{ id: String(m.id) }} className="block group h-full">
               <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 * i }}
-                className="card-surface p-5 hover:shadow-lg transition group-hover:border-foreground/20">
+                className="card-surface p-5 hover:shadow-lg transition group-hover:border-foreground/20 h-full flex flex-col">
                 <p className="text-3xl font-black mb-2" style={{ color: `var(--${m.color})` }}>{m.code.replace("M", "").padStart(2, "0")}</p>
                 <h3 className="font-bold mb-1.5">{m.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{m.subtitle}</p>
