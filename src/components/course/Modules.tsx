@@ -523,7 +523,8 @@ export function ModuleConclusion({ onPrev }: { onPrev: () => void }) {
           <BookOpen className="h-10 w-10 mx-auto mb-3 opacity-90" />
           <h3 className="text-2xl font-bold mb-2">Gracias por recorrer esta experiencia</h3>
           <p className="text-white/90 max-w-md mx-auto text-sm">Lleva contigo tu plan real y aplícalo en las próximas 48 horas. Ahí es donde el aprendizaje se vuelve cambio.</p>
-          <p className="mt-4 text-white max-w-md mx-auto text-base font-semibold">Ve a tu evaluación para comprobar tus aprendizajes.</p>
+          <p className="mt-4 text-white max-w-lg mx-auto text-base font-semibold">Ve a tu evaluación para comprobar tus aprendizajes y registrar la finalización de tu curso.</p>
+          <p className="mt-2 text-white/90 max-w-lg mx-auto text-sm">O puedes seguir navegando aquí si lo que deseas es reforzar tus conocimientos.</p>
         </div>
         <div className="mt-6 flex justify-start">
           <button onClick={onPrev} className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-5 py-2.5 text-sm font-semibold hover:bg-muted transition">
