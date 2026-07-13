@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useMemo, useState } from "react";
 import { Check, X, ArrowRight, Lightbulb } from "lucide-react";
 import type { ScenarioOption, QuizQ } from "@/lib/course-data";
+import { saveResponse } from "@/lib/course-user";
 
 const colorMap: Record<string, { bg: string; ring: string; text: string; soft: string }> = {
   coral: { bg: "bg-[var(--coral)]", ring: "ring-[var(--coral)]/30", text: "text-[var(--coral)]", soft: "bg-[var(--coral)]/8" },
