@@ -218,7 +218,7 @@ export function Module1({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
       </Section>
 
       <Section title="Tu turno" kicker="REFLEXIÓN PERSONAL" intro="Antes de avanzar, aterriza lo aprendido en tu propia experiencia.">
-        <ReflectionWithSave accent="cobalt" prompts={[
+        <ReflectionWithSave accent="cobalt" moduleId="modulo-1" prompts={[
           "¿Cuál de los 3 disparadores reconoces como más frecuente en ti? ¿En qué situaciones se activa con más fuerza?",
           "Piensa en un feedback reciente que te costó recibir. ¿Qué disparador estaba activo? ¿Había algo válido que no pudiste procesar?",
           "Mi protocolo cuando se activa mi disparador dominante: 'Cuando sienta que se activa, voy a… antes de responder.'",
