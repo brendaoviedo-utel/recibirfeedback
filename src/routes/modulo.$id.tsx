@@ -1,4 +1,5 @@
 import { createFileRoute, Link, useNavigate, notFound } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Sparkles, Home } from "lucide-react";
 import { MODULES } from "@/lib/course-data";
@@ -10,6 +11,8 @@ import {
   Module5,
   ModuleConclusion,
 } from "@/components/course/Modules";
+import { RegistrationGate } from "@/components/course/RegistrationGate";
+import { getCourseUser } from "@/lib/course-user";
 
 export const Route = createFileRoute("/modulo/$id")({
   head: ({ params }) => {
@@ -30,11 +33,16 @@ export const Route = createFileRoute("/modulo/$id")({
 function ModulePage() {
   const { id } = Route.useParams();
   const navigate = useNavigate({ from: "/modulo/$id" });
+  const [registered, setRegistered] = useState(false);
+  useEffect(() => { if (getCourseUser()) setRegistered(true); }, []);
+
   const moduleId = Number(id);
 
   if (Number.isNaN(moduleId) || moduleId < 0 || moduleId >= MODULES.length) {
     throw notFound();
   }
+
+  if (!registered) return <RegistrationGate onReady={() => setRegistered(true)} />;
 
   const progress = Math.round(((moduleId + 1) / MODULES.length) * 100);
 
