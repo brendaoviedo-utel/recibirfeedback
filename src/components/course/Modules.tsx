@@ -21,6 +21,7 @@ import {
   SCENARIO_M1, SCENARIO_M2, SCENARIO_M3, SCENARIO_M4, QUIZ_M3_AUTO,
 } from "@/lib/course-data";
 import { ScenarioChoice, ReflectionCard, FormativeQuiz, colorOf } from "./Interactives";
+import { saveResponse } from "@/lib/course-user";
 
 const SCARF_ICONS: Record<string, any> = { S: Compass, C: Target, A: Sparkles, R: Heart, F: Scale };
 const TRIG_ICONS: Record<string, any> = { verdad: ShieldAlert, relacion: Users, identidad: User };
