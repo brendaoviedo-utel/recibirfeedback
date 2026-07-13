@@ -484,6 +484,7 @@ export function Module5({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
               <textarea
                 value={plan[f.key as keyof typeof plan]}
                 onChange={(e) => setPlan((p) => ({ ...p, [f.key]: e.target.value }))}
+                onBlur={(e) => void saveResponse({ moduleId: "modulo-4", questionKey: `plan-${f.key}`, questionText: f.label, answer: e.target.value })}
                 rows={2} placeholder={f.placeholder}
                 className="w-full rounded-xl border border-border bg-soft px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--coral)]/30 focus:border-[var(--coral)]"
               />
