@@ -106,9 +106,11 @@ export function ScenarioChoice({
 export function ReflectionCard({
   prompts,
   accent = "coral",
+  moduleId = "sin-modulo",
 }: {
   prompts: string[];
   accent?: string;
+  moduleId?: string;
 }) {
   const [values, setValues] = useState<string[]>(prompts.map(() => ""));
   const c = colorOf(accent);
@@ -130,6 +132,14 @@ export function ReflectionCard({
                 const next = [...values];
                 next[i] = e.target.value;
                 setValues(next);
+              }}
+              onBlur={() => {
+                void saveResponse({
+                  moduleId,
+                  questionKey: `reflection-${i + 1}`,
+                  questionText: p,
+                  answer: values[i],
+                });
               }}
               rows={2}
               placeholder="Escribe aquí…"
