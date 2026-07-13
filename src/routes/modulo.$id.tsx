@@ -1,4 +1,5 @@
 import { createFileRoute, Link, useNavigate, notFound } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Sparkles, Home } from "lucide-react";
 import { MODULES } from "@/lib/course-data";
@@ -10,6 +11,8 @@ import {
   Module5,
   ModuleConclusion,
 } from "@/components/course/Modules";
+import { RegistrationGate } from "@/components/course/RegistrationGate";
+import { getCourseUser } from "@/lib/course-user";
 
 export const Route = createFileRoute("/modulo/$id")({
   head: ({ params }) => {
