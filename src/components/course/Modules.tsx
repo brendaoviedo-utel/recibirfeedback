@@ -21,7 +21,6 @@ import {
   SCENARIO_M1, SCENARIO_M2, SCENARIO_M3, SCENARIO_M4, QUIZ_M3_AUTO,
 } from "@/lib/course-data";
 import { ScenarioChoice, ReflectionCard, FormativeQuiz, colorOf } from "./Interactives";
-import { saveResponse } from "@/lib/course-user";
 
 const SCARF_ICONS: Record<string, any> = { S: Compass, C: Target, A: Sparkles, R: Heart, F: Scale };
 const TRIG_ICONS: Record<string, any> = { verdad: ShieldAlert, relacion: Users, identidad: User };
@@ -219,7 +218,7 @@ export function Module1({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
       </Section>
 
       <Section title="Tu turno" kicker="REFLEXIÓN PERSONAL" intro="Antes de avanzar, aterriza lo aprendido en tu propia experiencia.">
-        <ReflectionWithSave accent="cobalt" moduleId="modulo-1" prompts={[
+        <ReflectionWithSave accent="cobalt" prompts={[
           "¿Cuál de los 3 disparadores reconoces como más frecuente en ti? ¿En qué situaciones se activa con más fuerza?",
           "Piensa en un feedback reciente que te costó recibir. ¿Qué disparador estaba activo? ¿Había algo válido que no pudiste procesar?",
           "Mi protocolo cuando se activa mi disparador dominante: 'Cuando sienta que se activa, voy a… antes de responder.'",
@@ -311,7 +310,7 @@ export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
       </Section>
 
       <Section title="Mi reflexión y compromiso" kicker="Reflexión personal" intro="El feedback tiene mayor impacto cuando se convierte en una práctica personal, no en una conversación ocasional. Antes de continuar, dedica unos minutos a reflexionar sobre cómo puedes asumir un papel más activo en tu desarrollo.">
-        <ReflectionWithSave accent="mint" moduleId="modulo-2" prompts={[
+        <ReflectionWithSave accent="mint" prompts={[
           "Piensa en una actividad o proyecto reciente: ¿sobre qué situación específica te gustaría pedir feedback y por qué consideras que podría ayudarte a mejorar?",
           "Identifica una oportunidad: ¿a qué persona le pedirás feedback durante los próximos días y qué pregunta específica le harás para obtener comentarios útiles?",
           "Asume un compromiso: ¿qué acción concreta pondrás en práctica para convertir la búsqueda de feedback en un hábito y no esperar a que otros inicien la conversación?",
@@ -429,7 +428,7 @@ export function Module4({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
       </Section>
 
       <Section title="Tu turno" kicker="Reflexión personal">
-        <ReflectionWithSave accent="violet-brand" moduleId="modulo-3" prompts={[
+        <ReflectionWithSave accent="violet-brand" prompts={[
           "Piensa en la última vez que recibiste feedback que activó algo fuerte. ¿Cuánto pasó entre el feedback y tu respuesta? ¿Qué hubiera cambiado con 3 segundos más?",
           "¿En qué situaciones (público, líder, alguien que no respetas) te será más difícil aplicar la pausa?",
           "Si recibo feedback que activa [disparador] en [contexto], entonces voy a [acción concreta].",
@@ -484,7 +483,6 @@ export function Module5({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
               <textarea
                 value={plan[f.key as keyof typeof plan]}
                 onChange={(e) => setPlan((p) => ({ ...p, [f.key]: e.target.value }))}
-                onBlur={(e) => void saveResponse({ moduleId: "modulo-4", questionKey: `plan-${f.key}`, questionText: f.label, answer: e.target.value })}
                 rows={2} placeholder={f.placeholder}
                 className="w-full rounded-xl border border-border bg-soft px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--coral)]/30 focus:border-[var(--coral)]"
               />
@@ -757,11 +755,11 @@ function NavigationButtons({ onNext, onPrev }: { onNext: () => void; onPrev?: ()
   );
 }
 
-function ReflectionWithSave({ prompts, accent, moduleId }: { prompts: string[]; accent?: string; moduleId: string }) {
+function ReflectionWithSave({ prompts, accent }: { prompts: string[]; accent?: string }) {
   const [saved, setSaved] = useState(false);
   return (
     <div className="space-y-4">
-      <ReflectionCard prompts={prompts} accent={accent} moduleId={moduleId} />
+      <ReflectionCard prompts={prompts} accent={accent} />
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 card-surface p-5 bg-soft/50">
         <p className="text-sm text-muted-foreground leading-relaxed">
           Guardar tu reflexión te ayuda a convertir la intención en compromiso. Revisa estas notas en los próximos días para recordar lo que decidiste practicar.

@@ -2,7 +2,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useMemo, useState } from "react";
 import { Check, X, ArrowRight, Lightbulb } from "lucide-react";
 import type { ScenarioOption, QuizQ } from "@/lib/course-data";
-import { saveResponse } from "@/lib/course-user";
 
 const colorMap: Record<string, { bg: string; ring: string; text: string; soft: string }> = {
   coral: { bg: "bg-[var(--coral)]", ring: "ring-[var(--coral)]/30", text: "text-[var(--coral)]", soft: "bg-[var(--coral)]/8" },
@@ -106,11 +105,9 @@ export function ScenarioChoice({
 export function ReflectionCard({
   prompts,
   accent = "coral",
-  moduleId = "sin-modulo",
 }: {
   prompts: string[];
   accent?: string;
-  moduleId?: string;
 }) {
   const [values, setValues] = useState<string[]>(prompts.map(() => ""));
   const c = colorOf(accent);
@@ -132,14 +129,6 @@ export function ReflectionCard({
                 const next = [...values];
                 next[i] = e.target.value;
                 setValues(next);
-              }}
-              onBlur={() => {
-                void saveResponse({
-                  moduleId,
-                  questionKey: `reflection-${i + 1}`,
-                  questionText: p,
-                  answer: values[i],
-                });
               }}
               rows={2}
               placeholder="Escribe aquí…"
