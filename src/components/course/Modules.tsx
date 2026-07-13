@@ -310,7 +310,7 @@ export function Module3({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
       </Section>
 
       <Section title="Mi reflexión y compromiso" kicker="Reflexión personal" intro="El feedback tiene mayor impacto cuando se convierte en una práctica personal, no en una conversación ocasional. Antes de continuar, dedica unos minutos a reflexionar sobre cómo puedes asumir un papel más activo en tu desarrollo.">
-        <ReflectionWithSave accent="mint" prompts={[
+        <ReflectionWithSave accent="mint" moduleId="modulo-2" prompts={[
           "Piensa en una actividad o proyecto reciente: ¿sobre qué situación específica te gustaría pedir feedback y por qué consideras que podría ayudarte a mejorar?",
           "Identifica una oportunidad: ¿a qué persona le pedirás feedback durante los próximos días y qué pregunta específica le harás para obtener comentarios útiles?",
           "Asume un compromiso: ¿qué acción concreta pondrás en práctica para convertir la búsqueda de feedback en un hábito y no esperar a que otros inicien la conversación?",
