@@ -755,11 +755,11 @@ function NavigationButtons({ onNext, onPrev }: { onNext: () => void; onPrev?: ()
   );
 }
 
-function ReflectionWithSave({ prompts, accent }: { prompts: string[]; accent?: string }) {
+function ReflectionWithSave({ prompts, accent, moduleId }: { prompts: string[]; accent?: string; moduleId: string }) {
   const [saved, setSaved] = useState(false);
   return (
     <div className="space-y-4">
-      <ReflectionCard prompts={prompts} accent={accent} />
+      <ReflectionCard prompts={prompts} accent={accent} moduleId={moduleId} />
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 card-surface p-5 bg-soft/50">
         <p className="text-sm text-muted-foreground leading-relaxed">
           Guardar tu reflexión te ayuda a convertir la intención en compromiso. Revisa estas notas en los próximos días para recordar lo que decidiste practicar.
