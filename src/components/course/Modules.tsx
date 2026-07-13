@@ -428,7 +428,7 @@ export function Module4({ onNext, onPrev }: { onNext: () => void; onPrev: () => 
       </Section>
 
       <Section title="Tu turno" kicker="Reflexión personal">
-        <ReflectionWithSave accent="violet-brand" prompts={[
+        <ReflectionWithSave accent="violet-brand" moduleId="modulo-3" prompts={[
           "Piensa en la última vez que recibiste feedback que activó algo fuerte. ¿Cuánto pasó entre el feedback y tu respuesta? ¿Qué hubiera cambiado con 3 segundos más?",
           "¿En qué situaciones (público, líder, alguien que no respetas) te será más difícil aplicar la pausa?",
           "Si recibo feedback que activa [disparador] en [contexto], entonces voy a [acción concreta].",
