@@ -24,8 +24,13 @@ function CoursePage() {
   const [active, setActive] = useState(0);
   const [completed, setCompleted] = useState<Set<number>>(new Set());
   const [started, setStarted] = useState(false);
+  const [registered, setRegistered] = useState(false);
 
   useEffect(() => { window.scrollTo({ top: 0, behavior: "auto" }); }, [active]);
+
+  useEffect(() => {
+    if (getCourseUser()) setRegistered(true);
+  }, []);
 
   const goToModule = (id: number) => {
     setCompleted((s) => new Set(s).add(active));
@@ -38,6 +43,7 @@ function CoursePage() {
     setStarted(false);
   };
 
+  if (!registered) return <RegistrationGate onReady={() => setRegistered(true)} />;
   if (!started) return <Landing onStart={() => setStarted(true)} />;
 
   const progress = Math.round((completed.size / MODULES.length) * 100);
